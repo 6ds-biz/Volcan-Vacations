@@ -4,17 +4,21 @@ import { useState, type FormEvent } from 'react';
 import { apiRequest } from '../lib/api';
 import { bookingStatuses, statusLabel, type Booking } from '../lib/bookings';
 import { LoadState, useInventory } from './inventory-ui';
+import { SupplierConfirmation } from './supplier-confirmation';
 
 export function BookingInbox() {
-  const [status, setStatus] = useState('new');
-  const {data, error, retry} = useInventory<Booking[]>(`/ops/bookings${status ? `?status=${status}` : ''}`);
+  const [status, setStatus] = useState('');
+  const [attention, setAttention] = useState(true);
+  const [supplierStatus, setSupplierStatus] = useState('');
+  const {data, error, retry} = useInventory<Booking[]>(`/ops/bookings?${new URLSearchParams({... (status ? {status} : {}), ...(attention ? {needs_attention: 'true'} : {}), ...(supplierStatus ? {supplier_status: supplierStatus} : {})})}`);
   return <><h1>Bookings</h1><p>Newest actionable requests first. These are requests for follow-up, not automatic supplier confirmations.</p><label className="ops-status-filter">Filter by status<select value={status} onChange={event => setStatus(event.target.value)}>{['', ...bookingStatuses].map(value => <option key={value} value={value}>{value ? statusLabel(value) : 'All'}</option>)}</select></label>
-    {!data ? <LoadState error={error} retry={retry} /> : !data.length ? <p role="status">No booking requests match this status.</p> : <div className="ops-table-wrap" tabIndex={0} role="region" aria-label="Booking inbox"><table className="ops-booking-table"><caption>Customer requests · internal only</caption><thead><tr>{['Reference', 'Customer', 'Tour', 'Requested date', 'Party', 'Status', 'Submitted', 'Attention'].map(label => <th key={label}>{label}</th>)}</tr></thead><tbody>{data.map(booking => <tr key={booking.id}><td><Link href={`/bookings/${booking.id}`}>{booking.reference}</Link></td><td>{(booking.submitted_contact || booking.customer).first_name} {(booking.submitted_contact || booking.customer).last_name}</td><td>{booking.tour_name}</td><td>{booking.requested_date}</td><td>{booking.quantity}</td><td>{statusLabel(booking.status)}</td><td>{new Date(booking.created_at).toLocaleString()}</td><td>{booking.status === 'new' ? 'Needs follow-up' : '—'}</td></tr>)}</tbody></table></div>}</>;
+    <label className="ops-check"><input type="checkbox" checked={attention} onChange={e => setAttention(e.target.checked)} />Needs Attention only</label><label className="ops-status-filter">Supplier confirmation filter<select value={supplierStatus} onChange={e => setSupplierStatus(e.target.value)}><option value="">All supplier states</option>{['not_requested', 'awaiting_supplier', 'confirmed', 'declined', 'alternative_offered'].map(s => <option key={s} value={s}>{statusLabel(s)}</option>)}</select></label>
+    {!data ? <LoadState error={error} retry={retry} /> : !data.length ? <p role="status">No booking requests match this status.</p> : <div className="ops-table-wrap" tabIndex={0} role="region" aria-label="Booking inbox"><table className="ops-booking-table"><caption>Customer requests · internal only</caption><thead><tr>{['Reference', 'Customer', 'Tour', 'Requested date', 'Party', 'Status / availability', 'Submitted', 'Supplier / attention'].map(label => <th key={label}>{label}</th>)}</tr></thead><tbody>{data.map(booking => <tr key={booking.id}><td><Link href={`/bookings/${booking.id}`}>{booking.reference}</Link></td><td>{(booking.submitted_contact || booking.customer).first_name} {(booking.submitted_contact || booking.customer).last_name}</td><td>{booking.tour_name}</td><td>{booking.requested_date}</td><td>{booking.quantity}</td><td>{statusLabel(booking.status)}<br /><span className="ops-badge">{statusLabel(booking.availability_status)}</span></td><td>{new Date(booking.created_at).toLocaleString()}</td><td>{statusLabel(booking.supplier_confirmation_status)}{booking.needs_attention && <p className="ops-attention">Needs Attention{booking.supplier_confirmation_status === 'declined' ? ' — Alternative Needed' : ''}</p>}{booking.ready_for_payment && <p className="ops-badge">Ready for Payment</p>}</td></tr>)}</tbody></table></div>}</>;
 }
 
 export function BookingDetail({id}: {id: string}) {
   const {data, error, retry} = useInventory<Booking>(`/ops/bookings/${id}`);
-  return <><Link href="/bookings">← Bookings</Link><h1>Booking request</h1>{!data ? <LoadState error={error} retry={retry} /> : <BookingRecord key={data.updated_at} booking={data} reload={retry} />}</>;
+  return <><Link href="/bookings">← Bookings</Link><h1>Booking request</h1>{!data ? <LoadState error={error} retry={retry} /> : <BookingRecord key={data.version} booking={data} reload={retry} />}</>;
 }
 
 function BookingRecord({booking, reload}: {booking: Booking; reload: () => void}) {
@@ -28,7 +32,7 @@ function BookingRecord({booking, reload}: {booking: Booking; reload: () => void}
   async function save(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setBusy(true); setError(''); setSaved(false);
     try {
-      const result = await apiRequest<Booking>(`/ops/bookings/${booking.id}`, {method: 'PUT', body: JSON.stringify({status, expected_status: current.status, internal_notes: notes || null, trip_status: tripStatus === current.trip.status ? null : tripStatus})});
+      const result = await apiRequest<Booking>(`/ops/bookings/${booking.id}`, {method: 'PUT', body: JSON.stringify({status, expected_status: current.status, expected_version: current.version, internal_notes: notes || null, trip_status: tripStatus === current.trip.status ? null : tripStatus})});
       setCurrent(result); setSaved(true);
     } catch (error) { setError(error instanceof Error ? error.message : 'Unable to save'); }
     finally { setBusy(false); }
@@ -40,6 +44,7 @@ function BookingRecord({booking, reload}: {booking: Booking; reload: () => void}
     <section><h2>Travelers</h2><ul>{booking.travelers.map(traveler => <li key={traveler.id}>{traveler.first_name} {traveler.last_name} — {traveler.traveler_type || 'unknown'}{traveler.date_of_birth ? ` · DOB: ${traveler.date_of_birth}` : ''}</li>)}</ul>{booking.travelers.length < booking.quantity && <p>Additional traveler names need follow-up.</p>}</section>
     <section><h2>Trip</h2><dl><dt>Travel dates</dt><dd>{booking.trip.start_date || 'Not supplied'} → {booking.trip.end_date || 'Not supplied'}</dd><dt>Party size</dt><dd>{booking.trip.party_size}</dd><dt>Trip status</dt><dd>{statusLabel(current.trip.status)}</dd></dl><p>{booking.trip.notes}</p></section></div>
     <section className="ops-booking-notes"><h2>Customer notes</h2><p>{booking.customer_notes || 'No special requests supplied.'}</p></section>
+    <SupplierConfirmation key={current.version} booking={current} reload={reload} />
     <form className="ops-editor" onSubmit={save}><fieldset disabled={busy}><legend>Operations follow-up</legend><div className="ops-fields"><label>Reservation status<select name="status" value={status} onChange={event => setStatus(event.target.value)}>{current.allowed_statuses.map(value => <option value={value} key={value}>{statusLabel(value)}</option>)}</select></label><label>Trip status<select name="trip_status" value={tripStatus} onChange={event => setTripStatus(event.target.value)}>{[...new Set([booking.trip.status, 'inquiry', 'planning', 'confirmed', 'completed', 'cancelled'])].map(value => <option value={value} key={value}>{statusLabel(value)}</option>)}</select></label></div><p>Trip status is separate. Change it deliberately after reviewing the whole trip. No supplier message, availability check, or email is sent.</p><label>Internal notes<textarea name="internal_notes" rows={5} maxLength={10000} value={notes} onChange={event => setNotes(event.target.value)} /></label><button type="submit">{busy ? 'Saving…' : 'Save follow-up'}</button></fieldset>{error && <p role="alert">{error} <button type="button" onClick={reload}>Reload booking</button></p>}{saved && <p role="status">Follow-up saved.</p>}</form>
   </>;
 }

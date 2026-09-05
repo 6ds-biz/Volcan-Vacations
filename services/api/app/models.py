@@ -4,7 +4,7 @@ from datetime import datetime, time
 from decimal import Decimal
 from typing import List
 
-from sqlalchemy import Boolean, CheckConstraint, Date, DateTime, ForeignKey, Index, Integer, JSON, Numeric, String, Text, Time, func, text
+from sqlalchemy import Boolean, CheckConstraint, Date, DateTime, ForeignKey, Index, Integer, JSON, Numeric, String, Text, Time, UniqueConstraint, func, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
@@ -164,6 +164,10 @@ class Reservation(Base):
     __table_args__ = (
         CheckConstraint('quantity > 0', name='ck_reservations_quantity'),
         Index('ix_reservations_inbox', 'status', 'created_at'),
+        CheckConstraint("availability_status IN ('unknown','available','limited','unavailable','closed')", name='ck_reservation_availability_status'),
+        CheckConstraint("supplier_confirmation_status IN ('not_requested','awaiting_supplier','confirmed','declined','alternative_offered')", name='ck_reservation_supplier_status'),
+        CheckConstraint("supplier_confirmation_status != 'confirmed' OR availability_status = 'available'", name='ck_reservation_confirmation_available'),
+        CheckConstraint('version > 0', name='ck_reservation_version'),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -172,6 +176,14 @@ class Reservation(Base):
     reservation_date: Mapped[Date] = mapped_column(Date, nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     status: Mapped[str] = mapped_column(String(80), nullable=False, default='new', server_default='new')
+    supplier_id: Mapped[int] = mapped_column(ForeignKey('suppliers.id'), nullable=False)
+    availability_status: Mapped[str] = mapped_column(String(30), default='unknown', server_default='unknown', nullable=False)
+    supplier_confirmation_status: Mapped[str] = mapped_column(String(30), default='not_requested', server_default='not_requested', nullable=False)
+    supplier_confirmation_reference: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    supplier_confirmed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    supplier_contacted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    supplier_response_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    version: Mapped[int] = mapped_column(Integer, default=1, server_default='1', nullable=False)
     requested_time: Mapped[time | None] = mapped_column(Time, nullable=True)
     customer_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
     internal_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -187,6 +199,16 @@ class Reservation(Base):
 
     trip: Mapped['Trip'] = relationship('Trip', back_populates='reservations')
     product: Mapped['Product'] = relationship('Product', back_populates='reservations')
+    supplier: Mapped['Supplier'] = relationship('Supplier')
+    supplier_events: Mapped[List['SupplierConfirmationEvent']] = relationship('SupplierConfirmationEvent', back_populates='reservation', order_by='SupplierConfirmationEvent.id')
+
+    @property
+    def ready_for_payment(self) -> bool:
+        return self.status == 'confirmed' and self.supplier_confirmation_status == 'confirmed' and self.availability_status == 'available'
+
+    @property
+    def needs_attention(self) -> bool:
+        return self.status not in ('cancelled', 'completed') and (self.status in ('new', 'contacted', 'pending_supplier') or self.supplier_confirmation_status != 'confirmed')
 
     @property
     def gross_margin(self) -> Decimal:
@@ -214,14 +236,60 @@ class Payment(Base):
 
 class Availability(Base):
     __tablename__ = 'availabilities'
+    __table_args__ = (
+        UniqueConstraint('product_id', 'date', name='uq_availability_product_date'),
+        CheckConstraint("status IN ('unknown','available','limited','unavailable','closed')", name='ck_availability_status'),
+        CheckConstraint("source IN ('manual','supplier','api','inventory')", name='ck_availability_source'),
+        CheckConstraint('capacity IS NULL OR capacity >= 0', name='ck_availability_capacity'),
+        CheckConstraint('remaining_capacity IS NULL OR remaining_capacity >= 0', name='ck_availability_remaining'),
+        CheckConstraint('capacity IS NULL OR remaining_capacity IS NULL OR remaining_capacity <= capacity', name='ck_availability_remaining_capacity'),
+        CheckConstraint("status NOT IN ('available','limited') OR ((capacity IS NULL OR capacity > 0) AND (remaining_capacity IS NULL OR remaining_capacity > 0))", name='ck_availability_positive_inventory'),
+        CheckConstraint('version > 0', name='ck_availability_version'),
+        Index('ix_availability_date_status', 'date', 'status'),
+    )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     product_id: Mapped[int] = mapped_column(ForeignKey('products.id'), nullable=False)
     date: Mapped[Date] = mapped_column(Date, nullable=False)
     capacity: Mapped[int | None] = mapped_column(Integer, nullable=True)
     remaining_capacity: Mapped[int | None] = mapped_column(Integer, nullable=True)
-    status: Mapped[str] = mapped_column(String(80), nullable=False, default='available')
+    status: Mapped[str] = mapped_column(String(80), nullable=False, default='unknown', server_default='unknown')
+    source: Mapped[str] = mapped_column(String(30), nullable=False, default='manual', server_default='manual')
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    version: Mapped[int] = mapped_column(Integer, default=1, server_default='1', nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow, server_default=func.now(), nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow, server_default=func.now(), onupdate=datetime.utcnow, nullable=False)
 
     product: Mapped['Product'] = relationship('Product', back_populates='availability')
+
+
+class SupplierConfirmationEvent(Base):
+    __tablename__ = 'supplier_confirmation_events'
+    __table_args__ = (
+        UniqueConstraint('reservation_id', 'command_id', name='uq_supplier_event_command'),
+        CheckConstraint("event_type IN ('contacted','follow_up','confirmed','declined','alternative_offered','availability_checked','note')", name='ck_supplier_event_type'),
+        CheckConstraint("contact_method IS NULL OR contact_method IN ('phone','email','whatsapp','supplier_portal','other')", name='ck_supplier_event_method'),
+        Index('ix_supplier_event_timeline', 'reservation_id', 'id'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    reservation_id: Mapped[int] = mapped_column(ForeignKey('reservations.id'), nullable=False)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey('suppliers.id'), nullable=False)
+    event_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    contact_method: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    operator_identifier: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+    reservation_status: Mapped[str] = mapped_column(String(80), nullable=False)
+    availability_status: Mapped[str] = mapped_column(String(30), nullable=False)
+    reference: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    alternative_product_id: Mapped[int | None] = mapped_column(ForeignKey('products.id'), nullable=True)
+    alternative_date: Mapped[Date | None] = mapped_column(Date, nullable=True)
+    alternative_time: Mapped[time | None] = mapped_column(Time, nullable=True)
+    occurred_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow, server_default=func.now(), nullable=False)
+    command_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    command_hash: Mapped[str] = mapped_column(String(64), nullable=False)
+    reservation: Mapped['Reservation'] = relationship('Reservation', back_populates='supplier_events')
+    supplier: Mapped['Supplier'] = relationship('Supplier')
+    alternative_product: Mapped['Product | None'] = relationship('Product')

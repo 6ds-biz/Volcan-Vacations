@@ -1,7 +1,9 @@
 """Explicit, insert-only booking examples. No startup seeding or email."""
 import argparse
 from datetime import date, timedelta
-from uuid import NAMESPACE_URL, uuid5
+from uuid import NAMESPACE_URL, uuid5, uuid4
+from .availability_schemas import SupplierEventInput
+from .availability_service import record_supplier_event
 from sqlalchemy import select
 from .booking_schemas import BookingInput, BookingUpdate
 from .booking_service import create_request, update_booking
@@ -36,7 +38,10 @@ def seed():
             receipt = create_request(db, payload)
             row_id = db.scalar(select(Reservation.id).where(Reservation.submission_key == key))
             db.rollback()
-            update_booking(db, row_id, BookingUpdate(status=status, expected_status='new', internal_notes='DEMO status example only; no supplier was contacted and no email was sent.'))
+            if status == 'confirmed':
+                record_supplier_event(db, row_id, SupplierEventInput(command_id=uuid4(), expected_version=1, event_type='confirmed', reference='DEMO ONLY', notes='DEVELOPMENT simulation only; no real supplier confirmation or communication.'))
+            else:
+                update_booking(db, row_id, BookingUpdate(status=status, expected_status='new', internal_notes='DEMO status example only; no supplier was contacted and no email was sent.'))
         print(f'Created DEMO {status}: {receipt.reference}')
 
 

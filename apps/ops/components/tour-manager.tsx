@@ -53,7 +53,7 @@ export function TourEditor({id}: {id?: string}) {
     finally { setBusy(false); }
   }
   if (loading || (id && !tour) || (error && !suppliers.length)) return <><h1>{id ? 'Edit tour' : 'New tour'}</h1><LoadState error={error} retry={() => setAttempt(value => value + 1)} /></>;
-  return <><Link href="/tours">← Tours</Link><h1>{id ? 'Edit tour' : 'New tour'}</h1>
+  return <><Link href="/tours">← Tours</Link><h1>{id ? 'Edit tour' : 'New tour'}</h1>{id && <Link href={`/availability?product_id=${id}`}>Manage tour availability</Link>}
     {!suppliers.length && <p role="alert">A supplier is required. <Link href="/suppliers/new">Create a supplier</Link> first. {error}</p>}
     <form className="ops-editor" onSubmit={save}>
       <fieldset disabled={busy}><legend>Basics</legend><div className="ops-fields">

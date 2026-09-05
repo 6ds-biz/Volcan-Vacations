@@ -174,7 +174,11 @@ def test_ops_inbox_detail_status_notes_and_public_privacy(client):
     assert client.get(path).json()['trip']['status'] == 'inquiry'
     assert client.put(path, json={'status': 'completed', 'expected_status': 'contacted'}).status_code == 409
     assert client.put(path, json={'status': 'confirmed', 'expected_status': 'new'}).status_code == 409
-    confirmed = client.put(path, json={'status': 'confirmed', 'expected_status': 'contacted', 'internal_notes': 'PRIVATE FOLLOW-UP', 'trip_status': 'planning'})
+    assert client.put(path, json={'status': 'confirmed', 'expected_status': 'contacted'}).status_code == 409
+    from app.availability_rules import utcnow
+    supplier = client.post(path + '/supplier-events', json={'command_id': str(uuid4()), 'expected_version': updated.json()['version'], 'event_type': 'confirmed', 'occurred_at': utcnow().isoformat(), 'reference': 'PRIVATE CONFIRMATION'})
+    assert supplier.status_code == 200, supplier.text
+    confirmed = client.put(path, json={'status': 'confirmed', 'expected_status': 'confirmed', 'internal_notes': 'PRIVATE FOLLOW-UP', 'trip_status': 'planning'})
     assert confirmed.status_code == 200
     assert confirmed.json()['trip']['status'] == 'planning'
     assert client.get('/ops/bookings/99999').status_code == 404

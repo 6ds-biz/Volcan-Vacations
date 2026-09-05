@@ -1,5 +1,7 @@
 # Milestone 3 — booking requests and follow-up
 
+Historical milestone guide. [Milestone 4](milestone-4.md) supersedes the generic confirmation transitions and adds manual availability/supplier confirmation.
+
 ## Lifecycle and relationships
 
 `/request?tour={slug}` loads the selected active tour. The visitor supplies a requested date, optional local Costa Rica time, contact details, party size (1–50), at least one named traveler, optional additional travelers/DOBs, optional trip dates, and customer notes. Traveler count cannot exceed party size. Remaining names can be obtained in follow-up. This is a request for availability, never an automatic reservation confirmation. No payment is collected or email sent.

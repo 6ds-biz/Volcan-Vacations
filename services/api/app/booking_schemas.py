@@ -5,6 +5,7 @@ from uuid import UUID
 
 from pydantic import Field, field_validator, model_validator
 from .inventory_schemas import Input, ReadModel
+from .availability_schemas import ConfirmationRead
 
 ReservationStatus = Literal['new', 'contacted', 'pending_supplier', 'confirmed', 'cancelled', 'completed']
 TripStatus = Literal['inquiry', 'planning', 'confirmed', 'completed', 'cancelled']
@@ -86,6 +87,7 @@ class BookingReceipt(ReadModel):
 class BookingUpdate(Input):
     status: ReservationStatus
     expected_status: str = Field(max_length=80)
+    expected_version: int | None = Field(default=None, ge=1)
     internal_notes: str | None = Field(default=None, max_length=10000)
     trip_status: TripStatus | None = None
 
@@ -119,7 +121,7 @@ class TripRead(ReadModel):
     notes: str | None
 
 
-class BookingRead(ReadModel):
+class BookingRead(ConfirmationRead):
     id: int
     reference: str
     status: str

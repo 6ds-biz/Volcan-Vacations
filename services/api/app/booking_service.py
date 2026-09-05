@@ -10,12 +10,13 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import selectinload
 
 from .booking_schemas import BookingReceipt
-from .models import Customer, Product, Reservation, Traveler, Trip, TripTraveler
+from .models import Customer, Product, Reservation, SupplierConfirmationEvent, Traveler, Trip, TripTraveler
+from .availability_service import present_confirmation
 
 TRANSITIONS = {
-    'new': ['contacted', 'pending_supplier', 'confirmed', 'cancelled'],
-    'contacted': ['pending_supplier', 'confirmed', 'cancelled'],
-    'pending_supplier': ['contacted', 'confirmed', 'cancelled'],
+    'new': ['contacted', 'cancelled'],
+    'contacted': ['cancelled'],
+    'pending_supplier': ['contacted', 'cancelled'],
     'confirmed': ['completed', 'cancelled'],
     'cancelled': [], 'completed': [],
 }
@@ -68,7 +69,7 @@ def create_request(db, payload):
                 receipt = BookingReceipt(reference=trip.reference, status='new', tour_name=product.name,
                     requested_date=payload.requested_date, party_size=payload.party_size,
                     customer_name=f'{payload.customer.first_name} {payload.customer.last_name}', message=MESSAGE)
-                reservation = Reservation(trip_id=trip.id, product_id=product.id, reservation_date=payload.requested_date,
+                reservation = Reservation(trip_id=trip.id, product_id=product.id, supplier_id=product.supplier_id, reservation_date=payload.requested_date,
                     requested_time=payload.requested_time, quantity=payload.party_size, status='new',
                     unit_price=product.retail_price, supplier_unit_cost=product.supplier_cost,
                     tour_name_snapshot=product.name, contact_snapshot=payload.customer.model_dump(mode='json'),
@@ -88,7 +89,10 @@ def create_request(db, payload):
 
 def booking_query():
     return select(Reservation).options(
-        selectinload(Reservation.product),
+        selectinload(Reservation.product).selectinload(Product.availability),
+        selectinload(Reservation.product).selectinload(Product.supplier),
+        selectinload(Reservation.supplier),
+        selectinload(Reservation.supplier_events).selectinload(SupplierConfirmationEvent.alternative_product),
         selectinload(Reservation.trip).selectinload(Trip.customer),
         selectinload(Reservation.trip).selectinload(Trip.traveler_links).selectinload(TripTraveler.traveler),
     )
@@ -112,25 +116,32 @@ def present_booking(reservation):
         retail_total=reservation.retail_total, gross_margin=reservation.gross_margin,
         customer=reservation.trip.customer, submitted_contact=reservation.contact_snapshot,
         travelers=[link.traveler for link in reservation.trip.traveler_links], trip=reservation.trip,
-        customer_notes=reservation.customer_notes, internal_notes=reservation.internal_notes)
+        customer_notes=reservation.customer_notes, internal_notes=reservation.internal_notes,
+        **present_confirmation(reservation))
 
 
-def list_bookings(db, status=None):
+def list_bookings(db, status=None, needs_attention=None, supplier_status=None):
     query = booking_query()
     if status:
         query = query.where(Reservation.status == status)
+    if supplier_status:
+        query = query.where(Reservation.supplier_confirmation_status == supplier_status)
     actionable = case((Reservation.status.in_(['new', 'contacted', 'pending_supplier']), 0), else_=1)
-    return [present_booking(row) for row in db.scalars(query.order_by(actionable, Reservation.created_at.desc(), Reservation.id.desc())).all()]
+    return [present_booking(row) for row in db.scalars(query.order_by(actionable, Reservation.created_at.desc(), Reservation.id.desc())).all()
+            if needs_attention is None or row.needs_attention == needs_attention]
 
 
 def update_booking(db, booking_id, payload):
     with db.begin():
         booking = get_booking(db, booking_id, lock=True)
+        if payload.expected_version is not None and payload.expected_version != booking.version:
+            raise HTTPException(409, 'Booking changed since this page loaded. Reload before saving.')
         if booking.status != payload.expected_status:
             raise HTTPException(409, 'Status changed since this page loaded. Reload before saving.')
         if payload.status != booking.status and payload.status not in TRANSITIONS.get(booking.status, []):
             raise HTTPException(409, 'That status transition is not allowed')
         booking.status = payload.status
+        booking.version += 1
         booking.internal_notes = payload.internal_notes
         if payload.trip_status:
             booking.trip.status = payload.trip_status

@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, Response
+from fastapi import APIRouter, Depends
+from typing import Literal
 from sqlalchemy.orm import Session
 from ..database import get_db
 from ..booking_schemas import BookingInput, BookingRead, BookingReceipt, BookingUpdate, ReservationStatus
@@ -15,8 +16,10 @@ def submit_request(payload: BookingInput, db: Session = Depends(get_db)):
 
 
 @ops_router.get('/bookings', response_model=list[BookingRead])
-def booking_list(status: ReservationStatus | None = None, db: Session = Depends(get_db)):
-    return list_bookings(db, status)
+def booking_list(status: ReservationStatus | None = None, needs_attention: bool | None = None,
+                 supplier_status: Literal['not_requested', 'awaiting_supplier', 'confirmed', 'declined', 'alternative_offered'] | None = None,
+                 db: Session = Depends(get_db)):
+    return list_bookings(db, status, needs_attention, supplier_status)
 
 
 @ops_router.get('/bookings/{booking_id}', response_model=BookingRead)
