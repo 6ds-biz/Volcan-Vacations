@@ -2,7 +2,7 @@
 
 These seven images were generated using the built-in imagegen tool for this redesign. They are illustrative concepts, not photographs documenting actual suppliers, travelers, or exact Costa Rica viewpoints. No stock-photo license or real-world provenance is claimed. Replace them with approved VV photography before representing a particular provider or venue.
 
-All images are stored locally under `apps/web/public/images/` as WebP. The source PNGs remain in the generation workspace. `components/scenic-image.tsx` maps presentation assets to existing tour visual keys; inventory data and API configuration are unchanged.
+All images are stored locally under `apps/web/public/images/` as WebP. The source PNGs remain in the generation workspace. Scenic hero/CTA artwork remains presentation-only. Since Milestone 2, demo tour image references are inserted explicitly by `services/api/app/seed_inventory.py` and managed as ProductImage content through Operations; public cards use API-provided image URLs rather than hardcoded visual keys.
 
 The Allura accent font is locally hosted under `public/fonts/`; its SIL OFL license is included alongside it.
 

@@ -69,6 +69,27 @@ h3 { font-size: 1.2rem; font-weight: 650; }
 .mobile-menu nav > a:not(.button) { padding: .85rem .4rem; border-bottom: 1px solid var(--line); }
 .mobile-menu .button { margin-top: 1rem; }
 .scenic-image { object-fit: cover; }
+.tour-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tour-request-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: .4rem; color: var(--gold-light); font-size: .78rem; text-decoration: underline; text-underline-offset: .2em; }
+.request-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 3rem; align-items: start; }
+.request-selected { min-width: 0; }
+.request-photo { position: relative; aspect-ratio: 1.6; overflow: hidden; border-radius: 8px; margin-bottom: 1.8rem; }
+.request-selected p, .request-selected dt { color: var(--muted); }
+.request-selected dd, .request-success dd { margin: 0 0 .8rem; }
+.request-form section { padding: 1rem 0; border-bottom: 1px solid #d2cbb9; margin-bottom: 1.5rem; }
+.request-form label { display: block; }
+.request-form select { display: block; width: 100%; min-height: 48px; margin-top: .45rem; padding: .7rem; color: #263b30; background: #fffdf7; border: 1px solid #a7ac9c; border-radius: 5px; font: inherit; }
+.request-form .request-traveler { padding: 1rem; margin: 1rem 0; border: 1px solid #a7ac9c; border-radius: 6px; }
+.request-form p { font-size: .86rem; }
+.request-secondary { min-height: 44px; padding: .6rem 1rem; background: transparent; color: #304738; border: 1px solid #805c1f; border-radius: 5px; cursor: pointer; }
+.request-form button:disabled { opacity: .65; cursor: not-allowed; }
+.request-form .request-error { color: #8c2525; overflow-wrap: anywhere; }
+.request-success, .request-message { max-width: 850px; padding: 2rem; margin-inline: auto; background: var(--forest); border: 1px solid var(--gold); border-radius: 8px; }
+.request-success strong { overflow-wrap: anywhere; color: var(--gold-light); }
+@media (max-width: 900px) { .request-layout { grid-template-columns: 1fr; } .request-selected { max-width: 650px; } }
+.tour-photo-placeholder { display: grid; place-items: center; height: 100%; min-height: 140px; color: var(--muted); background: var(--forest-deep); }
+.category-filter button { font-family: inherit; cursor: pointer; }
+.category-filter button:not(.filter-pill--active) { background: transparent; color: inherit; }
 .home-page { display: flex; flex-direction: column; }
 .home-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 520px; display: flex; align-items: center; padding: 4.8rem 0; }
 .home-hero > .scenic-image { z-index: 0; object-position: center 51%; }

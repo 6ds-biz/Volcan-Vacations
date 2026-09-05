@@ -90,6 +90,10 @@ uvicorn app.main:app --reload --port 8000
 
 ## Database migrations
 
+Milestone 3 connects public tour requests to customer/traveler/trip/reservation records and the Operations booking inbox. See [the booking workflow guide](docs/milestone-3.md) for lifecycle, financial snapshots, idempotency, demo seed, and security boundaries. No payments, availability checking, or email sending is implemented.
+
+Milestone 2 adds Operations-managed supplier/tour inventory and image galleries. See [the inventory guide](docs/milestone-2.md) for API contracts, the explicit demo seed, tests, and acceptance instructions. **Operations and `/ops/*` APIs are unauthenticated development-only interfaces; protect both before production use.**
+
 Alembic owns schema creation; the application does not call `create_all()`.
 
 ```powershell

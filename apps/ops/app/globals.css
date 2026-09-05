@@ -9,3 +9,53 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
+a { color: #215b46; text-underline-offset: .2em; }
+button, input, select, textarea { font: inherit; }
+button, .ops-button { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; padding: .6rem 1rem; border: 1px solid #215b46; border-radius: 5px; background: #215b46; color: white; text-decoration: none; cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+:focus-visible { outline: 3px solid #9c6515; outline-offset: 3px; }
+.ops-header { background: #0f2922; color: #f5e2b7; padding: 1rem max(1rem, calc((100vw - 1400px) / 2)); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.ops-header a { color: inherit; min-height: 44px; display: inline-flex; align-items: center; }
+.ops-header nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.ops-warning { background: #fff0cc; color: #634716; padding: .8rem 1.5rem; font-size: .85rem; }
+.ops-main { width: min(1400px, calc(100% - 3rem)); margin: 2rem auto 4rem; line-height: 1.6; }
+.ops-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.ops-status-filter { max-width: 320px; }
+.ops-booking-table { min-width: 1150px; }
+.ops-booking-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.ops-booking-grid section, .ops-booking-notes { padding: 1.5rem; background: white; border: 1px solid #cbd5d1; border-radius: 6px; overflow-wrap: anywhere; }
+.ops-booking-grid dt { font-weight: 650; }
+.ops-booking-grid dd { margin: 0 0 .7rem; }
+.ops-booking-notes { margin-top: 1.5rem; white-space: pre-wrap; }
+@media (max-width: 700px) { .ops-booking-grid { grid-template-columns: 1fr; } }
+.ops-table-wrap { max-width: 100%; overflow-x: auto; }
+table { width: 100%; min-width: 640px; border-collapse: collapse; background: white; }
+.ops-tour-table { min-width: 1100px; }
+.ops-tour-table td:nth-child(2), .ops-tour-table td:nth-child(3) { min-width: 170px; }
+caption { text-align: left; padding: 1rem 0; color: #475569; }
+th, td { text-align: left; padding: .85rem; border-bottom: 1px solid #d8e2de; vertical-align: middle; }
+th { background: #eaf1ee; }
+td { overflow-wrap: anywhere; min-width: 90px; }
+.ops-editor { max-width: 960px; margin: 1.5rem 0; }
+fieldset { min-width: 0; padding: 1.2rem; margin: 1rem 0; border: 1px solid #cbd5d1; border-radius: 6px; background: white; }
+legend { font-weight: 700; padding: 0 .5rem; }
+label { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; font-weight: 600; }
+input, select, textarea { width: 100%; min-height: 44px; border: 1px solid #81938b; border-radius: 4px; padding: .6rem; background: white; color: #0f172a; }
+textarea { resize: vertical; }
+small { font-weight: 400; color: #52645b; }
+.ops-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; }
+.ops-check { flex-direction: row; align-items: center; gap: .7rem; min-height: 44px; }
+.ops-check input { width: 20px; height: 20px; min-height: 0; accent-color: #215b46; }
+.ops-thumbnail { display: block; width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
+.ops-no-photo { display: inline-flex; align-items: center; justify-content: center; width: 100px; height: 70px; background: #eaf1ee; color: #52645b; font-size: .8rem; }
+.ops-image-grid, .ops-dashboard { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.ops-image-editor .ops-thumbnail { margin-bottom: 1rem; width: min(100%, 300px); height: 180px; }
+.ops-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ops-danger { background: white; color: #8f2525; border-color: #8f2525; }
+.ops-dashboard section { padding: 1.5rem; background: white; border: 1px solid #cbd5d1; border-radius: 6px; }
+[role='alert'] { color: #8f2525; overflow-wrap: anywhere; }
+[role='status'] { color: #215b46; }
+.ops-skip { position: fixed; top: 1rem; left: 1rem; z-index: 50; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); background: white; }
+.ops-skip:focus { width: auto; height: auto; padding: 1rem; overflow: visible; clip-path: none; }
+@media (max-width: 700px) { .ops-fields, .ops-image-grid, .ops-dashboard { grid-template-columns: 1fr; } .ops-main { width: calc(100% - 2rem); } }

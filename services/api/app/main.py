@@ -5,6 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .schemas import HealthResponse
+from .routers import ops, public
+from .routers.bookings import public_router as booking_public, ops_router as booking_ops
 
 app = FastAPI(
     title='Volcan Vacations API',
@@ -20,6 +22,11 @@ app.add_middleware(
     allow_methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allow_headers=['*'],
 )
+
+app.include_router(public.router)
+app.include_router(ops.router)
+app.include_router(booking_public)
+app.include_router(booking_ops)
 
 
 @app.get('/', response_model=HealthResponse)
