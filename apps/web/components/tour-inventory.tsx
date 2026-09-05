@@ -35,6 +35,6 @@ export function TourInventory({ featured = false, filters = false }: { featured?
   const visible = tours.filter(tour => !category || tour.category === category);
   return <>
     {filters && <div className="category-filter" aria-label="Tour categories"><span className="category-filter__label">Browse by</span>{['', ...categories].map(value => <button key={value} className={`filter-pill${category === value ? ' filter-pill--active' : ''}`} aria-pressed={category === value} onClick={() => setCategory(value)}>{value || 'All experiences'}</button>)}</div>}
-    {visible.length ? <TourGrid items={visible} /> : <p role="status">{featured ? 'Featured experiences are being prepared. Browse all tours or ask us to help plan your trip.' : 'No experiences are currently published for this selection. Please check back soon.'}</p>}
+    {visible.length ? <TourGrid items={featured ? visible.slice(0, 6) : visible} compact={featured} /> : <p role="status">{featured ? 'Featured experiences are being prepared. Browse all tours or ask us to help plan your trip.' : 'No experiences are currently published for this selection. Please check back soon.'}</p>}
   </>;
 }

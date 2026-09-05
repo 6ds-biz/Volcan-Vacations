@@ -3,8 +3,17 @@ import type { Tour } from '../lib/inventory';
 import { ArrowIcon, ClockIcon, LeafIcon, CompassIcon } from './icons';
 import { TourPhoto } from './tour-photo';
 
-export function TourCard({ tour }: { tour: Tour }) {
+export function TourCard({ tour, compact = false }: { tour: Tour; compact?: boolean }) {
   const CategoryIcon = tour.category === 'Adventure' ? CompassIcon : LeafIcon;
+  if (compact) return <article className="tour-card tour-card--compact">
+    <div className="tour-card__visual"><TourPhoto image={tour.primary_image} /></div>
+    <div className="tour-card__body">
+      <h3>{tour.name}</h3>
+      <div className="featured-tour-meta"><span><ClockIcon width={16} height={16} />{tour.duration}</span><span><CategoryIcon width={16} height={16} />{tour.difficulty || tour.category}</span></div>
+      <p className="tour-card__description">{tour.short_description}</p>
+      <div className="featured-tour-action"><span className="featured-tour-price">${tour.retail_price.replace(/\.00$/, '')}<small> USD</small></span><Link className="tour-request-link" href={`/request?tour=${encodeURIComponent(tour.slug)}`} aria-label={`Request This Tour: ${tour.name}`}>Request tour <ArrowIcon width={15} height={15} /></Link></div>
+    </div>
+  </article>;
   return (
     <article className="tour-card">
       <div className="tour-card__visual"><TourPhoto image={tour.primary_image} /></div>
@@ -21,4 +30,4 @@ export function TourCard({ tour }: { tour: Tour }) {
     </article>
   );
 }
-export function TourGrid({ items }: { items: Tour[] }) { return <div className="tour-grid">{items.map((tour) => <TourCard key={tour.slug} tour={tour} />)}</div>; }
+export function TourGrid({ items, compact = false }: { items: Tour[]; compact?: boolean }) { return <div className="tour-grid">{items.map((tour) => <TourCard key={tour.slug} tour={tour} compact={compact} />)}</div>; }

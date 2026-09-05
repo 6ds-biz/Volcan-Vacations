@@ -323,3 +323,34 @@ textarea { resize: vertical; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Compact shared brand frame. The original logo mask and ratio are preserved. */
+.site-header { background: #050b0e; border-bottom: 0; }
+.site-header__inner { min-height: 72px; gap: 1.8rem; }
+.site-header .brand { width: 300px; flex-basis: 300px; }
+.desktop-nav { gap: 1.8rem; }
+.desktop-cta .button { width: 150px; min-height: 42px; height: 42px; padding: .5rem .8rem; border-radius: 5px; font-size: .8rem; }
+.mobile-menu nav { background: #0c1115; }
+.site-footer { padding: 3rem 0 1.5rem; background: #040a0d; }
+.site-footer__grid { grid-template-columns: 1fr auto 1fr; align-items: center; gap: 3rem; }
+.site-footer .brand { width: 280px; }
+.site-footer .brand__tagline { display: block; font-size: .45rem; }
+.site-footer nav { gap: 1.5rem; }
+.footer-script { justify-self: end; font-size: 2.8rem; transform: rotate(-7deg); }
+.site-footer__bottom { margin-top: 2.5rem; border-color: #303639; }
+@media (max-width: 1100px) {
+  .site-header .brand { width: 270px; flex-basis: 270px; }
+  .desktop-nav { gap: 1.2rem; }
+  .site-footer__grid { grid-template-columns: 1fr auto; gap: 1.5rem; }
+  .site-footer nav { grid-column: 1 / -1; grid-row: 2; }
+  .footer-script { grid-column: 2; grid-row: 1; }
+}
+@media (max-width: 600px) {
+  .site-header__inner { min-height: 66px; gap: 1rem; }
+  .site-header .brand { width: 255px; flex-basis: 255px; max-width: calc(100% - 62px); }
+  .site-footer__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .site-footer .brand { width: 270px; }
+  .site-footer nav { grid-column: 1; grid-row: auto; gap: .2rem 1.3rem; }
+  .footer-script { grid-column: 1; grid-row: auto; justify-self: start; font-size: 2.5rem; }
+  .site-footer__bottom { margin-top: 1.5rem; }
+}
