@@ -1,0 +1,147 @@
+# Volcan Vacations
+
+Volcan Vacations is a Costa Rica travel platform foundation for tours, transportation, hotels, vacation packages, customers, trips, reservations, suppliers, and payments.
+
+## Repository architecture
+
+- `apps/web` - public customer-facing Next.js app
+- `apps/ops` - internal operations Next.js app
+- `services/api` - FastAPI, SQLAlchemy, and Alembic service
+- `infrastructure` - infrastructure artifacts
+- `docs` - architecture and deployment documentation
+
+## Cloud-first development
+
+GitHub is the source of truth, GitHub Codespaces is the browser-based development environment, Vercel hosts the two Next.js apps, Render hosts FastAPI and PostgreSQL, and Hostinger continues to manage the domain and DNS.
+
+The Codespace includes Node.js 20, npm, Python 3.12, Git, Docker, and Docker Compose. On first creation it copies `.env.example` to the ignored `.env` file and configures Codespaces forwarded URLs.
+
+1. On GitHub, open the private repository.
+2. Select **Code**, then **Codespaces**, then **Create codespace on main**.
+3. In the browser VS Code terminal, start the stack:
+
+```bash
+docker compose up --build
+```
+
+Open the forwarded ports from the **Ports** panel:
+
+- `3000` - public web
+- `3001` - operations
+- `8000` - API
+- `8000/health` - API health check
+
+Stop the stack with `docker compose down`.
+
+## Local development
+
+Docker remains the preferred, cross-platform development path:
+
+```powershell
+Copy-Item .env.example .env
+docker compose up --build
+```
+
+The local URLs are:
+
+- http://localhost:3000
+- http://localhost:3001
+- http://localhost:8000
+- http://localhost:8000/health
+
+Docker Compose overrides the API database host to `postgres` on the container network. The root `.env` uses `localhost` so Python and Alembic commands run from the host can connect through port `5432`.
+
+## Environment configuration
+
+`.env.example` is the safe template. Never commit `.env` or provider secrets.
+
+- `NEXT_PUBLIC_API_URL` - browser-visible FastAPI base URL; use `http://localhost:8000` locally and the Render URL in Vercel
+- `DATABASE_URL` - PostgreSQL connection URL used by FastAPI, SQLAlchemy, and Alembic
+- `ALLOWED_ORIGINS` - comma-separated public and operations frontend origins
+- `ALLOWED_ORIGIN_REGEX` - optional CORS regex, normally left blank in favor of explicit origins
+- `ENVIRONMENT` - `development`, `preview`, or `production`
+- `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET`, `EMAIL_FROM` - future integration placeholders only
+
+Values prefixed with `NEXT_PUBLIC_` are exposed to the browser and must never contain secrets.
+
+## Run components without Docker
+
+Install and run each frontend independently:
+
+```powershell
+Set-Location apps/web
+npm install
+npm run dev
+
+Set-Location ../ops
+npm install
+npm run dev
+```
+
+Install the API in a Python 3.12 virtual environment:
+
+```powershell
+Set-Location services/api
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+## Database migrations
+
+Alembic owns schema creation; the application does not call `create_all()`.
+
+```powershell
+docker compose up -d postgres
+Set-Location services/api
+alembic upgrade head
+```
+
+`alembic/env.py` reads the same `DATABASE_URL` used by the API. For Render, run `alembic upgrade head` from a Codespace with the database's external URL before the first API deploy. A paid Render service can instead use this as its pre-deploy command.
+
+## Validation
+
+```powershell
+Set-Location apps/web
+npm install
+npm run build
+
+Set-Location ../ops
+npm install
+npm run build
+
+Set-Location ../../services/api
+pip install -r requirements.txt
+python -c "from app.main import app; print('FastAPI import OK')"
+
+Set-Location ../..
+docker compose config
+```
+
+## Git and private GitHub repository
+
+This repository is already initialized locally. For a new copy without Git metadata, run `git init`, review `git status --short`, and confirm no secrets are staged. When the private GitHub repository URL is available:
+
+```powershell
+git add .
+git status --short
+git commit -m "Establish Volcan Vacations platform foundation"
+git branch -M main
+git remote add origin <PRIVATE_GITHUB_REPOSITORY_URL>
+git push -u origin main
+```
+
+Do not replace the placeholder with a guessed URL. Create the GitHub repository as **Private** and do not initialize it with another README, `.gitignore`, or license.
+
+## Deployment
+
+```text
+apps/web     -> Vercel project (Root Directory: apps/web)
+apps/ops     -> Vercel project (Root Directory: apps/ops)
+services/api -> Render web service
+PostgreSQL   -> Render PostgreSQL
+Hostinger    -> domain registration and DNS
+```
+
+See [docs/cloud-deployment.md](docs/cloud-deployment.md) for the exact preview-deployment, environment, migration, and future DNS workflow.
