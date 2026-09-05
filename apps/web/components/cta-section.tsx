@@ -1,6 +1,6 @@
-import { SparkIcon } from './icons';
+import { ScenicImage } from './scenic-image';
 import { Container, LinkButton } from './ui';
 
 export function CTASection() {
-  return <section className="cta-band"><Container><div className="cta-band__inner"><div className="cta-band__icon"><SparkIcon /></div><div><p className="eyebrow eyebrow--light">Your trip, made simpler</p><h2>Let’s shape a Costa Rica escape that feels like yours.</h2><p>Share your travel style and interests. We’ll help you find a thoughtful starting point.</p></div><LinkButton href="/plan-your-trip" variant="light" arrow>Plan My Trip</LinkButton></div></Container></section>;
+  return <section className="cta-band"><ScenicImage src="/images/rainforest.webp" /><Container><div className="cta-band__inner"><p className="script-accent">Your Costa Rica<br />Adventure Starts Here</p><div><h2>Let’s Plan Your Costa Rica Experience</h2><p>Tell us a bit about your trip, and we’ll help you find the perfect experiences.</p></div><LinkButton href="/plan-your-trip" variant="light" arrow>Plan My Trip</LinkButton></div></Container></section>;
 }

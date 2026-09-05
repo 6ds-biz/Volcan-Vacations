@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowIcon } from './icons';
+import { ScenicImage } from './scenic-image';
 
 export function Container({ children, className = '' }: { children: ReactNode; className?: string }) {
   return <div className={`container ${className}`.trim()}>{children}</div>;
@@ -17,5 +18,5 @@ export function SectionHeading({ eyebrow, title, intro, align = 'left' }: { eyeb
 }
 
 export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
-  return <section className="page-hero"><Container><div className="page-hero__content"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1><p>{intro}</p></div></Container></section>;
+  return <section className="page-hero"><ScenicImage priority /><Container><div className="page-hero__content"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1><p>{intro}</p></div></Container></section>;
 }
