@@ -22,7 +22,21 @@ On the trusted host with API database access, run:
 docker compose exec api python -m app.bootstrap_owner
 ```
 
-Enter the email, display name and password at the prompts. Password input is hidden and is not passed as a command-line argument or environment variable. The command refuses if an active owner already exists. Store the credential in your password manager. It does not print a password or create a customer. Existing owners create users through the authenticated owner-only API, sharing temporary credentials through an approved secure channel. Email invitations and password recovery email are deferred; an operator with trusted database access must handle emergency recovery through a controlled, audited process.
+The command checks for active `owner_admin` accounts before collecting credentials. If none exists, enter your email, display name, **new password** and **new password confirmation**. No current password is required. The account is active, uses the Owner dashboard profile, and can sign in immediately. Disabled validation users do not block creation with a new email and are never reactivated or deleted. An email already belonging to any internal account is not overwritten.
+
+An existing active owner blocks first-owner creation; the console explains which owner email exists before prompting for any password. Normal password changes in Operations still require verification of the current password.
+
+For explicit emergency recovery of an existing **active owner**, run this on the trusted server console, replacing the email with that owner's actual email:
+
+```bash
+docker compose exec api python -m app.bootstrap_owner --reset-password owner@example.com
+```
+
+Recovery prompts twice for a new password, uses the existing Argon2id implementation and 15–128-character policy, clears the temporary-password requirement, and revokes **all sessions for that owner**. It changes no other user's credentials, role or active status and no business records. Missing, non-owner and inactive accounts are refused. Recovery never reactivates retired validation accounts. No current password is required for this explicit trusted-console procedure; it is not an HTTP endpoint or login bypass.
+
+Both commands require an interactive terminal: use `docker compose exec` **without `-T`**. Password input is hidden; echoed-input fallback is refused. No password command-line argument or environment variable is supported. Store the new credential in your password manager. The transaction records `owner_bootstrapped` or `password_recovered` in `internal_audit`, with the affected user ID, a trusted-console summary and a null authenticated actor (the server-console operator is not claimed to be an authenticated web user). No password/hash appears in the audit record or output. PostgreSQL owner-administration locking and checks repeated after prompting protect against concurrent changes.
+
+Existing owners create other users through the authenticated owner-only API, sharing temporary credentials through an approved secure channel. Email invitations and password-recovery email remain deferred.
 
 ## Roles and profiles
 

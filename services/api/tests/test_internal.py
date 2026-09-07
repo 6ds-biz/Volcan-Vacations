@@ -80,6 +80,8 @@ def test_last_owner_and_user_admin(client):
     assert login.status_code==200
     client.headers['X-CSRF-Token']=login.json()['csrf_token']
     assert client.get('/ops/tasks').status_code==403
+    assert client.post('/ops/auth/password',json={'current_password':'incorrect-current-password','new_password':'new-isolated-password-12345'}).status_code==400
+    assert client.get('/ops/auth/me').status_code==200
     assert client.post('/ops/auth/password',json={'current_password':PASSWORD,'new_password':'new-isolated-password-12345'}).status_code==204
     assert client.get('/ops/auth/me').status_code==401
 
