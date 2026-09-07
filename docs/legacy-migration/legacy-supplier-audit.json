@@ -1,0 +1,111 @@
+{
+  "confirmed_operator_count": 0,
+  "leads": [
+    {
+      "name": "Arenal Oasis",
+      "type": "VENUE_OR_BRAND_LEAD_ONLY",
+      "associated_legacy_ids": [
+        5990
+      ],
+      "contact_information": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+      "source_excerpt": "Step into the magical realm of Arenal Oasis after dark",
+      "verification_status": "NEEDS_PARTNER_VERIFICATION",
+      "proposed_supplier_id": null,
+      "note": "A venue mention is not evidence of contracting operator identity. No supplier insert is staged."
+    }
+  ],
+  "unresolved_products": [
+    {
+      "legacy_id": 6198,
+      "name": "Arenal Volcano Horseback Riding & Hot River",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/"
+    },
+    {
+      "legacy_id": 6135,
+      "name": "Shuttle: SJO – Juan Santamaría International Airport to La Fortuna – Arenal Volcano",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/"
+    },
+    {
+      "legacy_id": 5993,
+      "name": "Sloth Watching Walk",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/sloth-watching-walk/"
+    },
+    {
+      "legacy_id": 5990,
+      "name": "Frog Watching Night Walk",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/frog-watching-night-walk/"
+    },
+    {
+      "legacy_id": 5986,
+      "name": "Cano Negro Wildlife Refuge",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/"
+    },
+    {
+      "legacy_id": 5981,
+      "name": "Arenal Volcano Horseback Riding",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/"
+    },
+    {
+      "legacy_id": 5978,
+      "name": "Canyoning & Waterfall Rappelling",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/"
+    },
+    {
+      "legacy_id": 5975,
+      "name": "Jungle and Maleku’s ATV Tour",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/"
+    },
+    {
+      "legacy_id": 5972,
+      "name": "Arenal Volcano Hike and Hot River",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/"
+    },
+    {
+      "legacy_id": 5969,
+      "name": "Arenal Hanging Bridges",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/arenal-hanging-bridges/"
+    },
+    {
+      "legacy_id": 5966,
+      "name": "Rio Celeste Waterfall Hike and Lunch",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/"
+    },
+    {
+      "legacy_id": 5592,
+      "name": "White Water Rafting Class III & IV on Rio La Balsa",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/"
+    },
+    {
+      "legacy_id": 5502,
+      "name": "La Fortuna Waterfall, Arenal Volcano, & Hot River",
+      "supplier": "MISSING",
+      "supplier_cost": "MISSING",
+      "source_url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/"
+    }
+  ]
+}

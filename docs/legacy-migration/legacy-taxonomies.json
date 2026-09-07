@@ -1,0 +1,864 @@
+{
+  "tour_category": [
+    {
+      "id": 121,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/adventure-tour/",
+      "name": "Adventure Tour",
+      "slug": "adventure-tour",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/121",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=121"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 102,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/day-hiking/",
+      "name": "Day Hiking",
+      "slug": "day-hiking",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/102",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=102"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 122,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/hiking/",
+      "name": "Hiking",
+      "slug": "hiking",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/122",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=122"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 120,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/nature-tour/",
+      "name": "Nature Tour",
+      "slug": "nature-tour",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/120",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=120"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 119,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/private-transportation/",
+      "name": "Private Transportation",
+      "slug": "private-transportation",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/119",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=119"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 128,
+      "count": 1,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-category/shuttle/",
+      "name": "Shuttle",
+      "slug": "shuttle",
+      "taxonomy": "tour_category",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category/128",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_category=128"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  ],
+  "tour-activity": [
+    {
+      "id": 38,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/city-tours/",
+      "name": "City Tours",
+      "slug": "city-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/38",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=38"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 105,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/climbing/",
+      "name": "Climbing",
+      "slug": "climbing",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/105",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=105"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "count": 1,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/cultural-thematic-tours/",
+      "name": "Cultural &amp; Thematic Tours",
+      "slug": "cultural-thematic-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/39",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=39"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/family-friendly-tours/",
+      "name": "Family Friendly Tours",
+      "slug": "family-friendly-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/43",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=43"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 103,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/hiking/",
+      "name": "Hiking",
+      "slug": "hiking",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/103",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=103"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 44,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/holiday-seasonal-tours/",
+      "name": "Holiday &amp; Seasonal Tours",
+      "slug": "holiday-seasonal-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/44",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=44"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/indulgence-luxury-tours/",
+      "name": "Indulgence &amp; Luxury Tours",
+      "slug": "indulgence-luxury-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/45",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=45"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/outdoor-activites/",
+      "name": "Outdoor Activites",
+      "slug": "outdoor-activites",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/53",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=53"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 57,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/relaxation-tours/",
+      "name": "Relaxation Tours",
+      "slug": "relaxation-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/57",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=57"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 104,
+      "count": 0,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/walking/",
+      "name": "Walking",
+      "slug": "walking",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/104",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=104"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 63,
+      "count": 12,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-activity/wild-adventure-tours/",
+      "name": "Wild &amp; Adventure Tours",
+      "slug": "wild-adventure-tours",
+      "taxonomy": "tour-activity",
+      "parent": 0,
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity/63",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour-activity"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour-activity"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour-activity=63"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  ],
+  "tour_tag": [
+    {
+      "id": 99,
+      "count": 12,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-tag/best-sellers/",
+      "name": "Best Sellers",
+      "slug": "best-sellers",
+      "taxonomy": "tour_tag",
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_tag/99",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_tag"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_tag"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_tag=99"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 129,
+      "count": 1,
+      "description": "",
+      "link": "https://volcanvacations.com/tour-tag/shuttle/",
+      "name": "shuttle",
+      "slug": "shuttle",
+      "taxonomy": "tour_tag",
+      "meta": [],
+      "_links": {
+        "self": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_tag/129",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour_tag"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/taxonomies/tour_tag"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://volcanvacations.com/wp-json/wp/v2/tour?tour_tag=129"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  ],
+  "tour-destination": [],
+  "To": [],
+  "From": []
+}

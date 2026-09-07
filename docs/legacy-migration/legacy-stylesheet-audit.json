@@ -1,0 +1,360 @@
+{
+  "scope": "Supplemental referenced CSS inspection; decorative/font/theme background URLs are separate from the checked library/page-media inventory.",
+  "stylesheets": [
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4",
+      "status": 200,
+      "sha256": "7acd95c2a3010b97d6c94d561c734209a87d576a03b90fed9aa50d16c6a7f126",
+      "bytes": 379123,
+      "retrieved_at": "2026-09-07T06:21:35.613178+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/portfolio/now-loading.gif",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient2.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient2.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/post-slider/gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/gallery/gallery-shadow.png",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/portfolio/now-loading.gif",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/portfolio/now-loading.gif",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/content-blocked.jpg",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/content-blocked.jpg",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/portfolio/now-loading.gif"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/elegant/elegant-font.css?ver=7.0.4",
+      "status": 200,
+      "sha256": "02e2b3b30a747b8196a16712d5fe39efd502cc6c04257a86fab515970eaf0653",
+      "bytes": 21733,
+      "retrieved_at": "2026-09-07T06:21:35.650591+00:00",
+      "media_urls": []
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/fontawesome/font-awesome.css?ver=7.0.4",
+      "status": 200,
+      "sha256": "0d208db5ade19fdd2a973c7c2520575b5e54e009a147007eea616550d0006d45",
+      "bytes": 30879,
+      "retrieved_at": "2026-09-07T06:21:35.682091+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/style.css?ver=1770532945",
+      "status": 200,
+      "sha256": "0f6a5e68970a11bd20ea357c71ee7d85bb534e74eb3d0ef3c81db8c43eb1300b",
+      "bytes": 29382,
+      "retrieved_at": "2026-09-07T06:21:35.701956+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/skin-lightgallery/lg.svg?io9a6k#lg",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/skin-lightgallery/loading.gif",
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/skin-lightgallery/loading.gif"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/plugins/gdlr-travel/style.css?ver=7.0.4",
+      "status": 200,
+      "sha256": "c4308ceee3e0ce1e0edbf1aa22ae5fd547a2ac3e88d193eafa4b7aa344243afb",
+      "bytes": 4630,
+      "retrieved_at": "2026-09-07T06:21:35.719047+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/plugins/gdlr-travel/fonts/gdl-travel.svg?6to6tk#gdl-travel"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4",
+      "status": 200,
+      "sha256": "4e68c1fd770afcdaa6c3dce1209c12b9223bf1704866fd29ab0b1f6631a8f44b",
+      "bytes": 228249,
+      "retrieved_at": "2026-09-07T06:21:35.746057+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/single-tour-top-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/single-tour-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/payment-step-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/single-tour-top-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/payment-step-separator.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/ribbon-corner-shadow.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/images/button-loading.svg"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4",
+      "status": 200,
+      "sha256": "dc24673c92027ea4bf5a498ca364dc6b64f5f7e335aaad682752655209ce4051",
+      "bytes": 104193,
+      "retrieved_at": "2026-09-07T06:21:35.767021+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/preload.gif",
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/page-title-background.jpg",
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/page-title-background.jpg",
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/blog-title-top-gradient.png",
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/blog-title-gradient.png",
+        "https://volcanvacations.com/wp-content/themes/traveltour/images/404-background.jpg"
+      ]
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/uploads/tourmaster-global-style-custom.css?1776478316&ver=7.0.4",
+      "status": 200,
+      "sha256": "012bb612a7f16039db794b0961185cd9abe3a116d6368b62bc859a1f0ce8a45b",
+      "bytes": 18226,
+      "retrieved_at": "2026-09-07T06:21:35.787147+00:00",
+      "media_urls": []
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/uploads/tourmaster-style-custom.css?1776478541&ver=7.0.4",
+      "status": 200,
+      "sha256": "f7051e8d43de56b0357cace2b8eedd9cb4c3821812111da6037b6345ea5b751c",
+      "bytes": 16435,
+      "retrieved_at": "2026-09-07T06:21:35.802575+00:00",
+      "media_urls": []
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/uploads/traveltour-style-custom.css?1770532945&ver=7.0.4",
+      "status": 200,
+      "sha256": "c89f18c8a39477b3f41056a27529e3e7f03adf6d0826dd832594da5885029b0f",
+      "bytes": 111458,
+      "retrieved_at": "2026-09-07T06:21:35.827942+00:00",
+      "media_urls": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/pattern/pattern-1.png"
+      ]
+    }
+  ],
+  "decorative_media_references": [
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/blog-style/blog-item-gradient2.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/content-blocked.jpg",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/gallery/gallery-shadow.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/pattern/pattern-1.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/uploads/traveltour-style-custom.css?1770532945&ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/portfolio/now-loading.gif",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/images/post-slider/gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/include/css/page-builder.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/fontawesome/font-awesome.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/skin-lightgallery/lg.svg?io9a6k#lg",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/style.css?ver=1770532945"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/skin-lightgallery/loading.gif",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/goodlayers-core/plugins/style.css?ver=1770532945"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/button-loading.svg",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/payment-step-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/payment-step-separator.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/ribbon-corner-shadow.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/single-tour-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/single-tour-top-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/images/tour-category-item-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/tourmaster.css?ver=4.1.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/plugins/tourmaster/plugins/gdlr-travel/fonts/gdl-travel.svg?6to6tk#gdl-travel",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/plugins/tourmaster/plugins/gdlr-travel/style.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/images/404-background.jpg",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/images/blog-title-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/images/blog-title-top-gradient.png",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/images/page-title-background.jpg",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    },
+    {
+      "url": "https://volcanvacations.com/wp-content/themes/traveltour/images/preload.gif",
+      "source_stylesheets": [
+        "https://volcanvacations.com/wp-content/themes/traveltour/css/style-core.css?ver=7.0.4"
+      ],
+      "classification": "THEME_DECORATIVE_OR_FONT",
+      "migration_recommendation": "REPLACE_WITH_USER_MEDIA",
+      "asset_http_check": "NOT_PERFORMED",
+      "note": "Theme loading/gradient/font/background asset; do not migrate old theme internals into the approved new design."
+    }
+  ]
+}

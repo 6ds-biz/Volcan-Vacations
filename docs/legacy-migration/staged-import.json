@@ -1,0 +1,1937 @@
+{
+  "schema_version": 1,
+  "kind": "INERT_REVIEW_PACKAGE_NOT_AN_EXECUTABLE_IMPORT",
+  "execution_allowed": false,
+  "database_writes_performed": false,
+  "disposition_counts": {
+    "SAFE_TO_STAGE": 0,
+    "NEEDS_VERIFICATION": 11,
+    "DO_NOT_IMPORT": 2
+  },
+  "disposition_meanings": {
+    "SAFE_TO_STAGE": "Meets all critical partner-confirmation gates for an inactive draft; zero products currently qualify.",
+    "NEEDS_VERIFICATION": "Retain as an inactive candidate; missing/current/supplier data blocks import.",
+    "DO_NOT_IMPORT": "Quarantine this corrupted/duplicate legacy snapshot; not a permanent rejection of the underlying service."
+  },
+  "public_contact": {
+    "email": "info@volcanvacations.com",
+    "status": "SAFE_TO_STAGE",
+    "authority": "User-confirmed; separate from product counts"
+  },
+  "supplier_inserts": [],
+  "products": [
+    {
+      "staging_id": "legacy-6198",
+      "legacy_url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/",
+      "disposition": "DO_NOT_IMPORT",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Arenal Volcano Horseback Riding & Hot River",
+        "slug": "arenal-horseback-hot-river",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "65.00",
+        "verification_status": "NEEDS_PARTNER_VERIFICATION",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.415068+00:00",
+            "source_sha256": "6d7021720a7c82ffcbe9c1c2964ff8c2a7d2af9fd7e46699c9c1c7a7764645d2"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "POSSIBLE_HORSEBACK_VARIANT_DUPLICATE",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-6212",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.415068+00:00",
+              "source_sha256": "6d7021720a7c82ffcbe9c1c2964ff8c2a7d2af9fd7e46699c9c1c7a7764645d2"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.415068+00:00",
+              "source_sha256": "6d7021720a7c82ffcbe9c1c2964ff8c2a7d2af9fd7e46699c9c1c7a7764645d2"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding-hot-river/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.415068+00:00",
+              "source_sha256": "6d7021720a7c82ffcbe9c1c2964ff8c2a7d2af9fd7e46699c9c1c7a7764645d2"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-6135",
+      "legacy_url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+      "disposition": "DO_NOT_IMPORT",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Shuttle: SJO – Juan Santamaría International Airport to La Fortuna – Arenal Volcano",
+        "slug": "sjo-la-fortuna",
+        "short_description": null,
+        "description": null,
+        "product_type": "transportation",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.364198+00:00",
+            "source_sha256": "83c7d6fb7926177a5987f69d2df1ca8f889521fc9b013e236c6491a4f00a208d"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "SHUTTLE_PAGE_CONTAINS_SLOTH_COPY_AND_SLOTH_IMAGES",
+        "PRICE_CONFLICT_1_VS_55",
+        "DURATION_CONFLICT_5_VS_1_5",
+        "SHUTTLE_API_NOT_SUPPORTED",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5960",
+        "wp-6072"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.364198+00:00",
+              "source_sha256": "83c7d6fb7926177a5987f69d2df1ca8f889521fc9b013e236c6491a4f00a208d"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.364198+00:00",
+              "source_sha256": "83c7d6fb7926177a5987f69d2df1ca8f889521fc9b013e236c6491a4f00a208d"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": [
+            "Comfortable clothing for walking",
+            "Closed-toe hiking shoes",
+            "Waterproof jacket",
+            "Mosquito repellent",
+            "Sunscreen"
+          ],
+          "verification_status": "CONFLICTING",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+              "selector": "What to Bring",
+              "retrieved_at": "2026-09-07T05:59:10.364198+00:00",
+              "source_sha256": "83c7d6fb7926177a5987f69d2df1ca8f889521fc9b013e236c6491a4f00a208d"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/shuttle-sjo-juan-santamaria-international-airport-to-la-fortuna-arenal-volcano/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.364198+00:00",
+              "source_sha256": "83c7d6fb7926177a5987f69d2df1ca8f889521fc9b013e236c6491a4f00a208d"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5993",
+      "legacy_url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Sloth Watching Walk",
+        "slug": "sloth-watching-walk",
+        "short_description": null,
+        "description": "It’s an outdoor hiking tour through the rain forest with the help of a naturalistic guide to look for the sloths in the wild. We’ll be finding an average of four to six sloths in the area.\n\nWe have about 2 miles trails with a rich biodiversity so we also be able to appreciate some birds, frogs, insects and other wildlife around.\n\nThis adventure takes one and a half hours to be done but it’s a gentile hike in a flat land 30 acres property.",
+        "product_type": "tour",
+        "category": null,
+        "duration": "1.5 Hours",
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "60.00",
+        "verification_status": "NEEDS_PARTNER_VERIFICATION",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+            "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5960",
+        "wp-6072"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "Hourly 8AM to 4PM",
+          "verification_status": "VERIFIED_FROM_LEGACY",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+              "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "15 per guide",
+          "verification_status": "VERIFIED_FROM_LEGACY",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+              "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Per-guide ratio is not proof of total departure capacity."
+        },
+        "whats_included": {
+          "value": [
+            "Professional bilingual guide",
+            "Transportation to and from your hotel in the La Fortuna area",
+            "Entrance fees"
+          ],
+          "verification_status": "VERIFIED_FROM_LEGACY",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+              "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "what_to_bring": {
+          "value": [
+            "Comfortable clothing for walking",
+            "Closed-toe hiking shoes",
+            "Waterproof jacket",
+            "Mosquito repellent",
+            "Sunscreen"
+          ],
+          "verification_status": "VERIFIED_FROM_LEGACY",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+              "selector": "What to Bring",
+              "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+              "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation to and from your hotel in the La Fortuna area",
+          "verification_status": "VERIFIED_FROM_LEGACY",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/sloth-watching-walk/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.264030+00:00",
+              "source_sha256": "d7fae1db66b4aa1951e5b6d0ac54b708fed8ca1cc6df993c2ca291b1ab0cc083"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5990",
+      "legacy_url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Frog Watching Night Walk",
+        "slug": "frog-watching-night-walk",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "65.00",
+        "verification_status": "NEEDS_PARTNER_VERIFICATION",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.263068+00:00",
+            "source_sha256": "724b5787f39d4c379af145cc1d56f03b80f2f6b785813fdc9e136567f82bed10"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "NIGHT_TOUR_VS_08_20_DEPARTURE",
+        "BOAT_GUIDE_LUNCH_TEMPLATE_ON_NIGHT_WALK",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-6086",
+        "wp-6085",
+        "wp-6090"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "CONFLICTING",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.263068+00:00",
+              "source_sha256": "724b5787f39d4c379af145cc1d56f03b80f2f6b785813fdc9e136567f82bed10"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Daytime value contradicts night-tour copy."
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.263068+00:00",
+              "source_sha256": "724b5787f39d4c379af145cc1d56f03b80f2f6b785813fdc9e136567f82bed10"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/frog-watching-night-walk/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.263068+00:00",
+              "source_sha256": "724b5787f39d4c379af145cc1d56f03b80f2f6b785813fdc9e136567f82bed10"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5986",
+      "legacy_url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Cano Negro Wildlife Refuge",
+        "slug": "cano-negro-wildlife-refuge",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.176931+00:00",
+            "source_sha256": "80f1f87f6aed8beaef966bc76c17d35911d25b8f44f34c3bc0f2d2e65d85a0c0"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "NAME_SPELLING_REVIEW_CANO_NEGRO",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.176931+00:00",
+              "source_sha256": "80f1f87f6aed8beaef966bc76c17d35911d25b8f44f34c3bc0f2d2e65d85a0c0"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.176931+00:00",
+              "source_sha256": "80f1f87f6aed8beaef966bc76c17d35911d25b8f44f34c3bc0f2d2e65d85a0c0"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/cano-negro-wildlife-refuge/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.176931+00:00",
+              "source_sha256": "80f1f87f6aed8beaef966bc76c17d35911d25b8f44f34c3bc0f2d2e65d85a0c0"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5981",
+      "legacy_url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Arenal Volcano Horseback Riding",
+        "slug": "arenal-volcano-horseback-riding",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.121618+00:00",
+            "source_sha256": "ebf8741e8750d9787c8340e5d39d9d226041f3162f3c263128212aced5aad1a6"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "POSSIBLE_HORSEBACK_VARIANT_DUPLICATE",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.121618+00:00",
+              "source_sha256": "ebf8741e8750d9787c8340e5d39d9d226041f3162f3c263128212aced5aad1a6"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.121618+00:00",
+              "source_sha256": "ebf8741e8750d9787c8340e5d39d9d226041f3162f3c263128212aced5aad1a6"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-horseback-riding/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.121618+00:00",
+              "source_sha256": "ebf8741e8750d9787c8340e5d39d9d226041f3162f3c263128212aced5aad1a6"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5978",
+      "legacy_url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Canyoning & Waterfall Rappelling",
+        "slug": "canyoning-waterfall-rappelling",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:10.118967+00:00",
+            "source_sha256": "d3c347947dde82e63ff7661142a19e87873bd858a42f82175546e08b192c0ff4"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:10.118967+00:00",
+              "source_sha256": "d3c347947dde82e63ff7661142a19e87873bd858a42f82175546e08b192c0ff4"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:10.118967+00:00",
+              "source_sha256": "d3c347947dde82e63ff7661142a19e87873bd858a42f82175546e08b192c0ff4"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/canyoning-waterfall-rappelling/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:10.118967+00:00",
+              "source_sha256": "d3c347947dde82e63ff7661142a19e87873bd858a42f82175546e08b192c0ff4"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5975",
+      "legacy_url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Jungle and Maleku’s ATV Tour",
+        "slug": "jungle-maleku-atv",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.979219+00:00",
+            "source_sha256": "96c3dd1b03a214e6caa561af578d6f067b1bbbd945812548e19adee1aca0f693"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.979219+00:00",
+              "source_sha256": "96c3dd1b03a214e6caa561af578d6f067b1bbbd945812548e19adee1aca0f693"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.979219+00:00",
+              "source_sha256": "96c3dd1b03a214e6caa561af578d6f067b1bbbd945812548e19adee1aca0f693"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/jungle-and-malekus-atv-tour/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.979219+00:00",
+              "source_sha256": "96c3dd1b03a214e6caa561af578d6f067b1bbbd945812548e19adee1aca0f693"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5972",
+      "legacy_url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Arenal Volcano Hike and Hot River",
+        "slug": "arenal-volcano-hike-hot-river",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.971437+00:00",
+            "source_sha256": "d3da8006fce79038eca2604e3489fade9155d7a6e85390c472282a0d3c604c1b"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "COPIED_ITINERARY_INCLUDES_WATERFALL_NOT_IN_TITLE",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.971437+00:00",
+              "source_sha256": "d3da8006fce79038eca2604e3489fade9155d7a6e85390c472282a0d3c604c1b"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.971437+00:00",
+              "source_sha256": "d3da8006fce79038eca2604e3489fade9155d7a6e85390c472282a0d3c604c1b"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-volcano-hike-and-hot-river/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.971437+00:00",
+              "source_sha256": "d3da8006fce79038eca2604e3489fade9155d7a6e85390c472282a0d3c604c1b"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5969",
+      "legacy_url": "https://volcanvacations.com/tour/arenal-hanging-bridges/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Arenal Hanging Bridges",
+        "slug": "arenal-hanging-bridges",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/arenal-hanging-bridges/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.969321+00:00",
+            "source_sha256": "5fa44b58cdc6e3e383f42b107a6faa6ec63025d43d690cf4c08b8c5f2a668fc2"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "UNRELATED_COPIED_WATERFALL_ITINERARY",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-hanging-bridges/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.969321+00:00",
+              "source_sha256": "5fa44b58cdc6e3e383f42b107a6faa6ec63025d43d690cf4c08b8c5f2a668fc2"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-hanging-bridges/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.969321+00:00",
+              "source_sha256": "5fa44b58cdc6e3e383f42b107a6faa6ec63025d43d690cf4c08b8c5f2a668fc2"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/arenal-hanging-bridges/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.969321+00:00",
+              "source_sha256": "5fa44b58cdc6e3e383f42b107a6faa6ec63025d43d690cf4c08b8c5f2a668fc2"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5966",
+      "legacy_url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "Rio Celeste Waterfall Hike and Lunch",
+        "slug": "rio-celeste-waterfall-hike-lunch",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.831349+00:00",
+            "source_sha256": "274e80f303245b8789b6f1f06fd59e8885bd05cc9c1520a955330fe3ee7b40ed"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "RIO_CELESTE_TITLE_VS_LA_FORTUNA_ITINERARY",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.831349+00:00",
+              "source_sha256": "274e80f303245b8789b6f1f06fd59e8885bd05cc9c1520a955330fe3ee7b40ed"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.831349+00:00",
+              "source_sha256": "274e80f303245b8789b6f1f06fd59e8885bd05cc9c1520a955330fe3ee7b40ed"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/rio-celeste-waterfall-hike-and-lunch-2/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.831349+00:00",
+              "source_sha256": "274e80f303245b8789b6f1f06fd59e8885bd05cc9c1520a955330fe3ee7b40ed"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5592",
+      "legacy_url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "White Water Rafting Class III & IV on Rio La Balsa",
+        "slug": "whitewater-rafting-confirm-river",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.824360+00:00",
+            "source_sha256": "ac55aac79e955e5dd19d11cbb104ad6f18fb3febde9237b64d4f2eb4f72c1e32"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "RIVER_CONFLICT_BALSA_TITLE_VS_SARAPIQUI_BODY",
+        "TWO_HOURS_RAFTING_VS_FIVE_HOURS_TOTAL_UNRESOLVED",
+        "RAFTING_MISTAGGED_CULTURAL",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.824360+00:00",
+              "source_sha256": "ac55aac79e955e5dd19d11cbb104ad6f18fb3febde9237b64d4f2eb4f72c1e32"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.824360+00:00",
+              "source_sha256": "ac55aac79e955e5dd19d11cbb104ad6f18fb3febde9237b64d4f2eb4f72c1e32"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa-2/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.824360+00:00",
+              "source_sha256": "ac55aac79e955e5dd19d11cbb104ad6f18fb3febde9237b64d4f2eb4f72c1e32"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    },
+    {
+      "staging_id": "legacy-5502",
+      "legacy_url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/",
+      "disposition": "NEEDS_VERIFICATION",
+      "import_allowed": false,
+      "product_draft": {
+        "supplier_id": null,
+        "name": "La Fortuna Waterfall, Arenal Volcano, & Hot River",
+        "slug": "la-fortuna-waterfall-arenal-hot-river",
+        "short_description": null,
+        "description": null,
+        "product_type": "tour",
+        "category": null,
+        "duration": null,
+        "retail_price": null,
+        "supplier_cost": null,
+        "active": false,
+        "featured": false,
+        "location": null,
+        "minimum_age": null,
+        "difficulty": null
+      },
+      "legacy_pricing_evidence": {
+        "value": "1.00",
+        "verification_status": "LEGACY_PLACEHOLDER",
+        "provenance": [
+          {
+            "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/",
+            "selector": ".tourmaster-tour-price",
+            "retrieved_at": "2026-09-07T05:59:09.771851+00:00",
+            "source_sha256": "e42e26299da466239f20eedec0055e3280b303ca6efe22c315b0d79e7a5b14ac"
+          }
+        ],
+        "current_business_verified": false,
+        "note": "Displayed From $ value only; currency, current validity, taxes and pricing unit require confirmation."
+      },
+      "current_verified_retail_price": null,
+      "supplier_cost": null,
+      "vv_gross_margin": null,
+      "missing_required_import_fields": [
+        "supplier_id",
+        "short_description",
+        "category",
+        "duration",
+        "retail_price",
+        "supplier_cost"
+      ],
+      "blocked_reasons": [
+        "CURRENT_OPERATOR_AND_NET_COST_REQUIRED",
+        "CURRENT_RETAIL_PRICE_REQUIRED",
+        "PARTNER_AND_CONTENT_APPROVAL_REQUIRED",
+        "LATIN_TEMPLATE_EXCERPT",
+        "MISSING_OPERATOR_NET_COST_CANCELLATION",
+        "LEGACY_PRICE_NOT_CURRENT",
+        "CONTACT_EMAIL_TYPO",
+        "URL_SLUG_RAFTING_BUT_CONTENT_WATERFALL_COMBO",
+        "FIVE_HOURS_VS_08_20_TO_16_00",
+        "UNVERIFIED_GEOLOGY_AND_SWIMMING_CLAIMS",
+        "ONE_DOLLAR_PLACEHOLDER_PRICE",
+        "REPEATED_5_HOURS_13_PLUS_08_20",
+        "REPEATED_BOAT_GUIDE_INCLUSIONS",
+        "UNRELATED_STOCK_GALLERY",
+        "IDENTICAL_DESCRIPTION_ON_9_PRODUCTS"
+      ],
+      "product_images": [],
+      "candidate_media_ids": [
+        "wp-5330",
+        "wp-5329",
+        "wp-5321"
+      ],
+      "media_import_allowed": false,
+      "future_fields": {
+        "departure_times": {
+          "value": "08:20",
+          "verification_status": "LEGACY_PLACEHOLDER",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/",
+              "selector": ".gdlr-core-icon-list-item",
+              "retrieved_at": "2026-09-07T05:59:09.771851+00:00",
+              "source_sha256": "e42e26299da466239f20eedec0055e3280b303ca6efe22c315b0d79e7a5b14ac"
+            }
+          ],
+          "current_business_verified": false
+        },
+        "maximum_group_size": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "whats_included": {
+          "value": [
+            "Transportation From Most Hotels",
+            "Bilingual Boat Guides",
+            "Fruit & Snacks",
+            "Lunch & Towels",
+            "Bottled Water"
+          ],
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/",
+              "selector": "Price Includes icon list",
+              "retrieved_at": "2026-09-07T05:59:09.771851+00:00",
+              "source_sha256": "e42e26299da466239f20eedec0055e3280b303ca6efe22c315b0d79e7a5b14ac"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Same boat-guide/lunch/towels list on 12 products; do not assume inclusions apply."
+        },
+        "what_to_bring": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "pickup_information": {
+          "value": "Transportation From Most Hotels",
+          "verification_status": "NEEDS_PARTNER_VERIFICATION",
+          "provenance": [
+            {
+              "url": "https://volcanvacations.com/tour/white-water-rafting-class-iii-iv-on-rio-la-balsa/",
+              "selector": "Price Includes",
+              "retrieved_at": "2026-09-07T05:59:09.771851+00:00",
+              "source_sha256": "e42e26299da466239f20eedec0055e3280b303ca6efe22c315b0d79e7a5b14ac"
+            }
+          ],
+          "current_business_verified": false,
+          "note": "Hotel radius, exceptions, fees and timing are MISSING."
+        },
+        "cancellation_information": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        },
+        "videos": {
+          "value": "MISSING",
+          "verification_status": "MISSING",
+          "provenance": [],
+          "current_business_verified": false
+        }
+      },
+      "api_compatible_now": false,
+      "reason": "Incomplete inactive draft, not a valid TourInput payload; transportation additionally unsupported by current tour-only API."
+    }
+  ]
+}

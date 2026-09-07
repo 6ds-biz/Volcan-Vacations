@@ -1,0 +1,58 @@
+{
+  "audit_timestamp": "2026-09-07T06:15:06.594711+00:00",
+  "product_pages": 13,
+  "named_tours": 12,
+  "transportation_products": 1,
+  "legacy_category_terms": 6,
+  "activity_terms": 11,
+  "destination_terms": 0,
+  "mostly_coherent_tours": 1,
+  "questionable_products": 12,
+  "one_dollar_prices": 10,
+  "product_staging": {
+    "SAFE_TO_STAGE": 0,
+    "NEEDS_VERIFICATION": 11,
+    "DO_NOT_IMPORT": 2
+  },
+  "media_sources": 371,
+  "image_sources": 346,
+  "library_images": 334,
+  "uploaded_videos": 18,
+  "video_reference_urls": 23,
+  "unique_video_references": 22,
+  "media_recommendations": {
+    "LOW_QUALITY": 8,
+    "DUPLICATE": 16,
+    "REPLACE_WITH_USER_MEDIA": 273,
+    "POSSIBLE_KEEP": 64,
+    "BROKEN": 10
+  },
+  "broken_media": 10,
+  "exact_duplicate_image_groups": 15,
+  "visual_contact_sheet_images_reviewed": 72,
+  "public_content_urls_inspected": 262,
+  "broken_content_urls": 4,
+  "known_supplier_operators": 0,
+  "venue_supplier_leads": 1,
+  "products_missing_supplier_cost": 13,
+  "partner_question_prompts": 34,
+  "pricing_rows_to_confirm": 13,
+  "page_classifications": {
+    "PRIMARY_BUSINESS_PAGE": 3,
+    "CATALOG_LAYOUT_OR_TAXONOMY": 124,
+    "THEME_DEMO_OR_LOW_VALUE": 99,
+    "EMPTY_CONTENT_SHELL": 2,
+    "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION": 12,
+    "LEGACY_DRAFT_LANDING": 4,
+    "TRANSPORT_SEARCH_PROTOTYPE": 1,
+    "CATALOG_PRODUCT": 13,
+    "BROKEN_LEGACY_LINK": 4
+  },
+  "css_only_decorative_references": 23,
+  "candidate_media_types": {
+    "image": 46,
+    "video": 18
+  },
+  "transport_to_terms": 0,
+  "transport_from_terms": 0
+}

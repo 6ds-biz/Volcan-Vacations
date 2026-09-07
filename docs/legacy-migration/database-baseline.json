@@ -1,0 +1,59 @@
+{
+  "captured_at": "2026-09-07T05:57:34.817998+00:00",
+  "read_only_transaction": true,
+  "tables": {
+    "availabilities": {
+      "count": 5,
+      "digest": "1aeff2ebf89372102f6a668a9043fe5f"
+    },
+    "customers": {
+      "count": 14,
+      "digest": "fe37d14d367cfc9e6e81c501e71a75d0"
+    },
+    "payment_refunds": {
+      "count": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "payment_webhook_events": {
+      "count": 2,
+      "digest": "f577efd791fac15798ac7822a74222ec"
+    },
+    "payments": {
+      "count": 2,
+      "digest": "27cbb331ffc86e82ad3c8511b23c0072"
+    },
+    "product_images": {
+      "count": 12,
+      "digest": "e5f7d062fcc974949aeef045fd7d359b"
+    },
+    "products": {
+      "count": 16,
+      "digest": "97011da01757645e5e1293caf14a83a1"
+    },
+    "reservations": {
+      "count": 14,
+      "digest": "df691eb2117fcd787885e3b8778b825e"
+    },
+    "supplier_confirmation_events": {
+      "count": 38,
+      "digest": "9ae8cb646dbe4faabcddd47fadc25d09"
+    },
+    "suppliers": {
+      "count": 12,
+      "digest": "c504cc993bb910d689263d46b473cdaf"
+    },
+    "travelers": {
+      "count": 14,
+      "digest": "649cd4d66656c85636f4880bb4bf8308"
+    },
+    "trip_travelers": {
+      "count": 14,
+      "digest": "4186751e4efbc2d75b7e3c5fc36f2cae"
+    },
+    "trips": {
+      "count": 14,
+      "digest": "9fb34f6ebfec30d82655227150aab8d0"
+    }
+  },
+  "note": "Only aggregate counts/digests; no customer, payment token, or provider credential data."
+}

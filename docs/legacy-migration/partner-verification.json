@@ -1,0 +1,239 @@
+{
+  "shared_questions": [
+    "For the rate sheet below, give the current operator, adult/child retail rate with currency/taxes, and VV net cost. A current supplier sheet/photo is fine; no retyping needed.",
+    "Which cancellation/refund/no-show and bad-weather rules apply? Give one shared policy and list only exceptions.",
+    "Which hotels/pickup areas are included, which cost extra, and how is pickup time arranged? Give shared rules and exceptions.",
+    "What is the correct public phone/WhatsApp number and physical/service-area address? The old numbers and Liverpool address are placeholders. Public email stays info@volcanvacations.com; identify the separate payments alias only for payments use.",
+    "For shortlisted legacy images/videos, which are VV-owned or licensed, and can we obtain the original files and any needed customer/model consent?"
+  ],
+  "pricing_rows": [
+    {
+      "legacy_id": 6198,
+      "tour": "Arenal Volcano Horseback Riding & Hot River",
+      "legacy_displayed_price": "65.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 6135,
+      "tour": "Shuttle: SJO – Juan Santamaría International Airport to La Fortuna – Arenal Volcano",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5993,
+      "tour": "Sloth Watching Walk",
+      "legacy_displayed_price": "60.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5990,
+      "tour": "Frog Watching Night Walk",
+      "legacy_displayed_price": "65.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5986,
+      "tour": "Cano Negro Wildlife Refuge",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5981,
+      "tour": "Arenal Volcano Horseback Riding",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5978,
+      "tour": "Canyoning & Waterfall Rappelling",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5975,
+      "tour": "Jungle and Maleku’s ATV Tour",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5972,
+      "tour": "Arenal Volcano Hike and Hot River",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5969,
+      "tour": "Arenal Hanging Bridges",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5966,
+      "tour": "Rio Celeste Waterfall Hike and Lunch",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5592,
+      "tour": "White Water Rafting Class III & IV on Rio La Balsa",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    },
+    {
+      "legacy_id": 5502,
+      "tour": "La Fortuna Waterfall, Arenal Volcano, & Hot River",
+      "legacy_displayed_price": "1.00",
+      "current_retail": null,
+      "currency_and_taxes": null,
+      "operator": null,
+      "vv_net_cost": null
+    }
+  ],
+  "tour_questions": [
+    {
+      "legacy_id": 6198,
+      "tour": "Arenal Volcano Horseback Riding & Hot River",
+      "questions": [
+        "Are Horseback Riding and Horseback Riding & Hot River distinct offers, or one duplicated listing?",
+        "Does the $65 offer include the hot river, and what is its actual route?",
+        "What are the real ride duration, departure times, minimum age, and rider restrictions?"
+      ]
+    },
+    {
+      "legacy_id": 6135,
+      "tour": "Shuttle: SJO – Juan Santamaría International Airport to La Fortuna – Arenal Volcano",
+      "questions": [
+        "Is this SJO → La Fortuna service shared, private, or both, and is the reverse route sold separately?",
+        "What are its departure times, travel duration, luggage/child-seat rules, and exact pickup/drop-off points?",
+        "The page shows $1 and $55 per person with sloth-tour text; please send the current transport rate sheet."
+      ]
+    },
+    {
+      "legacy_id": 5993,
+      "tour": "Sloth Watching Walk",
+      "questions": [
+        "Can we retain 1.5 hours, all ages, hourly 8 AM–4 PM, max 15 per guide, and La Fortuna hotel pickup as shown?"
+      ]
+    },
+    {
+      "legacy_id": 5990,
+      "tour": "Frog Watching Night Walk",
+      "questions": [
+        "Is Arenal Oasis the venue and/or the actual operator? Please identify which.",
+        "What evening departures, duration, minimum age and group limit apply?",
+        "Which inclusions are real? The page incorrectly appears to promise boat guides, lunch and towels."
+      ]
+    },
+    {
+      "legacy_id": 5986,
+      "tour": "Cano Negro Wildlife Refuge",
+      "questions": [
+        "Is this a Caño Negro boat outing, and what route, lunch and entry fees are included?",
+        "What actual duration, departures, minimum age and group limit should replace the generic values?"
+      ]
+    },
+    {
+      "legacy_id": 5981,
+      "tour": "Arenal Volcano Horseback Riding",
+      "questions": [
+        "Which horseback offer should remain if the hot-river listing is a duplicate?",
+        "What are the actual ride route, duration, departures, minimum age and rider restrictions?"
+      ]
+    },
+    {
+      "legacy_id": 5978,
+      "tour": "Canyoning & Waterfall Rappelling",
+      "questions": [
+        "Please send the operator sheet for the actual rappelling route, number/heights of descents, gear and restrictions.",
+        "What duration, departures, minimum age and pickup/inclusions apply?"
+      ]
+    },
+    {
+      "legacy_id": 5975,
+      "tour": "Jungle and Maleku’s ATV Tour",
+      "questions": [
+        "What route and Maleku visit are actually included, and are rates per ATV or per rider?",
+        "What driver/passenger ages, licence, deposit/insurance, duration and departure rules apply?"
+      ]
+    },
+    {
+      "legacy_id": 5972,
+      "tour": "Arenal Volcano Hike and Hot River",
+      "questions": [
+        "Does this hike include the waterfall, green lagoon, lunch and hot river, or only the hike/hot river?",
+        "What duration, departures, minimum age and walking difficulty apply?"
+      ]
+    },
+    {
+      "legacy_id": 5969,
+      "tour": "Arenal Hanging Bridges",
+      "questions": [
+        "Which bridge park and operator are used, and are guide/entry fees included?",
+        "What actual duration, departures, minimum age and accessibility rules apply?"
+      ]
+    },
+    {
+      "legacy_id": 5966,
+      "tour": "Rio Celeste Waterfall Hike and Lunch",
+      "questions": [
+        "Please confirm the Río Celeste itinerary, departure location, drive/walk duration, park entry and lunch.",
+        "Is this distinct from the La Fortuna waterfall combination, and what age/difficulty restrictions apply?"
+      ]
+    },
+    {
+      "legacy_id": 5592,
+      "tour": "White Water Rafting Class III & IV on Rio La Balsa",
+      "questions": [
+        "Is the river Balsa or Sarapiquí, and is the correct class III–IV?",
+        "Are the two hours on water and five hours total both accurate? Confirm departure, minimum age, restrictions and inclusions."
+      ]
+    },
+    {
+      "legacy_id": 5502,
+      "tour": "La Fortuna Waterfall, Arenal Volcano, & Hot River",
+      "questions": [
+        "Can we retain the waterfall → volcano/green lagoon → lunch → hot river route, and which stops/fees are guaranteed?",
+        "The page shows five hours but 08:20 departure and return around 4 PM. What is the actual schedule and minimum age?",
+        "Please confirm safety/access rules and replace the unsupported lava-year and swimming claims with the operator’s current wording."
+      ]
+    }
+  ],
+  "question_prompt_count": 34,
+  "pricing_row_count": 13
+}

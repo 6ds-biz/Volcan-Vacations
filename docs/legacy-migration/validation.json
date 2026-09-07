@@ -1,0 +1,87 @@
+{
+  "validated_at": "2026-09-07T06:20:19.335251+00:00",
+  "database_read_only": true,
+  "all_application_tables_unchanged": true,
+  "table_comparison": {
+    "availabilities": {
+      "before_count": 5,
+      "after_count": 5,
+      "unchanged": true
+    },
+    "customers": {
+      "before_count": 14,
+      "after_count": 14,
+      "unchanged": true
+    },
+    "payment_refunds": {
+      "before_count": 0,
+      "after_count": 0,
+      "unchanged": true
+    },
+    "payment_webhook_events": {
+      "before_count": 2,
+      "after_count": 2,
+      "unchanged": true
+    },
+    "payments": {
+      "before_count": 2,
+      "after_count": 2,
+      "unchanged": true
+    },
+    "product_images": {
+      "before_count": 12,
+      "after_count": 12,
+      "unchanged": true
+    },
+    "products": {
+      "before_count": 16,
+      "after_count": 16,
+      "unchanged": true
+    },
+    "reservations": {
+      "before_count": 14,
+      "after_count": 14,
+      "unchanged": true
+    },
+    "supplier_confirmation_events": {
+      "before_count": 38,
+      "after_count": 38,
+      "unchanged": true
+    },
+    "suppliers": {
+      "before_count": 12,
+      "after_count": 12,
+      "unchanged": true
+    },
+    "travelers": {
+      "before_count": 14,
+      "after_count": 14,
+      "unchanged": true
+    },
+    "trip_travelers": {
+      "before_count": 14,
+      "after_count": 14,
+      "unchanged": true
+    },
+    "trips": {
+      "before_count": 14,
+      "after_count": 14,
+      "unchanged": true
+    }
+  },
+  "public_typecheck": "PASS",
+  "public_lint": "PASS",
+  "public_build": "PASS",
+  "operations_typecheck": "PASS",
+  "operations_lint": "PASS",
+  "operations_build": "PASS",
+  "compose_config_quiet": "PASS",
+  "services": {
+    "api": "healthy",
+    "postgres": "healthy",
+    "web": "healthy",
+    "ops": "healthy"
+  },
+  "package_consistency": "PASS",
+  "no_import_executed": true
+}

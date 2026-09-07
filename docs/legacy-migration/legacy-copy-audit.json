@@ -1,0 +1,1830 @@
+{
+  "blocks": [
+    {
+      "id": "about-1",
+      "source_url": "https://volcanvacations.com/about/",
+      "source_text": "Welcome to Volcan Vacations, your premier tour company nestled in the heart of La Fortuna, Costa Rica. At Volcan Vacations, we specialize in providing unforgettable adventures and experiences that showcase the natural beauty and cultural richness of this stunning region. With our passionate team of local experts, we aim to curate immersive and authentic tours that leave a lasting impression on every traveler.",
+      "classification": "REWRITE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Useful local/company/service positioning; verify business claims and edit before use."
+    },
+    {
+      "id": "about-2",
+      "source_url": "https://volcanvacations.com/about/",
+      "source_text": "La Fortuna, with its breathtaking landscapes, lush rainforests, and majestic volcanoes, serves as our playground for exploration. From thrilling hikes to serene hot springs, we offer a diverse range of tours tailored to suit every adventurer’s taste and preference. Whether you’re seeking adrenaline-pumping adventures, wildlife encounters, or simply a relaxing escape into nature, Volcan Vacations has something for everyone.",
+      "classification": "REWRITE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Useful local/company/service positioning; verify business claims and edit before use."
+    },
+    {
+      "id": "about-3",
+      "source_url": "https://volcanvacations.com/about/",
+      "source_text": "In addition to our exceptional tours, Volcan Vacations offers hassle-free transportation and hotel booking assistance. Whether you’re arriving from the airport or need accommodation, our reliable services ensure a smooth journey and a comfortable stay. With our local expertise, we’ll find the perfect lodging to complement your adventure, allowing you to focus on making unforgettable memories in Costa Rica’s tropical paradise.",
+      "classification": "REWRITE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Useful local/company/service positioning; verify business claims and edit before use."
+    },
+    {
+      "id": "01-homepage-2",
+      "source_url": "https://volcanvacations.com/01-homepage/",
+      "source_text": "Discover the heart of Costa Rica with us—a travel hub where adventure intertwines with tranquility. Immerse yourself in the enchanting beauty and diverse landscapes of this top destination through our expertly crafted itineraries, exploring pristine beaches, lush rain forests, and vibrant cities.",
+      "classification": "REWRITE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Source material only; duplicated/template claims are not approved business facts."
+    },
+    {
+      "id": "-1",
+      "source_url": "https://volcanvacations.com/",
+      "source_text": "It’s our passion and our expertise, and has been for over two decades. We know the trails and the towns inside and out. We know the hoteliers and their rooms, and restauranteurs and their menus. We don’t guide on any route we haven’t done many times before. Our expertise gives you a richer, more enjoyable experience, and we will makes better use of your time.",
+      "classification": "DUPLICATE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Source material only; duplicated/template claims are not approved business facts."
+    },
+    {
+      "id": "homepage-2-1",
+      "source_url": "https://volcanvacations.com/homepage-2/",
+      "source_text": "It’s our passion and our expertise, and has been for over two decades. We know the trails and the towns inside and out. We know the hoteliers and their rooms, and restauranteurs and their menus. We don’t guide on any route we haven’t done many times before. Our expertise gives you a richer, more enjoyable experience, and we will makes better use of your time. We provide a thorough and complete orientation, so you are fully prepared to make the most of your Swiss vacation or Alps hiking adventure. Your expert trip leader is with you for the entire trip.",
+      "classification": "DUPLICATE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Source material only; duplicated/template claims are not approved business facts."
+    },
+    {
+      "id": "homepage-2-2",
+      "source_url": "https://volcanvacations.com/homepage-2/",
+      "source_text": "The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia. To make the most of your vacation experience, you’ll want to plan your itinerary and activities to take advantage of the best weather and optimal conditions. Remember, the Alps is located at a latitude between 46° and 47° north.",
+      "classification": "LOW_VALUE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Source material only; duplicated/template claims are not approved business facts."
+    },
+    {
+      "id": "contact-5",
+      "source_url": "https://volcanvacations.com/contact/",
+      "source_text": "4 apt. Flawing Street. The Grand Avenue. Liverpool, UK 33342",
+      "classification": "LOW_VALUE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "reason": "Source material only; duplicated/template claims are not approved business facts."
+    },
+    {
+      "id": "canonical-contact",
+      "source_url": "https://volcanvacations.com/contact/",
+      "source_text": "info@volcanvacations.com",
+      "classification": "REUSE",
+      "status": "VERIFIED_FROM_LEGACY",
+      "current_verified": true,
+      "authority": "Explicit user confirmation"
+    },
+    {
+      "id": "unverified-promotions",
+      "source_url": "https://volcanvacations.com/homepage/",
+      "source_text": "Enjoy Summer Deals / Up to 40% Discount!",
+      "classification": "OUTDATED",
+      "status": "NEEDS_PARTNER_VERIFICATION",
+      "reason": "Undated template promotion has no current validity evidence; do not migrate as an offer."
+    }
+  ],
+  "all_pages": [
+    {
+      "url": "https://volcanvacations.com/",
+      "classification": "PRIMARY_BUSINESS_PAGE",
+      "title": "Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "904b3211a1e3feaa9fc5c16f189fb19ab95a367bae622078960819cc1aea3573"
+    },
+    {
+      "url": "https://volcanvacations.com/tour/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "All Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "64c0bc9d0309055e4345e2d7817f10a9797e8ddf0e67a05cd6c94d708cf1bcc3"
+    },
+    {
+      "url": "https://volcanvacations.com/sample-page/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Sample Page – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "67956911957f49b3a9345be752de034e1b48503084ba25a6e9b49267790bdbb8"
+    },
+    {
+      "url": "https://volcanvacations.com/accordions-toggles/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Accordions & Toggles – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "c09f3f94e9601f6af6a03096a59005df83dbb9b80e581fbf3fb287f92bca3bda"
+    },
+    {
+      "url": "https://volcanvacations.com/alert-box/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Alert Box – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f5a55d9ca13454858a571b0ee32ffaa4bbe48bd9d45aefe615f4f5098bf9a047"
+    },
+    {
+      "url": "https://volcanvacations.com/blockquotes/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Blockquotes – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "af2479b87186e0aa6f3e2fc2851119c99d434283ece00533fa22678928a28e0c"
+    },
+    {
+      "url": "https://volcanvacations.com/buttons/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Buttons – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "c7bfdfb8e9321b21cc2bd89654fe175bf5e63254934f230a158493ca0403e4a9"
+    },
+    {
+      "url": "https://volcanvacations.com/columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "fd4868096bd170825343c479a9ac42a8ebed8f1b31ff5c950b58a3f3db00bfd7"
+    },
+    {
+      "url": "https://volcanvacations.com/counters/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Counters – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "601d9389bf91731597cc620ace912224eeddeaf466ad81a75ed5a7bcef6cddc5"
+    },
+    {
+      "url": "https://volcanvacations.com/column-services/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Column Services – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "7ac9692b72031898727045490655531c4533c81bd41efc5f13d52e75a947939c"
+    },
+    {
+      "url": "https://volcanvacations.com/call-to-action/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Call To Action – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "29ccfb2ee2eec257a9c3eb070d8886871fc87431edeb36405c94c850066a0ed2"
+    },
+    {
+      "url": "https://volcanvacations.com/dividers/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Dividers – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "35bc42e2a2f204e347993ffea208af0713eeaf391004e31e28a67559ea8189ff"
+    },
+    {
+      "url": "https://volcanvacations.com/dropcaps/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Dropcaps – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "37065e0c03e80c6c4e5373139b77cc9be600066f10aa8b0a2bbbbfd01f7143ef"
+    },
+    {
+      "url": "https://volcanvacations.com/flip-boxes/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Flip Boxes – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "565b320e4d7cfbe5fedd46cc24e58d7c5dfb6929bfd060f88bd1d060b57dd7c3"
+    },
+    {
+      "url": "https://volcanvacations.com/featured-boxes/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Featured Boxes – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "195505b949b4243a4a157cce7bc1728a0033c75499d52c21038163864465782d"
+    },
+    {
+      "url": "https://volcanvacations.com/icon-list/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Icon Lists – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "20a3e4544608f3f9db127ac26e7872965b570b38331ff01581bb32567e7a9ecc"
+    },
+    {
+      "url": "https://volcanvacations.com/icons/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Icons – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "fb1a2bd85a2ee0a7c68ae11a5ee0528018cfd5186aa2931185a87b8ca7f940e9"
+    },
+    {
+      "url": "https://volcanvacations.com/images/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Images – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1fd4113fbbc2994d9c63f922e87fa3c464cfc584ba02b6a427552e71c4d2e107"
+    },
+    {
+      "url": "https://volcanvacations.com/promo-boxes/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Promo Boxes – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "7fd7a4fc0f636e64e8205fa1debf4f209ae0e28cb98e4b41ab2daa3c41da975c"
+    },
+    {
+      "url": "https://volcanvacations.com/price-table/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Price Table – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "436f06ecf7f7ab4c7c827179babed5657a49dc0e246472fdfbb12e53bc6498d3"
+    },
+    {
+      "url": "https://volcanvacations.com/team-plain-style/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Team / Plain Style – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "b0fff6ef3cb4a136d050dca36449351ddbc3eb78f48f93056b8b047e9e423cfb"
+    },
+    {
+      "url": "https://volcanvacations.com/skill-bar/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Skill Bar – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ecc691357850cf6780cf2be0aaf498e4d387275596f1ad63b23eac1fa9854459"
+    },
+    {
+      "url": "https://volcanvacations.com/skill-circle/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Skill Circle – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e167f21e37b53e6b9703452c1768e1f96ebf5e020554075520c92507e5855694"
+    },
+    {
+      "url": "https://volcanvacations.com/social-shares/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Social Shares – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "c7cd09efaaef8b28e3a0f86a6a986665ba3ae8c704fbfac518b3bae8085f4cb5"
+    },
+    {
+      "url": "https://volcanvacations.com/stunning-texts/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Stunning Texts – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "30ca03bf0b677554772ede53c9cae3e234b921ea53a05f48aa6f9ef4e737a1bd"
+    },
+    {
+      "url": "https://volcanvacations.com/tabs-horizontal/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Tabs Horizontal – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "6db8f599888d98e86c37bcfe1926787b94d28bfb180f662ceb98df0cdf15e33e"
+    },
+    {
+      "url": "https://volcanvacations.com/tabs-vertical/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Tabs Vertical – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ab4428b12e9485c2d2b45a23c030ecd32b925247e39b0df410e60cb469ce6986"
+    },
+    {
+      "url": "https://volcanvacations.com/titles/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Titles – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "d04edcf20630f80980e9bbc6334c87b59426a55031f036ddd3741d0107f9d495"
+    },
+    {
+      "url": "https://volcanvacations.com/testimonial/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Testimonial – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "a55d4a20ae254362c013759c439e759fe100edfb34043a8f6bfff0a08475d5d5"
+    },
+    {
+      "url": "https://volcanvacations.com/team-frame-style/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Team / Frame Style – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1e7d8fea6c73799c8c8d212bf8ae7141debc67bcbf4172cb220990693ed29b65"
+    },
+    {
+      "url": "https://volcanvacations.com/team-thumbnail-style/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Team / Thumbnail Style – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "6f54bcabf9c90cb6af2f510e8976bc4d24667752b43d5e53ce2d599f77c43250"
+    },
+    {
+      "url": "https://volcanvacations.com/shop-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Shop – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9cd6c14ab75b5782d33df7f039c4fae7166125b5b1ecc5fd8b157ccd40be4b7e"
+    },
+    {
+      "url": "https://volcanvacations.com/products/",
+      "classification": "EMPTY_CONTENT_SHELL",
+      "title": "Products – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "072923025777ffab16fe2ef9a1134acb42a936d0393f1b8a19296cd54245d8d5"
+    },
+    {
+      "url": "https://volcanvacations.com/about-us-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "About Us 2 – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "aa424e96b944e942a08db30a0305de1169a7363ea9dda324c424b2bb71f6174c"
+    },
+    {
+      "url": "https://volcanvacations.com/contact-1/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Contact-1 – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9a1200fbba4e723e59f09ee80574bfbd542c2fc0e1f7a755211fff2352b6ca89"
+    },
+    {
+      "url": "https://volcanvacations.com/contact-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Contact 2 – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "042f972da4eb896e0ef7f0632f7679eb9556b1ad805c4a8a502993c8f36f3751"
+    },
+    {
+      "url": "https://volcanvacations.com/contact-3/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Contact 3 – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "0c56d1b2ea75d15207f0ae1f416268220bbb845fa27e90d1977f9f6551655c53"
+    },
+    {
+      "url": "https://volcanvacations.com/maintenance/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Maintenance – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "88eb4af38582eef74a5533476b3d93c9ebbbed4b6f51ececb6ebf86c73cc7463"
+    },
+    {
+      "url": "https://volcanvacations.com/coming-soon/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Coming Soon – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "a6ce45e3b8b4f28c152fecf1c324a4d4c23fd8099738cdb6c0d78af4ee97db89"
+    },
+    {
+      "url": "https://volcanvacations.com/typography/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Typography – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f0cbb9ceed939a57c00bd5c03b9c54880da61f8b33fab349906e26b096d933de"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-5-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 5 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "b7445b0a64248a66a86bb31ed04c7c9408f8e2cf62a33ec699c6d5a4485e74c0"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-4-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 4 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "3393df5b7ef21337c6c887bc6656fd85dfef8017f1c77412087e719a9728517b"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-3-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 3 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "b90fbe0fb8be4391d834b442fab77742af616b71dd2d21ac2298dd66601d8a2b"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-2-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 2 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "759ceb20fb0b127c4682e5a1341ef118f043b77a89344818454c1703f75fea70"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-5-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 5 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "8593f9b6ae99b75e12acf935d7e05f2bcc1ebc1b5169fc84c6e0898febffbe3e"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-4-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 4 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "40322d6a07475776ebf8cae32ed744300f32ec3de5ab3f29a13ffda778bc53b0"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-3-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 3 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "0dfbf1b591ff2048737a5f886187a65225b8cfd3d18d8baa875caa2f23da7cd6"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery-grid-2-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery Grid 2 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "119380019985e0116c60ea1ba120cc443cfe6c29a9a2c6e3e9d25529ee2cfc25"
+    },
+    {
+      "url": "https://volcanvacations.com/count-down/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Count Down – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "aef905b80fe0bb23a3efc61db9bc637c459b9e13a18b0d0b84327be4baf03eb7"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-2-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 2 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "c51f1ace05a0b21f64a016a8489a447d6cd835528762ba3620632982a714001a"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-3-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 3 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "871f611dcdf2087b8c21ff996dfe1912b1471a80e51ca0af10bb207e36ce53ba"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-4-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 4 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "5c9f442cb2132a755bf59f1d509c430488aaaa641994f7b998e68cacdde8d273"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-5-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 5 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "d887fd95c612cf75343949b4931e5bb5ae153b4873fe167d6b8ca44410449fa1"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-2-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 2 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "72c2d653135a7526e59f0402bf22ac591992df9ccd70f06b326b43ca317dc265"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-3-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 3 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1ff5cb16152b4dc021aa8005dd9a685f60931690b3db97d0fa06d72df598322a"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-4-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 4 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e90d1f9d73141ca255bb9851491564011a82461d27d31945ee66f999852ded9e"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-5-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 5 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "86d9edadfb1f32242fac91371887e3b941d3845315969e169d50a705ddb7a8ad"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-2-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 2 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ec915aa5a9d9464a94babc9050f21b080397bee1dea00736d8cfddf8a515af7c"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-2-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 2 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "d9087de1f8f9f23a0e27c59cad0e6a3b62fced0edaada282dac5dbf3133e4e3c"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-3-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 3 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "3c6eb790fe1f2a1eb962f769224416354bf965f9d1f971b9a3a3422102872a37"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-3-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 3 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f259e99777f4bfc31e7824ac66cf7127049332e3388a97af6cecc4c7a3cc7193"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-4-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 4 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "0862b45f5094c3c3b2ac398662f3886cda8a4920eed063c3c9c8f9a7881bc771"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-4-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 4 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "bf108e53f08b2af4e7152c8ae18cb882e6e108f84b880c67ede630fb26a7ade7"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-5-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 5 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "439b801998e59ca4bf7c06e9e92407812e73f47fea27ae379f852859da06b859"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-modern-5-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Modern 5 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "03ae003c465d738ae195ba0c5fb1a9eae919482f923b594316abed86160060e8"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-left-small-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Left Small Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "d5ffc068dfac0921381080ce0c14128dff7cf198e2df67032528599aa96f4a91"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-right-small-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Right Small Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "fc0bdded0a3775ff8de4e429832ade81768dc64d47da6801e054abe5c9455725"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-left-right-small-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Left & Right Small Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "6877010f4482600e88400409d7b156bb7a3145d53bed4e96aed952eefc257d9e"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-left-large-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Left Large Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "645c4244cf24a9d14964660c576b59078a0e5e148f63518a1af6dd6f7240b31d"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-right-large-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Right Large Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1ef400ac1d4ea18eba57f6066e71b83a91b32a49263b8873b25822b62fe7bff4"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-left-right-large-thumbnail/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Left & Right Large Thumbnail – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "183647a433712212c3e1d9fb15733fcd656879b01be0d8b8a487e35fafc984bf"
+    },
+    {
+      "url": "https://volcanvacations.com/about-us/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "About Us – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ad42245c7e8688560ef972c7bed6fb8f05a9f077e21c1776d00037c5deb28784"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-4-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 4 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "03e9ed7022e994b11942951b4fe9f1c7c2ca8d702047cdc70d7892023338bdd4"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-4-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 4 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "44736822bf6e6db8cdfcb991eaed2f75050c5c6db1e101323d5ab9658769df02"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-3-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 3 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ceecbe5d765af41a6eb73246f6bfceb600ac107ca21d23f91af25b568ffce182"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-3-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 3 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "b3d411dceff9633c2062c840d7d9da1f9cec3a15d41ccc6b4a6756330837b55b"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-2-columns/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 2 Columns – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "401cd4357be66fde82157a114b0ce9fbb169652cb45ae4c501a49029e9bcff57"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-masonry-2-columns-no-space/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio Masonry 2 Columns No Space – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "3fffb0acd3b21c5a47c6811f5a54a95bd509f7b36aad5228262f8c61f8776c28"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-2-columns-with-frame/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 2 Columns With Frame – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "b2fc9441790791215792ab51531ebf2df43310ab4f1a60e617cd43b534ff3485"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-3-columns-with-frame/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 3 Columns With Frame – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f4fe6eb81766e02a3f1ac1c8aab2dae7cf3a37cbed37b52160b6ff77fb60c4be"
+    },
+    {
+      "url": "https://volcanvacations.com/portfolio-4-columns-with-frame/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Portfolio 4 Columns With Frame – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "30abd537958a72389a1285725031d196ad243f0a32203f59edc8267e7a291902"
+    },
+    {
+      "url": "https://volcanvacations.com/about-us-3/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "About Us 3 – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f3a8c8b493ba1348bfbe6d2516d089f5e15769e080cedea3d1e78cd4fe4ec555"
+    },
+    {
+      "url": "https://volcanvacations.com/about-our-team/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "About Our Team – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "62a730ac9ecbd1104b841a4c1247e29412f40a572e294ce6de407bbe68ce86a5"
+    },
+    {
+      "url": "https://volcanvacations.com/our-services/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Our Services – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "3ff9120f42b5ed3da7d10e46fc0b9cc52ff290737217876503b12140d752a759"
+    },
+    {
+      "url": "https://volcanvacations.com/gallery/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Gallery – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "789fd75be245924b11cf5d3f54ff9c2a09e00dce2e7bc415895bd92f5434b64e"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-width/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f60e1df4757e3863dde1dce29ca774847d8f169c8e7f3ec50d258440ac88732a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-right-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail – Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5b244bbc1806522ddaab27e8897c17b30bf0d0f1be98011fe4534b50d6b909f1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-left-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "93b95d9b9839a5e5fcea29312468be7534a2ae5f25be35c9a20c0e8b37ddcd1f"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-left-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e48b2bcaf39fc01ade9c4552bbb7f95000d067cb6f97ac345ac41154895b9eb4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-right-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "7e1e57f13550b1d7360f002e74e2d1e8f2dacfa84e3af204c21a5f7b01b238da"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-right-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0cfe85a55aa51efc2256b00614615cb9bacbfae9caba05ca05dd748676ad0a25"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-left-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6e4a77f3c9aeacf3689bfc9c184d5196964e85ffb571060feb31f0f6e7945fe1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-left-sidebar/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "8b59bab6befd2b012299b0e8f80cd2034f67063ee87a4ce8917b35681f0561bb"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "47f1cbb89888e162945b8870e926ce618e5acfdc8471943585c80154f23cf320"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "b46410c327754e5128a362734d51198615fae810507497ac8175899f4419e94b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-5-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 5 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "179fdf4fe67ed7a006d2e04642dec285b66044db2fba1576cf16e0869baf5bc2"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "18eb9ca469f167aac25089071bee127744083993060a915d607070acf378e3d4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "888873638ed93061d43df5b73c43b7009bc8da642410021a1192a5b7daa06ffe"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0b4b38af4be90704c18efef4b10dedc4c5a6825c82fa02a91e2458806c0160fc"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "2072522035135f7455c7f2de64d3a7463fe0e9bbe6295b0d7f975c3e83f4a6cd"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-5-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 5 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "20df21d4f10d75eb84a20462a17af2b937d5631da60ac7ee64de2b5821e01d9c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5ea4370cd5cc6b34f058c5bf00f1f6b2c1999165c49c8541782e155436b60b34"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "17a72ec05a81dd0a75052d03063cff49f771b174a5196f2e42e1274a743a7bd4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "63653189a7ddec6fc7abe24b1c2e36bbc04d91386122531b48a57bb40cede4a8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-5-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 5 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "8c435bf2b7bb1f410227af311075f347e15f16ac96fc7f46ca6ed4a66dbff202"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "baf4d4b19c447ce7a2cd796b0bea47128f2644c59d3788a87da71a09352d3b31"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "b3a3b14aaae91798234a4e395ddabec7ba4dfa96b4fb48ae9aabc9a84512b9b0"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1c6a0ab82f9df4e317cd2236cd6c674c246bc29a1345e34c8730e07eff0a04bc"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-5-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 5 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "dd13250e0ec6ee5d15757501a8055b109455bc59559ab0320b5118434aaca01c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1c99a55a5114b75636c18f08523301bf98bb78934da4a34458322329b90d28e1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "531e1e0f1e7a7f16f7549f9c7644098eb69b02a84e724629c8d4be403db6009c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "ef8953fad175e774cef08c7dacccd952747a4c54a65aac291ed0cb208adbfd7b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "02 Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5409032256340def8e275ca635318f3c6683ce08f9454a261f1c9226a0be66d3"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "bd4e4de457fd3e053bda2fef7da6a59612dcf0c0683da0798d44cc1fdf0f2a15"
+    },
+    {
+      "url": "https://volcanvacations.com/dashboard/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Dashboard – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9aca778a54a0ea34a0f4cbb8dd6953b678cf761818c3ec820e1717cc94718dad"
+    },
+    {
+      "url": "https://volcanvacations.com/login/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Login – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "66300b8ec1f351448992773e55cafcbe564c9e07743f1a1dcdeb8f130f806124"
+    },
+    {
+      "url": "https://volcanvacations.com/register/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Register – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "13ad73b1a3fd68a8f150da77f21f60b9737be9739f031b33d25c60be05d5de2e"
+    },
+    {
+      "url": "https://volcanvacations.com/payment/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Payment – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "3fa0aa9f5824fd266dad1b96ba2eea1af47ed5c79de536943f3c3536db23f1c8"
+    },
+    {
+      "url": "https://volcanvacations.com/search-tours/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Search Tours – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e0413f2f6524c602dc8c669a4462c70b2d7063e96efe6db8142101a387f6e4e3"
+    },
+    {
+      "url": "https://volcanvacations.com/destinations/",
+      "classification": "EMPTY_CONTENT_SHELL",
+      "title": "Destinations – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "fb521fba2b008e2eab2f6a4dce87e4fca812932a24779d6dfa4a71efabfb1bd9"
+    },
+    {
+      "url": "https://volcanvacations.com/popular-deals/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Popular Deals – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "f73dbe7e1c6029de9d16575b85ef64dcca60accf9d907a9d55a97feee06b29b6"
+    },
+    {
+      "url": "https://volcanvacations.com/one-day-tours/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "One Day Tours – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "c61cc12e4479dee94daa66986e899dff128cf6f0656fd6776ce92f37f49de401"
+    },
+    {
+      "url": "https://volcanvacations.com/top-vacation-tours/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Top Vacation Tours – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1bcb9722841afc3e9a40955ff395bc17a725564f493cd37305ebe79c2dca481d"
+    },
+    {
+      "url": "https://volcanvacations.com/admin-transaction-page/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Admin – Transaction Page – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "ca4f93c72882d0f502b559374c512bf6256256f25e41c2e396df3657652d6f03"
+    },
+    {
+      "url": "https://volcanvacations.com/admin-single-transaction/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Admin – Single Transaction – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "56392ddf4043fac7d70de0b0e9cf2b21464f43460e78ccc42c0ccebf41bc0690"
+    },
+    {
+      "url": "https://volcanvacations.com/customer-dashboard/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Customer – Dashboard – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "d27258c74ef100c43c0f8226f63c38b0ae3c704c95a6b647c168c564de7cbba0"
+    },
+    {
+      "url": "https://volcanvacations.com/customer-bookings/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Customer – Bookings – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "78b998d9900c0f7dbde7133d0757cd8800e4be755db8fdcdf27f6b8dd5072d69"
+    },
+    {
+      "url": "https://volcanvacations.com/customer-review/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Customer – Review – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "8ffea1ebaff229ac0d1e16c6415c7c3387de86fb0aa9cd11ccb27800a60a4e27"
+    },
+    {
+      "url": "https://volcanvacations.com/customer-invoice/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Customer – Invoice – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "04eb001afda9d88f6c6ca53ab4d2356b8d9ed14e346961ca3fc75f1f4968ac0f"
+    },
+    {
+      "url": "https://volcanvacations.com/customer-wishlist/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Customer – Wishlist – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "33294d6d66fb6785548151b456240249a04cad81dc87e6d08e10f5a9fad0e6bc"
+    },
+    {
+      "url": "https://volcanvacations.com/test-the-system/",
+      "classification": "LEGACY_SYSTEM_OR_DEMO_DOCUMENTATION",
+      "title": "Test the system – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "0889321cf8659d01c0e28440039f9e5cca02aafc64f486b93bc339532e481a07"
+    },
+    {
+      "url": "https://volcanvacations.com/how-the-payment-works/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "How the payment works – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "8a7ade7d44e8b303b19c4a182414da88a117c5f171329ec409352002dd53f516"
+    },
+    {
+      "url": "https://volcanvacations.com/landing/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Landing – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "63d908dab99e6c45c4ec859025c39452bd87d6bb3065ced870d819737efe8177"
+    },
+    {
+      "url": "https://volcanvacations.com/shop/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Shop – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "43fa1836bfb017dc004667c57108cf0d6287500b1bd3e6d38a480c0c153f73a9"
+    },
+    {
+      "url": "https://volcanvacations.com/homepage/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Homepage – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "4fc046a96b88a6f9dff4504ddfd5df89a1102951c525447d4cb5ed5d26cd83a3"
+    },
+    {
+      "url": "https://volcanvacations.com/newsletter-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Newsletter – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9e989f26d7f3ef0b43a2ca6a71abb2a9b9c984afcbcc33056de4f363d940da7e"
+    },
+    {
+      "url": "https://volcanvacations.com/sample-page-2-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Sample Page – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "67956911957f49b3a9345be752de034e1b48503084ba25a6e9b49267790bdbb8"
+    },
+    {
+      "url": "https://volcanvacations.com/newsletter/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Newsletter – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9e989f26d7f3ef0b43a2ca6a71abb2a9b9c984afcbcc33056de4f363d940da7e"
+    },
+    {
+      "url": "https://volcanvacations.com/homepage-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Homepage – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "99ec0fd5af6673e07d9dec5e8f6272d409945c248cdfd063c8758941f88fbbb6"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-3-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6582538705b6ac3d5dbbb7ed50f48815aac6ae4a427995f8de11714d0c95eb34"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-2-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "caf4a674aacef1a2e34fe3212ca029f1f713bab9104adca7c1d1b5ca1d922c99"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-4-columns/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "d02321ef3b2a5b5fdc47317ccd8f4561310f8a964c72526b75911c2900be5def"
+    },
+    {
+      "url": "https://volcanvacations.com/01-homepage/",
+      "classification": "LEGACY_DRAFT_LANDING",
+      "title": "01 Homepage – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "aa89ad4bb7b65ad0780d72255b73214e18e6cdeee08fb639ee6b9fe538d15ccb"
+    },
+    {
+      "url": "https://volcanvacations.com/newsletter-2-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Newsletter – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "9e989f26d7f3ef0b43a2ca6a71abb2a9b9c984afcbcc33056de4f363d940da7e"
+    },
+    {
+      "url": "https://volcanvacations.com/sample-page-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Sample Page – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "67956911957f49b3a9345be752de034e1b48503084ba25a6e9b49267790bdbb8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-search/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Search – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "bc3e2fd9890516000dc1d6cad6d5c41bd89dc43b198baad8a94d076b912659c3"
+    },
+    {
+      "url": "https://volcanvacations.com/about/",
+      "classification": "PRIMARY_BUSINESS_PAGE",
+      "title": "About – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "09e4642f82be605ac7169039c1612223fbc7de0507233c43b35c62f1de037ea0"
+    },
+    {
+      "url": "https://volcanvacations.com/privacy-policy-2/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Privacy Policy – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "2e966143dc2dc567418a57a44334159c3eda4778be7cba6b0176fe38e08d8bbb"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-2-columns-2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e7cc9adabe6313e9a839154e8b0a334cf9a1d7508c47119cec63d112635a47ae"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-3-columns-2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "fd755c19641c34d836d0a117c128a980f045a6e231d96a59458bdb27ff3d7ec1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-4-columns-2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f661cbf8673c64330b0a943ee010a617b3c0f3fd57a2abad1557285067197f23"
+    },
+    {
+      "url": "https://volcanvacations.com/shop-3/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "Shop – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "43fa1836bfb017dc004667c57108cf0d6287500b1bd3e6d38a480c0c153f73a9"
+    },
+    {
+      "url": "https://volcanvacations.com/01-hiking-home/",
+      "classification": "LEGACY_DRAFT_LANDING",
+      "title": "01 Hiking Home – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "d1ad8bcb1e6c93528e9a7ea8a9dddb367564e66b4b6b14b7fdb278aaab4e53d9"
+    },
+    {
+      "url": "https://volcanvacations.com/01-hhm/",
+      "classification": "LEGACY_DRAFT_LANDING",
+      "title": "01 HHM – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "f0bc218bb369a1c199583be4e69c1c52aca6c4694e99f3991371af918d29059f"
+    },
+    {
+      "url": "https://volcanvacations.com/02home/",
+      "classification": "LEGACY_DRAFT_LANDING",
+      "title": "02Home – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "5d30c7762c72b82f611b658b9cbf0f0e1338de944a6ac69652e3923a5c9924ea"
+    },
+    {
+      "url": "https://volcanvacations.com/contact/",
+      "classification": "PRIMARY_BUSINESS_PAGE",
+      "title": "Contact – Volcan Vacations",
+      "content_classification": "REWRITE",
+      "text_sha256": "f52484ae43f87daad227daf1f027144c5d2bb3dce44fb6aa1f982634aee5b99d"
+    },
+    {
+      "url": "https://volcanvacations.com/01gallery/",
+      "classification": "THEME_DEMO_OR_LOW_VALUE",
+      "title": "01Gallery – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "163a8dd05008bc2018154a7da8f77e2b1126ae78bd8bc57b367a095bd230abfa"
+    },
+    {
+      "url": "https://volcanvacations.com/01-test-shuttle/",
+      "classification": "TRANSPORT_SEARCH_PROTOTYPE",
+      "title": "01 Test Shuttle – Volcan Vacations",
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "1e9cfec796cf530b2e3c0360a33b2634cc13e516db26f3fc12b667a66111063a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/shuttle/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Shuttle – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "591d458f3ec78e4e351b6ea3815eb9cb5a4116629ddac1e2d4985af211b76b6a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-tag/best-sellers/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Best Sellers – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "a895f669e2dadc195ce3dd1f4d1c9909c1216f46ccfe26293227f2883f8da8e4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-tag/shuttle/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "shuttle – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "2c8f745186eb32faa0651a7bb967e916ced4ed58ffdaa8c42f5424413cc12dca"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/cultural-thematic-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Cultural & Thematic Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "799f28c47549e6266ba01b6088491219c9f1b2f17c0300e52240a7fd00f12809"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/wild-adventure-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Wild & Adventure Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "c127952bdc015b3c9ce475f8b94dc6dd48378093d9dc9a06b599cb73f8d52dae"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/adventure-tour/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Adventure Tour – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "33f67d49a33dec6a1e3d5fccff2be1068a65f41922ca7830c7d903d84ac0c6df"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/day-hiking/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Day Hiking – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "4b45c11854da3056c823bd9a36c8cae5f1dd7b6fdc523fa121b0eadb417a9707"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/hiking/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Hiking – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "4aeb77767bf5b55cf5c074ea7320dc8e49ef4a3dce81097d493ec28ba739a1d5"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/nature-tour/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Nature Tour – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "ca21d0befe484ce2315cd48fbaf9447c2af31e6cf80c02b1116a53b0f5d8915d"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-category/private-transportation/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Private Transportation – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "a170279e6b18e741a067f3bcbef24c334e076dd5dc5002e3a0608772b70f1355"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/city-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "City Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "46ba2901a74b81fcaa019b9c4581864fe95ca9eb35cd930da02592671ff98d3b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/climbing/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Climbing – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0bad21c65c08ebfb6cce47a15d8d94b5f5dc18d6ab262c99055f6396c112287b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/family-friendly-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Family Friendly Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "85ec7b3479eb42190ef403507b244d8bc83f87d29ad0a5a80bf67faccb073cd1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/hiking/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Hiking – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "bae38c6bce86d7e027a2c7292b9a2703907ceb34d8fad1e8eaf9d1f74dbfb28b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/holiday-seasonal-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Holiday & Seasonal Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "8dc8d2e92f04a614cad690949800bfc0c7f40c06b4c50b18232799f8b5653f29"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/indulgence-luxury-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Indulgence & Luxury Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f4a59042ea7e776c2f7f6b66daeb1e9432b26341d4c722f79436130a48f933af"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/outdoor-activites/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Outdoor Activites – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "52289ff42aef0f7a29a579721b577b7b1d74f2e1871d2633f7288999c07dc6e8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/relaxation-tours/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Relaxation Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0072c001fa160769f61062b2384618b10807e34dd9091c1204b247317488b850"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/walking/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Walking – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "c4af20d38c534a0a9dfc14407c50f563691d3c8423de26d92de347e629e67f94"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-width/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Right Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "7d05499ee853295a02b91ea5a9158a95aeccc64314d42c9a56887bf7abe6b439"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-width/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Right Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "9650b28bb013d160a882173a64623540e04d52b2fec37bd3bf45e5e70e9d24eb"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-right-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail – Right Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "31304913ae4096be2de96038bf2e6cd8ed9345af835fbde4d2af03de66853372"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-right-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail – Right Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f52be7383260f77fc2cd6f55de7a49c63a307920be6596f28efbec4e2d0aacd4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-left-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Left Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "a73d0bb99134498ca829ec178f0dd52f00dd612cc307f0bb2b6c6b0eac1d6dc5"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-left-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Left Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "d5461fff8ee62871c953b152df3b828e6953ec06889736dfce7111e0fbaa7b8c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-left-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Left Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5b1289beaa813dd50f23861c0dc9845f67228fba05bd8129cbfff234dcf16e9d"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-left-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Left Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "2288519e469059889491f539064a778c387b9576380a5afe4dcdcfc48763d053"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-right-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Right Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "b427e44f1f99ee27de6970fd7994e66208bbb1cbf0525db77dcaf2a0e4297d06"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-right-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Right Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "350ef3e662781dcbbf51503ccb7460a7c9e41b04f6c4866269d079148a5f947a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-right-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Right Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e7b533f8f85f69a9a249ebbfb3bd7f9c8b0556e0026029c641a8fcb738806a31"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-right-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Right Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "603f59a7922e75bb7463e72dc5dc2ab01f78b1deb659f1c8dd71c1d0d94ee6ee"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-left-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail Left Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "53f623de58862d859b41203342f2aba25a102fac8e15e04355ae8a343d161a3f"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-left-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail Left Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "94981b7992825c99bf14f1f16dbb05728a19d077839211201eca39ddcbc40bd8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-left-sidebar/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Left Sidebar – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1a2029d3f5550ac76d2ba2d75d4caa199ed7798c89ef18113a759b6aaaeaf470"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-left-sidebar/page/3/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Left Sidebar – Page 3 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "c70c9f9cc647616bea37c916db415bdea7b51a85dc0d2a9a11b1b65de4aedcb8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-3-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 3 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "8e58c8f438e9bebbe16d8808dd445ffbdfec7fa2a53d4976a7f8d9696d124cda"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e1102aaedef1487768c7c8b0944dd3d31f001a0820a1baeceb93fda65cb7bb5f"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "9a064c362facecf3561c3abd39cf1baa48dce5efbf6545d014f91b90084eebcb"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "3d619933864966ea1a536ea18534d53eb54e625dc3b6049a34c28b9b56ce40e1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-3-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 3 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "9f0268268cb93df0a65091110243db918a2047d897e38821764487b7c2122de6"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "254b6eff1e31df05e2f5c65a9d0acc14fdc0c3d446cf4c450b0ecc11445291dd"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-5-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 5 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "628fd3bf4f401d50a079e7aa2e743b920a6b97756e0bcc3e965b2097f6ba0101"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "96803a6c19fad333e8327842b5d92f84f009e0ee2abbbe083be6a3a5714e0449"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-3-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 3 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1324f93439e5423b22b0f4d83955eb327e79999aefc90b79700f9fc0b3804b31"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6f181f3a32b4c61a587cfa490cfee0bf63fca56564dbe48cf8db27a8bef7ce40"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e3247057875d63bf42b7357607d5a99e471ab2dd7f343274d2ffe559e9c61645"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-3-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 3 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "abe598c25b81f97ca37358f604129664d6b36c2af857a589471840d952248e84"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f09404d076d2da0254df23eb35955c8a4efc830beb89b1f7f7b825d8243b497a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "93f8d5fd1810220331fd5a7b9d6b55c6dc5a61560ff8a291754e794fdf236e97"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "75f7c93acf0e695b33c0424c0d8337124f70b442ebe387961b5c23ba661d14bf"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5b8f0d03f353ed4fab8c615a66c2c91bdc3142fcb576809f675b2c655129f5c2"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "fa555e540e6795466e908dcaf95dabc27058b3f0de972c6639901de490f6d815"
+    },
+    {
+      "url": "https://volcanvacations.com/traveltour/main4/destinations/",
+      "classification": "BROKEN_LEGACY_LINK",
+      "title": null,
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://volcanvacations.com/traveltour/main4/tour-grid-3-columns/",
+      "classification": "BROKEN_LEGACY_LINK",
+      "title": null,
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://volcanvacations.com/traveltour/hiking/tour-grid-3-columns/",
+      "classification": "BROKEN_LEGACY_LINK",
+      "title": null,
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://volcanvacations.com/traveltour/hiking/shop",
+      "classification": "BROKEN_LEGACY_LINK",
+      "title": null,
+      "content_classification": "LOW_VALUE",
+      "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-3-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 3 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "016d23506578761f950c5aa82c57259dc8e82f0a26cd2bec165ede612c5a0fa4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-2-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 2 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "c42d008f837235270c17c447322b2f11aba8c55afcaac5f0bca5eaa6f6d7ebde"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-4-columns/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 4 Columns – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6b7b5301ba1b96d7238b41b085f15ad17facc0b699b9d1ee06a754ca0fd57123"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-tag/best-sellers/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Best Sellers – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "ebc31a2ba00313bacbe7f32e3710de1c660807271fad1f2b722604da5979beef"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/wild-adventure-tours/page/2/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Wild & Adventure Tours – Page 2 – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "037bb525d33c937ac9f5294d4a8fffb643fa4ede126df84a1afcaabfd66f4d2e"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-width/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "f60e1df4757e3863dde1dce29ca774847d8f169c8e7f3ec50d258440ac88732a"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-right-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail – Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5b244bbc1806522ddaab27e8897c17b30bf0d0f1be98011fe4534b50d6b909f1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-left-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full – Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "93b95d9b9839a5e5fcea29312468be7534a2ae5f25be35c9a20c0e8b37ddcd1f"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-left-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "e48b2bcaf39fc01ade9c4552bbb7f95000d067cb6f97ac345ac41154895b9eb4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-full-with-frame-right-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Full With Frame Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "7e1e57f13550b1d7360f002e74e2d1e8f2dacfa84e3af204c21a5f7b01b238da"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-right-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Right Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0cfe85a55aa51efc2256b00614615cb9bacbfae9caba05ca05dd748676ad0a25"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-left-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6e4a77f3c9aeacf3689bfc9c184d5196964e85ffb571060feb31f0f6e7945fe1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-side-thumbnail-with-frame-left-sidebar/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Side Thumbnail With Frame Left Sidebar – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "8b59bab6befd2b012299b0e8f80cd2034f67063ee87a4ce8917b35681f0561bb"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-3-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "47f1cbb89888e162945b8870e926ce618e5acfdc8471943585c80154f23cf320"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "b46410c327754e5128a362734d51198615fae810507497ac8175899f4419e94b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-style-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail Style 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "18eb9ca469f167aac25089071bee127744083993060a915d607070acf378e3d4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "888873638ed93061d43df5b73c43b7009bc8da642410021a1192a5b7daa06ffe"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-3-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "0b4b38af4be90704c18efef4b10dedc4c5a6825c82fa02a91e2458806c0160fc"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "2072522035135f7455c7f2de64d3a7463fe0e9bbe6295b0d7f975c3e83f4a6cd"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-thumbnail-no-space-5-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Thumbnail No Space 5 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "20df21d4f10d75eb84a20462a17af2b937d5631da60ac7ee64de2b5821e01d9c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "5ea4370cd5cc6b34f058c5bf00f1f6b2c1999165c49c8541782e155436b60b34"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-3-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "17a72ec05a81dd0a75052d03063cff49f771b174a5196f2e42e1274a743a7bd4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "63653189a7ddec6fc7abe24b1c2e36bbc04d91386122531b48a57bb40cede4a8"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "baf4d4b19c447ce7a2cd796b0bea47128f2644c59d3788a87da71a09352d3b31"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-3-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "b3a3b14aaae91798234a4e395ddabec7ba4dfa96b4fb48ae9aabc9a84512b9b0"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-frame-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Frame 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1c6a0ab82f9df4e317cd2236cd6c674c246bc29a1345e34c8730e07eff0a04bc"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "1c99a55a5114b75636c18f08523301bf98bb78934da4a34458322329b90d28e1"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-detail-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Detail 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "531e1e0f1e7a7f16f7549f9c7644098eb69b02a84e724629c8d4be403db6009c"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "ef8953fad175e774cef08c7dacccd952747a4c54a65aac291ed0cb208adbfd7b"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-classic-with-custom-excerpt-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Classic With Custom Excerpt 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "bd4e4de457fd3e053bda2fef7da6a59612dcf0c0683da0798d44cc1fdf0f2a15"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-3-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 3 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "6582538705b6ac3d5dbbb7ed50f48815aac6ae4a427995f8de11714d0c95eb34"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-2-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 2 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "caf4a674aacef1a2e34fe3212ca029f1f713bab9104adca7c1d1b5ca1d922c99"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-grid-4-columns/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Tour Grid 4 Columns – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "d02321ef3b2a5b5fdc47317ccd8f4561310f8a964c72526b75911c2900be5def"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-tag/best-sellers/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Best Sellers – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "a895f669e2dadc195ce3dd1f4d1c9909c1216f46ccfe26293227f2883f8da8e4"
+    },
+    {
+      "url": "https://volcanvacations.com/tour-activity/wild-adventure-tours/page/1/",
+      "classification": "CATALOG_LAYOUT_OR_TAXONOMY",
+      "title": "Wild & Adventure Tours – Volcan Vacations",
+      "content_classification": "DUPLICATE",
+      "text_sha256": "c127952bdc015b3c9ce475f8b94dc6dd48378093d9dc9a06b599cb73f8d52dae"
+    }
+  ]
+}

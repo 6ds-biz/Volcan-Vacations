@@ -1,0 +1,152 @@
+{
+  "read_only": true,
+  "database_environment": "development",
+  "existing_inventory_counts": {
+    "products": 16,
+    "suppliers": 12,
+    "product_images": 12
+  },
+  "six_seed_products": [
+    {
+      "id": 1,
+      "name": "Whitewater Rafting",
+      "slug": "whitewater-rafting",
+      "retail_price_demo_only": "85.00",
+      "supplier_cost_demo_only": "50.00",
+      "candidate_legacy_ids": [
+        5592
+      ],
+      "status": "THEMATIC_CANDIDATE_ONLY",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    },
+    {
+      "id": 2,
+      "name": "Arenal Volcano Hike",
+      "slug": "arenal-volcano-hike",
+      "retail_price_demo_only": "72.00",
+      "supplier_cost_demo_only": "42.00",
+      "candidate_legacy_ids": [
+        5972
+      ],
+      "status": "THEMATIC_CANDIDATE_ONLY",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    },
+    {
+      "id": 3,
+      "name": "Hot Springs Experience",
+      "slug": "hot-springs-experience",
+      "retail_price_demo_only": "95.00",
+      "supplier_cost_demo_only": "60.00",
+      "candidate_legacy_ids": [],
+      "status": "NO_LEGACY_COUNTERPART_FOUND",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    },
+    {
+      "id": 4,
+      "name": "Wildlife & Hanging Bridges",
+      "slug": "wildlife-hanging-bridges",
+      "retail_price_demo_only": "68.00",
+      "supplier_cost_demo_only": "40.00",
+      "candidate_legacy_ids": [
+        5969
+      ],
+      "status": "THEMATIC_CANDIDATE_ONLY",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    },
+    {
+      "id": 5,
+      "name": "Waterfall Adventure",
+      "slug": "waterfall-adventure",
+      "retail_price_demo_only": "55.00",
+      "supplier_cost_demo_only": "30.00",
+      "candidate_legacy_ids": [
+        5966,
+        5502
+      ],
+      "status": "THEMATIC_CANDIDATE_ONLY",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    },
+    {
+      "id": 6,
+      "name": "Coffee & Chocolate Tour",
+      "slug": "coffee-chocolate-tour",
+      "retail_price_demo_only": "48.00",
+      "supplier_cost_demo_only": "25.00",
+      "candidate_legacy_ids": [],
+      "status": "NO_LEGACY_COUNTERPART_FOUND",
+      "source": "PostgreSQL read-only snapshot; services/api/app/seed_inventory.py marks these as demo"
+    }
+  ],
+  "other_products": [
+    {
+      "id": 7,
+      "name": "DEMO M4 Rafting 1788643562600",
+      "slug": "demo-m4-rafting-1788643562600",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 8,
+      "name": "DEMO M4 Rafting 1788643623119",
+      "slug": "demo-m4-rafting-1788643623119",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 9,
+      "name": "DEMO M4 Rafting 1788643930345",
+      "slug": "demo-m4-rafting-1788643930345",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 10,
+      "name": "DEMO M4 Rafting 1788644126437",
+      "slug": "demo-m4-rafting-1788644126437",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 11,
+      "name": "DEMO M5 Tour 1788646520435",
+      "slug": "demo-m5-1788646520435",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 12,
+      "name": "DEMO M5 Tour 1788646563074",
+      "slug": "demo-m5-1788646563074",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 13,
+      "name": "DEMO M4 Rafting 1788646603182",
+      "slug": "demo-m4-rafting-1788646603182",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 14,
+      "name": "DEMO M5 Tour 1788646984372",
+      "slug": "demo-m5-1788646984372",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 15,
+      "name": "DEMO M4 Rafting 1788647030521",
+      "slug": "demo-m4-rafting-1788647030521",
+      "active": false,
+      "action": "PRESERVE; exclude from catalog match"
+    },
+    {
+      "id": 16,
+      "name": "DEMO M5 Sandbox Tour 1788756270006",
+      "slug": "demo-m5-sandbox-1788756270006",
+      "active": true,
+      "action": "PRESERVE; exclude from catalog match"
+    }
+  ]
+}
