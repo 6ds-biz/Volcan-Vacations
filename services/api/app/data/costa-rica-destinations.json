@@ -1,0 +1,20 @@
+[
+  {"slug":"costa-rica","name":"Costa Rica","destination_type":"country","parent_slug":null},
+  {"slug":"san-jose-central-valley","name":"San José / Central Valley","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"arenal-la-fortuna","name":"Arenal / La Fortuna","destination_type":"destination","parent_slug":"costa-rica"},
+  {"slug":"monteverde","name":"Monteverde","destination_type":"destination","parent_slug":"costa-rica"},
+  {"slug":"guanacaste","name":"Guanacaste","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"papagayo","name":"Papagayo","destination_type":"zone","parent_slug":"guanacaste"},
+  {"slug":"tamarindo","name":"Tamarindo","destination_type":"destination","parent_slug":"guanacaste"},
+  {"slug":"nosara","name":"Nosara","destination_type":"destination","parent_slug":"guanacaste"},
+  {"slug":"las-catalinas","name":"Las Catalinas","destination_type":"destination","parent_slug":"guanacaste"},
+  {"slug":"manuel-antonio-central-pacific","name":"Manuel Antonio / Central Pacific","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"uvita-south-pacific","name":"Uvita / South Pacific","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"osa-peninsula","name":"Osa Peninsula","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"caribbean","name":"Caribbean","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"puerto-viejo","name":"Puerto Viejo","destination_type":"destination","parent_slug":"caribbean"},
+  {"slug":"bijagua-tenorio","name":"Bijagua / Tenorio","destination_type":"destination","parent_slug":"costa-rica"},
+  {"slug":"pacuare-turrialba","name":"Pacuare / Turrialba","destination_type":"region","parent_slug":"costa-rica"},
+  {"slug":"sjo-airport","name":"SJO Airport","destination_type":"airport","parent_slug":"san-jose-central-valley"},
+  {"slug":"lir-airport","name":"LIR Airport","destination_type":"airport","parent_slug":"guanacaste"}
+]

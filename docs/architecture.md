@@ -1,5 +1,7 @@
 # Volcan Vacations Architecture
 
+The current architectural direction is [the final platform architecture](final-platform-architecture.md). Launch phases control rollout; the shared core supports a Costa Rica-wide business. The initial overview below remains historical context.
+
 ## Initial System Design
 
 The initial platform is organized as a modern web monorepo with separate frontends for public customers and internal operations, a shared API, and a PostgreSQL database.

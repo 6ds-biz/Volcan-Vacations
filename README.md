@@ -91,6 +91,8 @@ uvicorn app.main:app --reload --port 8000
 
 ## Database migrations
 
+The [final platform architecture](docs/final-platform-architecture.md) defines Costa Rica-wide geography, supplier capabilities and commercial references, and phased extensions for transportation, hotels and packages. Forward migration `0006_platform_foundation` is additive; its dated rates do not change existing tour pricing or checkout. Foundation APIs are internal development-only. Geography seeding is explicit and must follow the initial empty-preview inventory seed.
+
 Milestone 5 extends the existing Payment model with reservation-scoped sandbox PayPal checkout, private payment links, capture/webhook reconciliation, and Operations payment visibility. See [the payment guide](docs/milestone-5.md) and [validation report](docs/milestone-5-validation.md). Live payment calls are blocked. Real sandbox acceptance requires configured sandbox credentials and a verified webhook.
 
 Milestone 4 adds manual tour/date availability, supplier contact/confirmation history, and derived payment readiness. See [the availability and supplier workflow guide](docs/milestone-4.md). Milestone 5 builds on those prerequisites; automated supplier communications remain deferred.

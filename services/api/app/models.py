@@ -48,10 +48,12 @@ class Traveler(Base):
 
 class Supplier(Base):
     __tablename__ = 'suppliers'
+    __table_args__ = (CheckConstraint("relationship_status IN ('prospect','contacted','rates_requested','rates_received','negotiating','contracted','active','inactive','declined')", name='ck_supplier_relationship_status'),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(200), nullable=False)
     supplier_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    relationship_status: Mapped[str] = mapped_column(String(30), default='prospect', server_default='prospect', nullable=False)
     contact_name: Mapped[str | None] = mapped_column(String(140), nullable=True)
     email: Mapped[str | None] = mapped_column(String(180), nullable=True)
     phone: Mapped[str | None] = mapped_column(String(60), nullable=True)
@@ -342,3 +344,95 @@ class PaymentRefund(Base):
     amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
     currency: Mapped[str] = mapped_column(String(3), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+
+# Additive platform foundation. No foundation rate is used by checkout yet.
+class FoundationTimestamps:
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+
+
+class Destination(FoundationTimestamps, Base):
+    __tablename__ = 'destinations'
+    __table_args__ = (
+        CheckConstraint('parent_id IS NULL OR parent_id != id', name='ck_destination_parent'),
+        CheckConstraint("destination_type IN ('country','region','destination','city','zone','airport')", name='ck_destination_type'),
+        CheckConstraint('sort_order >= 0', name='ck_destination_sort'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    parent_id: Mapped[int | None] = mapped_column(ForeignKey('destinations.id'), nullable=True, index=True)
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
+    slug: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)
+    destination_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text('true'), nullable=False)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0, server_default='0', nullable=False)
+    parent: Mapped['Destination | None'] = relationship('Destination', remote_side='Destination.id', back_populates='children')
+    children: Mapped[List['Destination']] = relationship('Destination', back_populates='parent')
+
+
+class ProductDestination(Base):
+    __tablename__ = 'product_destinations'
+    product_id: Mapped[int] = mapped_column(ForeignKey('products.id'), primary_key=True)
+    destination_id: Mapped[int] = mapped_column(ForeignKey('destinations.id'), primary_key=True)
+
+
+class SupplierService(Base):
+    __tablename__ = 'supplier_services'
+    __table_args__ = (CheckConstraint("service_type IN ('tour','transportation','hotel')", name='ck_supplier_service_type'),)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey('suppliers.id'), primary_key=True)
+    service_type: Mapped[str] = mapped_column(String(30), primary_key=True)
+
+
+class SupplierAgreement(FoundationTimestamps, Base):
+    __tablename__ = 'supplier_agreements'
+    __table_args__ = (
+        CheckConstraint('effective_to IS NULL OR effective_to >= effective_from', name='ck_agreement_dates'),
+        CheckConstraint("status IN ('draft','in_review','approved','expired','terminated')", name='ck_agreement_status'),
+        CheckConstraint("currency IN ('USD','CRC')", name='ck_agreement_currency'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey('suppliers.id'), nullable=False, index=True)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    effective_from: Mapped[Date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[Date | None] = mapped_column(Date, nullable=True)
+    currency: Mapped[str] = mapped_column(String(3), default='USD', server_default='USD', nullable=False)
+    status: Mapped[str] = mapped_column(String(30), default='draft', server_default='draft', nullable=False)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class ProductRate(FoundationTimestamps, Base):
+    """Dated fixed-unit commercial reference, not an executable pricing engine."""
+    __tablename__ = 'product_rates'
+    __table_args__ = (
+        CheckConstraint('effective_to >= effective_from', name='ck_product_rate_dates'),
+        CheckConstraint('net_amount >= 0 AND (retail_amount IS NULL OR retail_amount >= 0)', name='ck_product_rate_money'),
+        CheckConstraint("unit_type IN ('per_person','per_vehicle','per_night')", name='ck_product_rate_unit'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    agreement_id: Mapped[int] = mapped_column(ForeignKey('supplier_agreements.id'), nullable=False, index=True)
+    product_id: Mapped[int] = mapped_column(ForeignKey('products.id'), nullable=False, index=True)
+    label: Mapped[str] = mapped_column(String(200), nullable=False)
+    effective_from: Mapped[Date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[Date] = mapped_column(Date, nullable=False)
+    unit_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    net_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
+    retail_amount: Mapped[Decimal | None] = mapped_column(Numeric(12, 2), nullable=True)
+
+
+class SupplierDocument(FoundationTimestamps, Base):
+    __tablename__ = 'supplier_documents'
+    __table_args__ = (
+        CheckConstraint("document_type IN ('contract','rate_sheet','terms','cancellation_policy','media_kit')", name='ck_supplier_document_type'),
+        CheckConstraint('effective_date IS NULL OR expiration_date IS NULL OR expiration_date >= effective_date', name='ck_supplier_document_dates'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey('suppliers.id'), nullable=False, index=True)
+    agreement_id: Mapped[int | None] = mapped_column(ForeignKey('supplier_agreements.id'), nullable=True)
+    document_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    external_url: Mapped[str | None] = mapped_column(String(2048), nullable=True)
+    storage_key: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    effective_date: Mapped[Date | None] = mapped_column(Date, nullable=True)
+    expiration_date: Mapped[Date | None] = mapped_column(Date, nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)

@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import Settings, settings
 from .schemas import HealthResponse
 from .routers import ops, public
+from .routers.foundation import router as foundation_ops
 from .routers.payments import ops_router as payment_ops, public_router as payment_public, webhook_router
 from .routers.availability import ops_router as availability_ops, public_router as availability_public
 from .routers.bookings import public_router as booking_public, ops_router as booking_ops
@@ -32,6 +33,7 @@ def create_app(config: Settings = settings) -> FastAPI:
     # CORS is not authentication. Do not mount private data or mutation routes
     # on the internet-facing API until Operations authentication is implemented.
     if config.environment == 'development':
+        application.include_router(foundation_ops)
         application.include_router(ops.router)
         application.include_router(booking_ops)
         application.include_router(availability_ops)
