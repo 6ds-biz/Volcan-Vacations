@@ -1,3 +1,6 @@
+# Optional bootstrap only. Free PostgreSQL expires after 30 days; choose and
+# approve a durable database plan in Render before treating this as permanent.
+# Operations must never be included. See docs/cloud-deployment.md.
 services:
   - type: web
     name: volcan-vacations-api
@@ -7,20 +10,41 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
+    autoDeployTrigger: "off"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12.10
+        value: 3.12.14
       - key: ENVIRONMENT
-        value: production
+        value: preview
       - key: DATABASE_URL
         fromDatabase:
           name: volcan-vacations-db
           property: connectionString
       - key: ALLOWED_ORIGINS
+        value: ""
+      - key: ALLOWED_ORIGIN_REGEX
+        value: ""
+      - key: PUBLIC_WEB_URL
+        value: ""
+      - key: PAYPAL_ENVIRONMENT
+        value: sandbox
+      - key: PAYPAL_CLIENT_ID
         sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: PAYPAL_CURRENCY
+        value: USD
+      # Add PAYPAL_WEBHOOK_ID in Render secret configuration only after the
+      # assigned API URL has a registered Sandbox webhook; no guessed ID.
+      - key: EMAIL_FROM
+        value: info@volcanvacations.com
 
 databases:
   - name: volcan-vacations-db
     databaseName: volcan_vacations
     user: volcan_vacations
     plan: free
+    postgresMajorVersion: "15"
+    # Allow only internal Render connections by default. Temporarily allow the
+    # operator's specific IP if running migrations externally, then remove it.
+    ipAllowList: []

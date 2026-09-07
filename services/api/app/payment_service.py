@@ -130,6 +130,8 @@ def booking_payment(db, booking, paypal):
 
 def issue_link(db, booking_id, payload, revoke=False):
     from .booking_service import get_booking
+    if not revoke and settings.environment != 'development' and not settings.public_web_url:
+        raise HTTPException(503, 'PUBLIC_WEB_URL must be configured before issuing payment links.')
     with db.begin():
         booking = get_booking(db, booking_id, lock=True)
         if booking.version != payload.expected_version:
@@ -151,7 +153,7 @@ def issue_link(db, booking_id, payload, revoke=False):
         booking.payment_token_hash = hashlib.sha256(token.encode()).hexdigest()
         booking.payment_token_expires_at = expires
         booking.version += 1
-        return dict(path='/pay#token=' + token, expires_at=expires)
+        return dict(path=(settings.public_web_url or '') + '/pay#token=' + token, expires_at=expires)
 
 
 def failure(payment, error):

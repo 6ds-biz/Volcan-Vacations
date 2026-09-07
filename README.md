@@ -12,7 +12,7 @@ Volcan Vacations is a Costa Rica travel platform foundation for tours, transport
 
 ## Cloud-first development
 
-GitHub is the source of truth, GitHub Codespaces is the browser-based development environment, Vercel hosts the two Next.js apps, Render hosts FastAPI and PostgreSQL, and Hostinger continues to manage the domain and DNS.
+GitHub is the source of truth and GitHub Codespaces is the development environment. The permanent preview target is Vercel for `apps/web` only, with FastAPI and PostgreSQL on Render. Operations deployment is blocked pending authentication; hosted APIs omit `/ops/*` routes. The existing `volcanvacations.com` site and Hostinger DNS remain untouched.
 
 The Codespace includes Node.js 20, npm, Python 3.12, Git, Docker, and Docker Compose. On first creation it copies `.env.example` to the ignored `.env` file and configures Codespaces forwarded URLs.
 
@@ -107,7 +107,7 @@ Set-Location services/api
 alembic upgrade head
 ```
 
-`alembic/env.py` reads the same `DATABASE_URL` used by the API. For Render, run `alembic upgrade head` from a Codespace with the database's external URL before the first API deploy. A paid Render service can instead use this as its pre-deploy command.
+`alembic/env.py` reads the same `DATABASE_URL` used by the API. For Render, run `alembic upgrade head` through a private Render Shell or the documented restricted external procedure before testing inventory. A paid Render service can use this as its reviewed pre-deploy command. The initial preview seed requires an empty database and `ENVIRONMENT=preview`; it does not copy development bookings or payments.
 
 ## Validation
 
@@ -153,4 +153,4 @@ PostgreSQL   -> Render PostgreSQL
 Hostinger    -> domain registration and DNS
 ```
 
-See [docs/cloud-deployment.md](docs/cloud-deployment.md) for the exact preview-deployment, environment, migration, and future DNS workflow.
+See [docs/cloud-deployment.md](docs/cloud-deployment.md) for the exact preview deployment, environment, migration, and acceptance workflow. Provider deployment is separate from local repository validation; domain cutover is not part of this task.

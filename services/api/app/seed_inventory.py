@@ -1,4 +1,4 @@
-"""Explicit, insert-only development seed. Never runs during app startup."""
+"""Explicit demo inventory seed. Never runs during app startup or copies bookings."""
 import argparse
 from decimal import Decimal
 
@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from .config import settings
 from .database import SessionLocal
-from .models import Product, ProductImage, Supplier
+from .models import Base, Product, ProductImage, Supplier
 
 SAMPLES = [
     ('whitewater-rafting', 'Whitewater Rafting', 'Adventure', 'Half day', '85.00', '50.00', 'rafting', 'Paddle rainforest rapids with local river guides.'),
@@ -19,12 +19,20 @@ SAMPLES = [
 
 
 def seed():
-    if settings.environment != 'development':
-        raise SystemExit('Seed refused: ENVIRONMENT must be development.')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--confirm-demo', action='store_true', required=True, help='Acknowledge sample suppliers, pricing and imagery are not production data')
-    parser.parse_args()
+    parser.add_argument('--preview', action='store_true', help='Seed an empty preview database with visibly labeled demo tours')
+    args = parser.parse_args()
+    expected_environment = 'preview' if args.preview else 'development'
+    if settings.environment != expected_environment:
+        raise SystemExit(f'Seed refused: ENVIRONMENT must be {expected_environment}.')
     with SessionLocal.begin() as db:
+        if args.preview:
+            # Never mix sample inventory with customer/payment history or an
+            # existing catalog. Alembic must have created all tables first.
+            for table in Base.metadata.sorted_tables:
+                if db.execute(select(table).limit(1)).first() is not None:
+                    raise SystemExit('Preview seed refused: all application tables must be empty. No changes made.')
         suppliers = []
         for name in ['DEMO Arenal Adventures', 'DEMO Costa Rica Experiences']:
             supplier = db.scalar(select(Supplier).where(Supplier.name == name))
@@ -38,7 +46,8 @@ def seed():
             if db.scalar(select(Product.id).where(Product.slug == slug)) is not None:
                 print(f'Skipped existing slug (no overwrite): {slug}')
                 continue
-            tour = Product(supplier_id=suppliers[index % 2].id, name=name, slug=slug, short_description=summary,
+            tour = Product(supplier_id=suppliers[index % 2].id, name=f'DEMO — {name}' if args.preview else name, slug=slug,
+                           short_description=f'DEMO ONLY — sample price, not an approved offer. {summary}' if args.preview else summary,
                            description=f'DEVELOPMENT DEMO ONLY — sample pricing and illustrative imagery, not a current supplier offer. {summary}',
                            product_type='tour', category=category, duration=duration, retail_price=Decimal(retail), supplier_cost=Decimal(cost),
                            active=True, featured=True, location='La Fortuna / Arenal', difficulty=None, minimum_age=None)

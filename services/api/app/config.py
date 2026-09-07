@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Literal
+from urllib.parse import urlsplit
 
-from pydantic import Field, field_validator
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,13 +20,15 @@ class Settings(BaseSettings):
         env_file=find_env_file(),
         env_file_encoding='utf-8',
         extra='ignore',
+        hide_input_in_errors=True,
     )
 
-    environment: str = 'development'
+    environment: Literal['development', 'preview', 'production'] = 'development'
     api_port: int = 8000
-    database_url: str
+    database_url: str = Field(repr=False)
     allowed_origins: str = 'http://localhost:3000,http://localhost:3001'
     allowed_origin_regex: str | None = None
+    public_web_url: str | None = None
     paypal_client_id: str | None = None
     paypal_client_secret: str | None = Field(default=None, repr=False)
     paypal_environment: str = 'sandbox'
@@ -34,7 +38,7 @@ class Settings(BaseSettings):
 
     @property
     def allowed_origins_list(self) -> list[str]:
-        return [origin.strip() for origin in self.allowed_origins.split(',') if origin.strip()]
+        return [origin.strip().rstrip('/') for origin in self.allowed_origins.split(',') if origin.strip()]
 
     @field_validator('database_url')
     @classmethod
@@ -42,6 +46,37 @@ class Settings(BaseSettings):
         if value.startswith('postgres://'):
             return value.replace('postgres://', 'postgresql://', 1)
         return value
+
+    @field_validator('public_web_url')
+    @classmethod
+    def validate_public_web_url(cls, value: str | None) -> str | None:
+        if not value:
+            return None
+        value = value.strip().rstrip('/')
+        parsed = urlsplit(value)
+        if (parsed.scheme not in ('http', 'https') or not parsed.hostname or parsed.username
+                or parsed.password or parsed.path or parsed.query or parsed.fragment):
+            raise ValueError('PUBLIC_WEB_URL must be a web origin without a path or credentials.')
+        return value
+
+    @model_validator(mode='after')
+    def validate_hosted_configuration(self):
+        if self.environment == 'development':
+            return self
+        if not self.database_url.startswith(('postgresql://', 'postgresql+psycopg2://')):
+            raise ValueError('Hosted deployments require PostgreSQL DATABASE_URL.')
+        if self.paypal_environment != 'sandbox':
+            raise ValueError('Hosted preview supports PAYPAL_ENVIRONMENT=sandbox only.')
+        if self.allowed_origin_regex:
+            raise ValueError('Hosted deployments require exact ALLOWED_ORIGINS, not a regex.')
+        for origin in self.allowed_origins_list + ([self.public_web_url] if self.public_web_url else []):
+            parsed = urlsplit(origin)
+            if (parsed.scheme != 'https' or not parsed.hostname or '*' in origin
+                    or parsed.username or parsed.password or parsed.path not in ('', '/')
+                    or parsed.query or parsed.fragment or parsed.hostname in ('localhost', '127.0.0.1', '::1')
+                    or parsed.hostname.endswith('.app.github.dev')):
+                raise ValueError('Hosted web URLs must be exact HTTPS origins independent of Codespaces.')
+        return self
 
 
 settings = Settings()
