@@ -1,5 +1,5 @@
-"""Development-only foundation API. Never mounted on preview/production."""
-from fastapi import APIRouter, Depends, HTTPException
+"""Authenticated foundation API. Hosted mounting requires explicit Operations opt-in."""
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -63,7 +63,10 @@ def agreements(supplier_id: int, db: Session = Depends(get_db)):
 
 
 @router.post('/suppliers/{supplier_id}/agreements', response_model=AgreementRead, status_code=201)
-def create_agreement(supplier_id: int, payload: AgreementInput, db: Session = Depends(get_db)):
+def create_agreement(supplier_id: int, payload: AgreementInput, request: Request, db: Session = Depends(get_db)):
+    if payload.status == 'approved':
+        from ..permissions import demand
+        demand(request.state.actor, 'commercial.approve')
     return command(db, service.create_agreement, supplier_id, payload)
 
 

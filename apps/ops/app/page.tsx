@@ -1,6 +1,0 @@
-import Link from 'next/link';
-import {BookingSummary} from '../components/booking-summary';
-
-export default function OpsHome() {
-  return <><h1>Operations Dashboard</h1><p>Follow up on booking requests and manage tour inventory. Changes are stored through the API in PostgreSQL.</p><BookingSummary /><div className="ops-dashboard"><section><h2>Booking requests</h2><p>Review customer and traveler details, snapshotted pricing, and follow-up status.</p><Link className="ops-button" href="/bookings">Open booking inbox</Link></section><section><h2>Tours</h2><p>Create experiences, maintain internal pricing, and choose what appears publicly.</p><Link className="ops-button" href="/tours">Manage tours</Link></section><section><h2>Availability</h2><p>Record checked tour dates and review stale information.</p><Link className="ops-button" href="/availability">Manage availability</Link></section><section><h2>Suppliers</h2><p>Maintain supplier contacts and private operational notes.</p><Link className="ops-button" href="/suppliers">Manage suppliers</Link></section></div><p>Development seed data is illustrative only. Booking requests are not automatic confirmations. PayPal checkout is sandbox only. Live payments and automated supplier communications remain deferred.</p></>;
-}

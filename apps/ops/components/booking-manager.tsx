@@ -1,5 +1,8 @@
 'use client';
 import Link from 'next/link';
+import {PageHeader} from './ops-ui';
+import {RelatedTasks} from './tasks';
+import {BookingExtras} from './booking-extras';
 import { useState, type FormEvent } from 'react';
 import { apiRequest } from '../lib/api';
 import { bookingStatuses, statusLabel, type Booking } from '../lib/bookings';
@@ -19,7 +22,7 @@ export function BookingInbox() {
 
 export function BookingDetail({id}: {id: string}) {
   const {data, error, retry} = useInventory<Booking>(`/ops/bookings/${id}`);
-  return <><Link href="/bookings">← Bookings</Link><h1>Booking request</h1>{!data ? <LoadState error={error} retry={retry} /> : <BookingRecord key={data.version} booking={data} reload={retry} />}</>;
+  return <><Link href="/bookings">← Bookings</Link><PageHeader title="Booking Detail" description="Request, supplier confirmation and payment history" icon="bookings"/>{!data ? <LoadState error={error} retry={retry} /> : <BookingRecord key={data.version} booking={data} reload={retry} />}</>;
 }
 
 function BookingRecord({booking, reload}: {booking: Booking; reload: () => void}) {
@@ -45,6 +48,7 @@ function BookingRecord({booking, reload}: {booking: Booking; reload: () => void}
     <section><h2>Travelers</h2><ul>{booking.travelers.map(traveler => <li key={traveler.id}>{traveler.first_name} {traveler.last_name} — {traveler.traveler_type || 'unknown'}{traveler.date_of_birth ? ` · DOB: ${traveler.date_of_birth}` : ''}</li>)}</ul>{booking.travelers.length < booking.quantity && <p>Additional traveler names need follow-up.</p>}</section>
     <section><h2>Trip</h2><dl><dt>Travel dates</dt><dd>{booking.trip.start_date || 'Not supplied'} → {booking.trip.end_date || 'Not supplied'}</dd><dt>Party size</dt><dd>{booking.trip.party_size}</dd><dt>Trip status</dt><dd>{statusLabel(current.trip.status)}</dd></dl><p>{booking.trip.notes}</p></section></div>
     <section className="ops-booking-notes"><h2>Customer notes</h2><p>{booking.customer_notes || 'No special requests supplied.'}</p></section>
+    <RelatedTasks bookingId={booking.id}/><BookingExtras id={booking.id} reload={reload}/>
     <PaymentPanel booking={current} onBookingChange={setCurrent} />
     <SupplierConfirmation key={current.version} booking={current} reload={reload} />
     <form className="ops-editor" onSubmit={save}><fieldset disabled={busy}><legend>Operations follow-up</legend><div className="ops-fields"><label>Reservation status<select name="status" value={status} onChange={event => setStatus(event.target.value)}>{current.allowed_statuses.map(value => <option value={value} key={value}>{statusLabel(value)}</option>)}</select></label><label>Trip status<select name="trip_status" value={tripStatus} onChange={event => setTripStatus(event.target.value)}>{[...new Set([booking.trip.status, 'inquiry', 'planning', 'confirmed', 'completed', 'cancelled'])].map(value => <option value={value} key={value}>{statusLabel(value)}</option>)}</select></label></div><p>Trip status is separate. Change it deliberately after reviewing the whole trip. No supplier message, availability check, or email is sent.</p><label>Internal notes<textarea name="internal_notes" rows={5} maxLength={10000} value={notes} onChange={event => setNotes(event.target.value)} /></label><button type="submit">{busy ? 'Saving…' : 'Save follow-up'}</button></fieldset>{error && <p role="alert">{error} <button type="button" onClick={reload}>Reload booking</button></p>}{saved && <p role="status">Follow-up saved.</p>}</form>

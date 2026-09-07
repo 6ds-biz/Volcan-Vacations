@@ -11,7 +11,8 @@ from sqlalchemy.pool import StaticPool
 
 from app.database import get_db
 from app.main import app
-from app.models import Base, Product
+from app.models import Base, Product, InternalUser
+from app.internal_auth import HASHER
 
 
 @pytest.fixture
@@ -21,8 +22,15 @@ def client():
     def session():
         with Session(engine) as db:
             yield db
+    with Session(engine) as db:
+        db.add(InternalUser(email='owner@example.invalid',display_name='Test owner',role='owner_admin',dashboard_profile='Owner',password_hash=HASHER.hash('test-only-password-12345')))
+        db.commit()
     app.dependency_overrides[get_db] = session
     with TestClient(app) as client:
+        client.headers['Origin']='http://localhost:3001'
+        auth=client.post('/ops/auth/login',json={'email':'owner@example.invalid','password':'test-only-password-12345'})
+        assert auth.status_code==200,auth.text
+        client.headers['X-CSRF-Token']=auth.json()['csrf_token']
         yield client
     app.dependency_overrides.clear()
     engine.dispose()

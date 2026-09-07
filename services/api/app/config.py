@@ -35,6 +35,9 @@ class Settings(BaseSettings):
     paypal_currency: str = 'USD'
     paypal_webhook_id: str | None = None
     email_from: str | None = None
+    ops_enabled: bool = False
+    ops_web_url: str | None = None
+    ops_session_hours: int = Field(default=8, ge=1, le=24)
 
     @property
     def allowed_origins_list(self) -> list[str]:
@@ -47,7 +50,7 @@ class Settings(BaseSettings):
             return value.replace('postgres://', 'postgresql://', 1)
         return value
 
-    @field_validator('public_web_url')
+    @field_validator('public_web_url', 'ops_web_url')
     @classmethod
     def validate_public_web_url(cls, value: str | None) -> str | None:
         if not value:
@@ -63,13 +66,15 @@ class Settings(BaseSettings):
     def validate_hosted_configuration(self):
         if self.environment == 'development':
             return self
+        if self.ops_enabled and not self.ops_web_url:
+            raise ValueError('Enabled hosted Operations requires OPS_WEB_URL.')
         if not self.database_url.startswith(('postgresql://', 'postgresql+psycopg2://')):
             raise ValueError('Hosted deployments require PostgreSQL DATABASE_URL.')
         if self.paypal_environment != 'sandbox':
             raise ValueError('Hosted preview supports PAYPAL_ENVIRONMENT=sandbox only.')
         if self.allowed_origin_regex:
             raise ValueError('Hosted deployments require exact ALLOWED_ORIGINS, not a regex.')
-        for origin in self.allowed_origins_list + ([self.public_web_url] if self.public_web_url else []):
+        for origin in self.allowed_origins_list + ([self.public_web_url] if self.public_web_url else []) + ([self.ops_web_url] if self.ops_web_url else []):
             parsed = urlsplit(origin)
             if (parsed.scheme != 'https' or not parsed.hostname or '*' in origin
                     or parsed.username or parsed.password or parsed.path not in ('', '/')

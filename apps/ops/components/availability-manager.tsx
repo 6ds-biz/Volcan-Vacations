@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import {PageHeader,Modules} from './ops-ui';
 import {useEffect, useState, type FormEvent} from 'react';
 import {apiRequest} from '../lib/api';
 import {availabilityStatuses, localDateTime, timeLabel, type Availability} from '../lib/availability';
@@ -16,8 +17,9 @@ export function AvailabilityManager() {
   const query = new URLSearchParams(Object.entries(filters).filter(([, value]) => value)).toString();
   const records = useInventory<Availability[]>(`/ops/availability?${query}`);
   const filter = (key: keyof typeof filters, value: string) => setFilters(current => ({...current, [key]: value}));
-  return <><div className="ops-heading"><h1>Availability</h1><button onClick={() => setEditing('new')}>Add date</button></div>
-    <p>Record information for one tour and date. Missing information means Unknown, never sold out. These checks do not reserve capacity or confirm customer bookings.</p>
+  return <><PageHeader title="Availability" description="Current supplier and tour availability" icon="bookings"><button onClick={() => setEditing('new')}>Add date</button></PageHeader>
+    {records.data && <Modules items={[{label:"Recorded dates",value:records.data.length},{label:"Available",value:records.data.filter(r=>r.status==='available'&&!r.stale).length},{label:"Limited",value:records.data.filter(r=>r.status==='limited'&&!r.stale).length},{label:"Stale / unchecked",value:records.data.filter(r=>r.stale).length}]}/>}
+    <p className="muted">Counts reflect current filters. Record information for one tour and date. Missing information means Unknown, never sold out. These checks do not reserve capacity or confirm customer bookings.</p>
     <div className="ops-filters"><label>From date<input type="date" value={filters.date_from} onChange={e => filter('date_from', e.target.value)} /></label><label>Through date<input type="date" min={filters.date_from} value={filters.date_to} onChange={e => filter('date_to', e.target.value)} /></label>
     <label>Filter by tour<select value={filters.product_id} onChange={e => filter('product_id', e.target.value)}><option value="">All tours</option>{tours.data?.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}</select></label>
     <label>Filter by supplier<select value={filters.supplier_id} onChange={e => filter('supplier_id', e.target.value)}><option value="">All suppliers</option>{suppliers.data?.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}</select></label>

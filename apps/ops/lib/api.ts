@@ -3,9 +3,6 @@ const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '');
 export const apiUrl =
   configuredApiUrl || (process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '');
 
-// GitHub private-port cookies are infrastructure access, not Operations auth.
-const apiCredentials: RequestCredentials = /^https:\/\/[^/:]+\.app\.github\.dev(?::443)?(?:\/|$)/.test(apiUrl) ? 'include' : 'omit';
-
 export function requireApiUrl(): string {
   if (!apiUrl) {
     throw new Error('NEXT_PUBLIC_API_URL must be configured for this deployment.');
@@ -15,10 +12,17 @@ export function requireApiUrl(): string {
 }
 
 export async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const response = await fetch(`${requireApiUrl()}${path}`, {
-    ...options, cache: 'no-store', credentials: apiCredentials, signal: options.signal ?? AbortSignal.timeout(15000),
-    headers: {'Content-Type': 'application/json', ...options.headers},
+  const headers: Record<string,string> = {'Content-Type':'application/json', ...(options.headers as Record<string,string>)};
+  if (options.method && !['GET','HEAD'].includes(options.method) && path !== '/ops/auth/login') {
+    const session = await fetch('/api/ops/auth/me', {cache:'no-store'});
+    if (!session.ok) { window.location.assign('/login'); throw new Error('Sign in again'); }
+    headers['X-CSRF-Token'] = (await session.json()).csrf_token;
+  }
+  const response = await fetch(`/api${path}`, {
+    ...options, cache: 'no-store', credentials: 'same-origin', signal: options.signal ?? AbortSignal.timeout(15000),
+    headers,
   });
+  if (response.status === 401 && path !== '/ops/auth/login') window.location.assign('/login');
   if (!response.ok) {
     const data = await response.json().catch(() => null);
     const detail = data?.detail;

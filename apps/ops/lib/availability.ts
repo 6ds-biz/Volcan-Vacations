@@ -6,6 +6,7 @@ export type Availability = {
   created_at: string; updated_at: string;
 };
 export type SupplierEvent = {
+  actor_user_id: number | null; actor_display_name: string | null;
   id: number; supplier_id: number; event_type: string; contact_method: string | null;
   operator_identifier: string | null; status: string; reservation_status: string; availability_status: string;
   reference: string | null; notes: string | null; alternative_product_id: number | null;

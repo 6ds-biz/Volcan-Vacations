@@ -1,0 +1,17 @@
+'use client';
+import Link from 'next/link';
+import {createContext,useContext} from 'react';
+import type {Identity} from '../lib/server-session';
+export const IdentityContext=createContext<Identity|null>(null);
+export function useIdentity(){const user=useContext(IdentityContext);if(!user)throw new Error('Operations session required');return user;}
+export function Icon({name='work'}:{name?:string}) {
+ const paths:Record<string,string>={dashboard:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',tasks:'M9 5h12 M9 12h12 M9 19h12 M3 5l1 1 2-3 M3 12l1 1 2-3 M3 19l1 1 2-3',bookings:'M5 5h14v16H5z M8 2v6 M16 2v6 M5 10h14',tours:'M2 20 9 5l4 8 3-5 6 12z M7 10l2 2 2-2',suppliers:'M3 21V8l9-5 9 5v13 M8 21v-7h8v7 M7 9h2 M15 9h2',payments:'M3 5h18v14H3z M3 9h18 M7 15h4',users:'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M2 21v-2a7 7 0 0 1 14 0v2 M17 4a4 4 0 0 1 0 8 M19 15a5 5 0 0 1 3 6',work:'M5 3h14v18H5z M8 8h8 M8 12h8 M8 16h5'};
+ return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]||paths.work}/></svg>;
+}
+export function PageHeader({title,description,icon,children}:{title:string;description:string;icon?:string;children?:React.ReactNode}){return <header className="page-header"><span className="icon-tile"><Icon name={icon}/></span><div><h1>{title}</h1><p>{description}</p></div>{children&&<div className="header-actions">{children}</div>}</header>;}
+export function Modules({items}:{items:{label:string;value:number;onClick?:()=>void;href?:string;active?:boolean}[]}){return <div className="status-modules">{items.map(item=>{const content=<><span>{item.label}</span><strong>{item.value}</strong></>;return item.href?<Link key={item.label} href={item.href}>{content}</Link>:item.onClick?<button key={item.label} className={item.active?'selected':''} onClick={item.onClick} aria-pressed={!!item.active}>{content}</button>:<div key={item.label}>{content}</div>;})}</div>;}
+export function Table({label,headings,children,empty}:{label:string;headings:string[];children:React.ReactNode;empty?:boolean}){return empty?<p className="empty-state" role="status">No records match. Adjust your filters or create a record when ready.</p>:<div className="ops-table-wrap" role="region" aria-label={label} tabIndex={0}><table><caption>{label}</caption><thead><tr>{headings.map(h=><th key={h} scope="col">{h}</th>)}</tr></thead><tbody>{children}</tbody></table></div>;}
+export function label(value:string){return value.replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());}
+export function When({value}:{value:string|null}){return <>{value?new Date(value).toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'}):'—'}</>;}
+export type Attention={key:string;label:string;count:number;href:string};
+export function NeedsAttention({items}:{items:Attention[]}){return <section className="dashboard-section"><div className="section-heading"><h2>Needs Attention</h2><small>Separate work queues</small></div>{items.length?<ul className="attention-list">{items.map(i=><li key={i.key}><Link href={i.href}><span>{i.label}</span><strong>{i.count}</strong><span aria-hidden="true">→</span></Link></li>)}</ul>:<p className="empty-state">No outstanding attention items.</p>}</section>;}

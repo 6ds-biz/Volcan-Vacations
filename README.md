@@ -99,7 +99,7 @@ Milestone 4 adds manual tour/date availability, supplier contact/confirmation hi
 
 Milestone 3 connects public tour requests to customer/traveler/trip/reservation records and the Operations booking inbox. See [the booking workflow guide](docs/milestone-3.md) for lifecycle, financial snapshots, idempotency, demo seed, and security boundaries. Its original follow-up transitions are extended by Milestone 4.
 
-Milestone 2 adds Operations-managed supplier/tour inventory and image galleries. See [the inventory guide](docs/milestone-2.md) for API contracts, the explicit demo seed, tests, and acceptance instructions. **Operations and `/ops/*` APIs are unauthenticated development-only interfaces; protect both before production use.**
+Milestone 2 adds Operations-managed supplier/tour inventory and image galleries. See [the inventory guide](docs/milestone-2.md) for API contracts, the explicit demo seed, tests, and acceptance instructions. Operations 2.0 now enforces internal sessions and role permissions. Hosted Operations remains disabled unless explicitly configured and deployed. See [authentication and bootstrap](docs/operations-2/part-1.md), [the Part 1 validation gate](docs/operations-2/part-1-validation.md), [the Operations interface guide](docs/operations-2/part-2.md) and [the Part 2 validation report](docs/operations-2/part-2-validation.md).
 
 Alembic owns schema creation; the application does not call `create_all()`.
 

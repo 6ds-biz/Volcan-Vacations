@@ -112,6 +112,8 @@ class SupplierEventInput(Input):
 
 
 class SupplierEventRead(ReadModel):
+    actor_user_id: int | None = None
+    actor_display_name: str | None = None
     id: int
     supplier_id: int
     event_type: str

@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import {PageHeader} from './ops-ui';
+import {SupplierFoundation} from './foundation-editors';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, type FormEvent } from 'react';
 import { apiRequest } from '../lib/api';
@@ -41,7 +43,7 @@ export function SupplierEditor({id}: {id?: string}) {
     } catch (error) { setError(error instanceof Error ? error.message : 'Unable to save supplier'); }
     finally { setBusy(false); }
   }
-  return <><Link href="/suppliers">← Suppliers</Link><h1>{id ? 'Edit supplier' : 'New supplier'}</h1>
+  return <><Link href="/suppliers">← Suppliers</Link><PageHeader title={id ? 'Edit supplier' : 'New supplier'} description="Maintain vendor contacts and relationships" icon="suppliers"/>
     {loading || (id && !supplier) ? <LoadState error={error} retry={() => setAttempt(value => value + 1)} /> :
       <form className="ops-editor" onSubmit={save}>
         <fieldset disabled={busy}><legend>Supplier details · internal only</legend><div className="ops-fields">
@@ -55,5 +57,5 @@ export function SupplierEditor({id}: {id?: string}) {
         <label className="ops-check"><input name="active" type="checkbox" defaultChecked={supplier?.active ?? true} />Active</label>
         <button type="submit">{busy ? 'Saving…' : 'Save supplier'}</button></fieldset>
         {error && <p role="alert">{error}</p>}{saved && <p role="status">Supplier saved.</p>}
-      </form>}</>;
+      </form>}{id&&<SupplierFoundation id={id}/>}</>;
 }

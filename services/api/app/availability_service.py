@@ -27,7 +27,7 @@ def present_availability(row):
 
 def present_confirmation(booking):
     availability = next((row for row in booking.product.availability if row.date == booking.reservation_date), None)
-    events = [dict(id=e.id, supplier_id=e.supplier_id, event_type=e.event_type,
+    events = [dict(actor_user_id=e.actor_user_id, actor_display_name=e.actor_display_name, id=e.id, supplier_id=e.supplier_id, event_type=e.event_type,
         contact_method=e.contact_method, operator_identifier=e.operator_identifier,
         status=e.status, reservation_status=e.reservation_status, availability_status=e.availability_status,
         reference=e.reference, notes=e.notes, alternative_product_id=e.alternative_product_id,
@@ -95,7 +95,7 @@ def public_availability(db, slug, day):
     return dict(date=day, status=row.status if row and not is_stale(row.last_checked_at) else 'unknown', request_required=True)
 
 
-def record_supplier_event(db, booking_id, payload):
+def record_supplier_event(db, booking_id, payload, work_actor=None):
     # Import locally to keep presentation helpers usable by booking_service.
     from .booking_service import get_booking, present_booking
     excluded = {'command_id'}
@@ -106,6 +106,9 @@ def record_supplier_event(db, booking_id, payload):
     try:
         with db.begin():
             booking = get_booking(db, booking_id, lock=True)
+            if work_actor is not None:
+                from .task_service import scoped_booking
+                scoped_booking(db, work_actor, booking_id)
             previous = next((e for e in booking.supplier_events if e.command_id == str(payload.command_id)), None)
             if previous:
                 if previous.command_hash != fingerprint:

@@ -175,6 +175,7 @@ class Reservation(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     trip_id: Mapped[int] = mapped_column(ForeignKey('trips.id'), nullable=False)
     product_id: Mapped[int] = mapped_column(ForeignKey('products.id'), nullable=False)
+    assigned_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True, index=True)
     reservation_date: Mapped[Date] = mapped_column(Date, nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     status: Mapped[str] = mapped_column(String(80), nullable=False, default='new', server_default='new')
@@ -307,6 +308,7 @@ class SupplierConfirmationEvent(Base):
     event_type: Mapped[str] = mapped_column(String(30), nullable=False)
     contact_method: Mapped[str | None] = mapped_column(String(30), nullable=True)
     operator_identifier: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    actor_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True)
     status: Mapped[str] = mapped_column(String(30), nullable=False)
     reservation_status: Mapped[str] = mapped_column(String(80), nullable=False)
     availability_status: Mapped[str] = mapped_column(String(30), nullable=False)
@@ -322,6 +324,11 @@ class SupplierConfirmationEvent(Base):
     reservation: Mapped['Reservation'] = relationship('Reservation', back_populates='supplier_events')
     supplier: Mapped['Supplier'] = relationship('Supplier')
     alternative_product: Mapped['Product | None'] = relationship('Product')
+    actor: Mapped['InternalUser | None'] = relationship('InternalUser')
+
+    @property
+    def actor_display_name(self):
+        return self.actor.display_name if self.actor else None
 
 
 class PaymentWebhookEvent(Base):
@@ -436,3 +443,76 @@ class SupplierDocument(FoundationTimestamps, Base):
     effective_date: Mapped[Date | None] = mapped_column(Date, nullable=True)
     expiration_date: Mapped[Date | None] = mapped_column(Date, nullable=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class InternalUser(FoundationTimestamps, Base):
+    __tablename__ = 'internal_users'
+    __table_args__ = (
+        CheckConstraint("role IN ('owner_admin','operations_partner','staff')", name='ck_internal_user_role'),
+        CheckConstraint("dashboard_profile IN ('Owner','Operations','Staff')", name='ck_internal_user_profile'),
+        CheckConstraint('email = lower(trim(email))', name='ck_internal_user_email'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    email: Mapped[str] = mapped_column(String(180), unique=True, nullable=False)
+    display_name: Mapped[str] = mapped_column(String(140), nullable=False)
+    password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
+    role: Mapped[str] = mapped_column(String(30), nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text('true'), nullable=False)
+    dashboard_profile: Mapped[str] = mapped_column(String(30), nullable=False)
+    must_change_password: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text('false'), nullable=False)
+    last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class InternalSession(Base):
+    __tablename__ = 'internal_sessions'
+    token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey('internal_users.id'), nullable=False, index=True)
+    csrf_token: Mapped[str] = mapped_column(String(64), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, index=True)
+
+
+class LoginGuard(Base):
+    __tablename__ = 'internal_login_guards'
+    key: Mapped[str] = mapped_column(String(64), primary_key=True)
+    attempts: Mapped[int] = mapped_column(Integer, default=0, server_default='0', nullable=False)
+    window_started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+
+
+class OpsTask(FoundationTimestamps, Base):
+    __tablename__ = 'ops_tasks'
+    __table_args__ = (
+        CheckConstraint("status IN ('open','in_progress','waiting','completed','cancelled')", name='ck_ops_task_status'),
+        CheckConstraint("priority IN ('low','normal','high','urgent')", name='ck_ops_task_priority'),
+        CheckConstraint("source IN ('manual','system_generated')", name='ck_ops_task_source'),
+        CheckConstraint("queue_role IN ('operations','owner_admin')", name='ck_ops_task_queue'),
+        CheckConstraint("(related_entity_type IS NULL AND related_entity_id IS NULL) OR (related_entity_type IN ('booking','supplier','tour','payment','availability','agreement','customer') AND related_entity_id IS NOT NULL AND related_entity_id > 0)", name='ck_ops_task_related'),
+        CheckConstraint('version > 0', name='ck_ops_task_version'),
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    title: Mapped[str] = mapped_column(String(220), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    assigned_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True, index=True)
+    created_by_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True)
+    completed_by_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True)
+    related_entity_type: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    related_entity_id: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+    priority: Mapped[str] = mapped_column(String(20), default='normal', server_default='normal', nullable=False)
+    status: Mapped[str] = mapped_column(String(20), default='open', server_default='open', nullable=False)
+    source: Mapped[str] = mapped_column(String(30), default='manual', server_default='manual', nullable=False)
+    queue_role: Mapped[str] = mapped_column(String(30), default='operations', server_default='operations', nullable=False)
+    system_key: Mapped[str | None] = mapped_column(String(180), unique=True, nullable=True)
+    due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    version: Mapped[int] = mapped_column(Integer, default=1, server_default='1', nullable=False)
+
+
+class InternalAudit(Base):
+    __tablename__ = 'internal_audit'
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    actor_user_id: Mapped[int | None] = mapped_column(ForeignKey('internal_users.id'), nullable=True, index=True)
+    entity_type: Mapped[str] = mapped_column(String(40), nullable=False)
+    entity_id: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
+    action: Mapped[str] = mapped_column(String(30), nullable=False)
+    summary: Mapped[str] = mapped_column(String(240), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)

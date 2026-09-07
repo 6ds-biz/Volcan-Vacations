@@ -1,4 +1,4 @@
-"""Internal commands are unauthenticated development endpoints; protect before production."""
+"""Internal commands require authenticated Operations capabilities."""
 from datetime import date
 
 from fastapi import APIRouter, Depends, Query
@@ -10,7 +10,7 @@ from ..booking_schemas import BookingRead
 from ..database import get_db
 from .ops import private_response
 
-ops_router = APIRouter(prefix='/ops', tags=['Internal availability — not authenticated'], dependencies=[Depends(private_response)])
+ops_router = APIRouter(prefix='/ops', tags=['Internal availability'], dependencies=[Depends(private_response)])
 public_router = APIRouter(prefix='/public', tags=['Public availability'], dependencies=[Depends(private_response)])
 
 

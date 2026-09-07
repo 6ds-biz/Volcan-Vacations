@@ -103,11 +103,11 @@ def main():
         target = create_engine(target_url)
         stage = 'sequential migrations'
         revisions = ['0001_initial_schema', '0002_tour_inventory', '0003_booking_requests',
-                     '0004_availability_confirmation', '0005_paypal_payments', '0006_platform_foundation', 'head']
+                     '0004_availability_confirmation', '0005_paypal_payments', '0006_platform_foundation', '0007_internal_users_tasks', 'head']
         for revision in revisions:
             command(['alembic', 'upgrade', revision])
         with target.connect() as db:
-            assert db.scalar(text('SELECT version_num FROM alembic_version')) == '0006_platform_foundation'
+            assert db.scalar(text('SELECT version_num FROM alembic_version')) == '0007_internal_users_tasks'
         assert all(count == 0 for count in counts().values())
         result['migrations'] = revisions
         stage = 'preview inventory seed'

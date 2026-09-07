@@ -16,7 +16,7 @@ from ..services.paypal import PayPalError
 from .ops import private_response
 
 public_router = APIRouter(prefix='/public/payments', tags=['Token-scoped sandbox payments'], dependencies=[Depends(private_response)])
-ops_router = APIRouter(prefix='/ops', tags=['Internal payments — unauthenticated development only'], dependencies=[Depends(private_response)])
+ops_router = APIRouter(prefix='/ops', tags=['Internal payments'], dependencies=[Depends(private_response)])
 webhook_router = APIRouter(tags=['Verified PayPal notifications'], dependencies=[Depends(private_response)])
 
 

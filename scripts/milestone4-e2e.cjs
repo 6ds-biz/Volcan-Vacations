@@ -20,15 +20,18 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     const ports = new Map([[new URL(web).origin, 3000], [new URL(ops).origin, 3001], [new URL(api).origin, 8000]]);
     await context.route('**/*', async route => {
       const url = new URL(route.request().url());
-      const port = ports.get(url.origin);
-      if (!port) return route.continue();
+      const configuredLocalApi = process.env.CODESPACE_NAME && url.hostname === `${process.env.CODESPACE_NAME}-8000.app.github.dev`;
+      const port = ports.get(url.origin) || (configuredLocalApi ? 8000 : null);
+      // Local acceptance never sends a browser request to an external host.
+      if (!port) return route.abort();
       const response = await route.fetch({url: `http://localhost:${port}${url.pathname}${url.search}`});
       await route.fulfill({response});
     });
   }
   const direct = local ? 'http://localhost:8000' : api;
+  const authHeaders = await require('./ops-test-auth.cjs')(context, direct, ops);
   async function request(path, method = 'GET', data) {
-    const response = await context.request.fetch(direct + path, {method, data});
+    const response = await context.request.fetch(direct + path, {method, data, headers: path.startsWith('/ops/') ? authHeaders : {}});
     assert.ok(response.ok(), `${method} ${path}: ${await response.text()}`);
     return response.status() === 204 ? null : response.json();
   }
@@ -91,7 +94,7 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     }
     const positive = await publicRequest('Confirmed', 30);
     const admin = await context.newPage();
-    await admin.goto(ops + '/bookings');
+    await admin.goto(ops + '/bookings?view=attention');
     await admin.getByRole('link', {name: positive.reference, exact: true}).click();
     await admin.getByRole('heading', {name: positive.reference, exact: true}).waitFor();
     assert.match(await admin.getByTestId('confirmation-state').textContent(), /Reservation availability: Unknown/);
@@ -108,12 +111,12 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
       assert.equal(response.status(), 200, await response.text());
       const row = await response.json();
       await admin.getByRole('heading', {name: row.reference, exact: true}).waitFor();
-      await admin.locator('.ops-timeline li').nth(row.supplier_events.length - 1).waitFor();
+      await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-timeline li').nth(row.supplier_events.length - 1).waitFor();
       return row;
     }
     let row = await action('contacted', {contact_method: 'whatsapp', operator_identifier: 'DEMO acceptance operator', notes: 'PRIVATE M4 CONTACT — manual record only'});
     assert.equal(row.status, 'pending_supplier'); assert.equal(row.supplier_confirmation_status, 'awaiting_supplier');
-    assert.match(await admin.locator('.ops-timeline').textContent(), /WhatsApp/);
+    assert.match(await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-timeline').textContent(), /WhatsApp/);
     assert.match(await admin.getByTestId('confirmation-state').textContent(), /Awaiting supplier/);
     step('Public mobile request appears in Operations as Unknown; WhatsApp contact records Awaiting Supplier and a timeline event');
     const dates = await context.newPage();
@@ -165,7 +168,7 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     assert.equal(row.supplier_confirmation_reference, reference);
     await admin.reload();
     await admin.getByTestId('confirmation-state').getByText('Ready for Payment', {exact: true}).waitFor();
-    assert.match(await admin.locator('.ops-timeline').textContent(), new RegExp(reference));
+    assert.match(await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-timeline').textContent(), new RegExp(reference));
     await screenshot(admin, 'supplier-confirmed-desktop');
     await admin.setViewportSize({width: 390, height: 1000});
     await screenshot(admin, 'supplier-confirmed-mobile');
@@ -174,7 +177,7 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     step('Tour/date availability and request availability stay separate; supplier reference persists and booking becomes Confirmed / Ready for Payment');
     // Real PostgreSQL locking: two different commands with one version cannot both win.
     const command = {command_id: randomUUID(), expected_version: row.version, event_type: 'note', occurred_at: new Date().toISOString(), notes: 'PRIVATE M4 concurrent edit test'};
-    const racing = await Promise.all([command, {...command, command_id: randomUUID(), notes: 'PRIVATE M4 competing edit'}].map(data => context.request.post(direct + `/ops/bookings/${row.id}/supplier-events`, {data})));
+    const racing = await Promise.all([command, {...command, command_id: randomUUID(), notes: 'PRIVATE M4 competing edit'}].map(data => context.request.post(direct + `/ops/bookings/${row.id}/supplier-events`, {data, headers:authHeaders})));
     assert.deepEqual(racing.map(r => r.status()).sort(), [200, 409]);
     row = await request(`/ops/bookings/${row.id}`);
     const retryCommand = {...command, command_id: randomUUID(), expected_version: row.version, occurred_at: new Date().toISOString(), notes: 'PRIVATE M4 idempotent retry'};
@@ -197,19 +200,19 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     for (const key of ['product_id', 'requested_date', 'requested_time', 'unit_price', 'supplier_unit_cost', 'trip']) assert.deepEqual(row[key], negative[key]);
     assert.deepEqual(row.supplier_events.map(e => e.event_type), ['contacted', 'declined', 'alternative_offered']);
     await admin.reload();
-    await admin.locator('.ops-timeline li').nth(2).waitFor();
-    assert.match(await admin.locator('.ops-timeline').textContent(), /Proposed alternative/);
+    await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-timeline li').nth(2).waitFor();
+    assert.match(await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-timeline').textContent(), /Proposed alternative/);
     await screenshot(admin, 'supplier-alternative-mobile');
     await admin.setViewportSize({width: 1440, height: 1000});
     await screenshot(admin, 'supplier-alternative-desktop');
-    await admin.goto(ops + '/bookings');
+    await admin.goto(ops + '/bookings?view=attention');
     await admin.getByRole('link', {name: negative.reference, exact: true}).waitFor();
     assert.equal(await admin.getByRole('link', {name: positive.reference, exact: true}).count(), 0);
-    await admin.getByLabel('Needs Attention only', {exact: true}).uncheck();
+    await admin.getByRole('button', {name: 'Clear', exact: true}).click();
     await admin.getByRole('link', {name: positive.reference, exact: true}).waitFor();
     await screenshot(admin, 'booking-inbox');
     await admin.goto(ops);
-    await admin.locator('.ops-metrics dd').first().waitFor();
+    await admin.locator('.status-modules strong').first().waitFor();
     await screenshot(admin, 'dashboard');
     step('Decline marks Unavailable and Needs Attention without cancelling the trip; alternative date/time and full history persist without changing original prices or request');
     for (let i = 0; i < submissions.length; i++) assert.deepEqual(await request('/public/booking-requests', 'POST', submissions[i]), receipts[i]);

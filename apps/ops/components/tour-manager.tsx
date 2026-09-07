@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import {PageHeader} from './ops-ui';
+import {TourDestinations} from './foundation-editors';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, type FormEvent } from 'react';
 import { apiRequest } from '../lib/api';
@@ -52,8 +54,8 @@ export function TourEditor({id}: {id?: string}) {
     } catch (error) { setError(error instanceof Error ? error.message : 'Unable to save tour'); }
     finally { setBusy(false); }
   }
-  if (loading || (id && !tour) || (error && !suppliers.length)) return <><h1>{id ? 'Edit tour' : 'New tour'}</h1><LoadState error={error} retry={() => setAttempt(value => value + 1)} /></>;
-  return <><Link href="/tours">← Tours</Link><h1>{id ? 'Edit tour' : 'New tour'}</h1>{id && <Link href={`/availability?product_id=${id}`}>Manage tour availability</Link>}
+  if (loading || (id && !tour) || (error && !suppliers.length)) return <><PageHeader title={id ? 'Edit tour' : 'New tour'} description="Maintain experience details, imagery and internal pricing" icon="tours"/><LoadState error={error} retry={() => setAttempt(value => value + 1)} /></>;
+  return <><Link href="/tours">← Tours</Link><PageHeader title={id ? 'Edit tour' : 'New tour'} description="Maintain experience details, imagery and internal pricing" icon="tours"/>{id && <Link href={`/availability?product_id=${id}`}>Manage tour availability</Link>}
     {!suppliers.length && <p role="alert">A supplier is required. <Link href="/suppliers/new">Create a supplier</Link> first. {error}</p>}
     <form className="ops-editor" onSubmit={save}>
       <fieldset disabled={busy}><legend>Basics</legend><div className="ops-fields">
@@ -76,6 +78,7 @@ export function TourEditor({id}: {id?: string}) {
       <fieldset disabled={busy}><legend>Publishing</legend><label className="ops-check"><input name="active" type="checkbox" defaultChecked={tour?.active ?? false} />Active — visible publicly</label><label className="ops-check"><input name="featured" type="checkbox" defaultChecked={tour?.featured ?? false} />Featured — show on homepage when active</label><button type="submit" disabled={!suppliers.length}>{busy ? 'Saving…' : 'Save tour'}</button></fieldset>
       {error && <p role="alert">{error}</p>}{saved && <p role="status">Tour saved. Server gross margin: ${tour?.gross_margin} USD.</p>}
     </form>
+    {id && <TourDestinations id={id}/>}
     {id ? <ImageManager tourId={id} /> : <p>Save this tour to manage its primary image and gallery.</p>}
   </>;
 }

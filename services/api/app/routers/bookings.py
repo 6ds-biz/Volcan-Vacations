@@ -7,7 +7,7 @@ from ..booking_service import create_request, get_booking, list_bookings, presen
 from .ops import private_response
 
 public_router = APIRouter(prefix='/public', tags=['Booking requests'], dependencies=[Depends(private_response)])
-ops_router = APIRouter(prefix='/ops', tags=['Internal booking follow-up — not authenticated'], dependencies=[Depends(private_response)])
+ops_router = APIRouter(prefix='/ops', tags=['Internal booking follow-up'], dependencies=[Depends(private_response)])
 
 
 @public_router.post('/booking-requests', response_model=BookingReceipt, status_code=201)

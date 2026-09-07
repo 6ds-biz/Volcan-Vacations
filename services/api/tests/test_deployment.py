@@ -93,6 +93,8 @@ def test_payment_link_uses_configured_public_origin(client, monkeypatch):
 def test_hosted_link_without_base_url_does_not_mutate_booking(client, monkeypatch):
     _, booking, _ = ready(client)
     monkeypatch.setattr(settings, 'environment', 'preview')
+    monkeypatch.setattr(settings, 'ops_web_url', 'https://ops.example.invalid')
+    client.headers['Origin'] = 'https://ops.example.invalid'
     monkeypatch.setattr(settings, 'public_web_url', None)
     response = client.post(f"/ops/bookings/{booking['id']}/payment-link", json={'expected_version': booking['version']})
     assert response.status_code == 503

@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
+from .internal_auth import require_ops
+from .routers.internal import router as internal_ops, login_router
+from . import audit  # register transactional audit/task listeners
 from fastapi.middleware.cors import CORSMiddleware
 
 from .config import Settings, settings
@@ -17,6 +22,18 @@ def create_app(config: Settings = settings) -> FastAPI:
         description='Backend API for the Volcan Vacations platform.',
         version='0.1.0',
     )
+    application.state.config = config
+    @application.exception_handler(RequestValidationError)
+    async def validation_error(request: Request, error: RequestValidationError):
+        # FastAPI normally echoes invalid input, including password fields.
+        return JSONResponse(status_code=422,content={'detail':[{'loc':list(e['loc']),'msg':e['msg'],'type':e['type']} for e in error.errors()]})
+    @application.middleware('http')
+    async def internal_headers(request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith('/ops'):
+            response.headers['Cache-Control']='no-store'
+            response.headers['X-Content-Type-Options']='nosniff'
+        return response
     application.add_middleware(
         CORSMiddleware,
         allow_origins=config.allowed_origins_list,
@@ -30,14 +47,11 @@ def create_app(config: Settings = settings) -> FastAPI:
     application.include_router(availability_public)
     application.include_router(payment_public)
     application.include_router(webhook_router)
-    # CORS is not authentication. Do not mount private data or mutation routes
-    # on the internet-facing API until Operations authentication is implemented.
-    if config.environment == 'development':
-        application.include_router(foundation_ops)
-        application.include_router(ops.router)
-        application.include_router(booking_ops)
-        application.include_router(availability_ops)
-        application.include_router(payment_ops)
+    # Hosted Operations remains an explicit deployment opt-in.
+    if config.environment == 'development' or config.ops_enabled:
+        application.include_router(login_router)
+        for router in (internal_ops, foundation_ops, ops.router, booking_ops, availability_ops, payment_ops):
+            application.include_router(router, dependencies=[Depends(require_ops)])
     application.add_api_route('/', health, response_model=HealthResponse, methods=['GET'])
     application.add_api_route('/health', health, response_model=HealthResponse, methods=['GET'])
     return application

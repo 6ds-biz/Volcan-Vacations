@@ -13,7 +13,7 @@ def private_response(response: Response):
     response.headers['Cache-Control'] = 'no-store'
 
 
-router = APIRouter(prefix='/ops', tags=['Internal inventory — unauthenticated development only'], dependencies=[Depends(private_response)])
+router = APIRouter(prefix='/ops', tags=['Internal inventory'], dependencies=[Depends(private_response)])
 
 
 @router.get('/suppliers', response_model=list[SupplierRead])
