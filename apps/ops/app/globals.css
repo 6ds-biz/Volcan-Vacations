@@ -77,3 +77,6 @@ small { font-weight: 400; color: #52645b; }
 .ops-availability-table { min-width: 1000px; }
 .ops-availability-table td:nth-child(2) { min-width: 220px; }
 span.ops-badge, table .ops-badge { white-space: nowrap; }
+
+.ops-payment-table { min-width: 1150px; }
+.ops-payment-link { max-width: 960px; margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #cbd5d1; background: white; overflow-wrap: anywhere; }

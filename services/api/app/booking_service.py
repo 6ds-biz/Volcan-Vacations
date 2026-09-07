@@ -92,6 +92,7 @@ def booking_query():
         selectinload(Reservation.product).selectinload(Product.availability),
         selectinload(Reservation.product).selectinload(Product.supplier),
         selectinload(Reservation.supplier),
+        selectinload(Reservation.payment),
         selectinload(Reservation.supplier_events).selectinload(SupplierConfirmationEvent.alternative_product),
         selectinload(Reservation.trip).selectinload(Trip.customer),
         selectinload(Reservation.trip).selectinload(Trip.traveler_links).selectinload(TripTraveler.traveler),
@@ -99,6 +100,10 @@ def booking_query():
 
 
 def get_booking(db, booking_id, lock=False):
+    if lock:
+        trip_id = db.scalar(select(Reservation.trip_id).where(Reservation.id == booking_id))
+        if trip_id:
+            db.scalar(select(Trip).where(Trip.id == trip_id).with_for_update())
     query = booking_query().where(Reservation.id == booking_id)
     reservation = db.scalar(query.with_for_update() if lock else query)
     if reservation is None:
@@ -117,6 +122,8 @@ def present_booking(reservation):
         customer=reservation.trip.customer, submitted_contact=reservation.contact_snapshot,
         travelers=[link.traveler for link in reservation.trip.traveler_links], trip=reservation.trip,
         customer_notes=reservation.customer_notes, internal_notes=reservation.internal_notes,
+        payment_status=reservation.payment.status if reservation.payment else None,
+        payment_received=bool(reservation.payment and reservation.payment.paid_at),
         **present_confirmation(reservation))
 
 
@@ -145,6 +152,8 @@ def update_booking(db, booking_id, payload):
         booking.internal_notes = payload.internal_notes
         if payload.trip_status:
             booking.trip.status = payload.trip_status
+        from .payment_service import invalidate_payment_link
+        invalidate_payment_link(booking)
         # Opening a booking or changing reservation status never auto-confirms a trip.
         booking.trip.updated_at = datetime.now(timezone.utc)
         db.flush()

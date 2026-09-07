@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { apiRequest, imagePreviewUrl } from '../lib/api';
 import type { ProductImage } from '../lib/inventory';
 
-export function useInventory<T>(path: string) {
+export function useInventory<T>(path: string, refreshKey?: number) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
@@ -12,7 +12,7 @@ export function useInventory<T>(path: string) {
     setError(''); setData(null);
     apiRequest<T>(path).then(result => { if (active) setData(result); }).catch(error => { if (active) setError(error.message || 'API unavailable'); });
     return () => { active = false; };
-  }, [path, attempt]);
+  }, [path, attempt, refreshKey]);
   return {data, error, retry: () => setAttempt(value => value + 1)};
 }
 export function LoadState({error, retry}: {error: string; retry: () => void}) {

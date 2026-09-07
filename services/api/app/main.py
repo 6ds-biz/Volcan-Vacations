@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import settings
 from .schemas import HealthResponse
 from .routers import ops, public
+from .routers.payments import ops_router as payment_ops, public_router as payment_public, webhook_router
 from .routers.availability import ops_router as availability_ops, public_router as availability_public
 from .routers.bookings import public_router as booking_public, ops_router as booking_ops
 
@@ -30,6 +31,9 @@ app.include_router(booking_public)
 app.include_router(booking_ops)
 app.include_router(availability_ops)
 app.include_router(availability_public)
+app.include_router(payment_ops)
+app.include_router(payment_public)
+app.include_router(webhook_router)
 
 
 @app.get('/', response_model=HealthResponse)

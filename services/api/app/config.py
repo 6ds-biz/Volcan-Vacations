@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pydantic import field_validator
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -26,7 +26,10 @@ class Settings(BaseSettings):
     allowed_origins: str = 'http://localhost:3000,http://localhost:3001'
     allowed_origin_regex: str | None = None
     paypal_client_id: str | None = None
-    paypal_secret: str | None = None
+    paypal_client_secret: str | None = Field(default=None, repr=False)
+    paypal_environment: str = 'sandbox'
+    paypal_currency: str = 'USD'
+    paypal_webhook_id: str | None = None
     email_from: str | None = None
 
     @property

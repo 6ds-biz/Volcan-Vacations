@@ -31,6 +31,10 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}): Pr
 }
 
 export function imagePreviewUrl(url: string): string | undefined {
+  return publicPageUrl(url);
+}
+
+export function publicPageUrl(url: string): string | undefined {
   if (!url.startsWith('/')) return url;
   // Relative /images/ URLs belong to the public site, not Operations.
   if (process.env.NEXT_PUBLIC_WEB_URL) return `${process.env.NEXT_PUBLIC_WEB_URL.replace(/\/$/, '')}${url}`;

@@ -154,7 +154,7 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     await screenshot(dates, 'availability-mobile');
     await admin.reload();
     await admin.getByRole('heading', {name: 'Tour / date availability', exact: true}).waitFor();
-    assert.match(await admin.locator('.ops-confirmation').textContent(), /Source: Supplier/);
+    assert.match(await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).textContent(), /Source: Supplier/);
     row = await action('availability_checked', {availability_status: 'available', notes: 'PRIVATE M4 request availability checked'});
     assert.equal(row.status, 'pending_supplier'); assert.equal(row.ready_for_payment, false);
     assert.equal(row.product_availability.status, 'available');
@@ -164,13 +164,13 @@ const dateAfter = days => new Date(Date.now() + days * 86400000).toISOString().s
     assert.equal(row.supplier_confirmation_status, 'confirmed'); assert.equal(row.ready_for_payment, true);
     assert.equal(row.supplier_confirmation_reference, reference);
     await admin.reload();
-    await admin.getByText('Ready for Payment', {exact: true}).waitFor();
+    await admin.getByTestId('confirmation-state').getByText('Ready for Payment', {exact: true}).waitFor();
     assert.match(await admin.locator('.ops-timeline').textContent(), new RegExp(reference));
     await screenshot(admin, 'supplier-confirmed-desktop');
     await admin.setViewportSize({width: 390, height: 1000});
     await screenshot(admin, 'supplier-confirmed-mobile');
     await admin.getByTestId('confirmation-state').screenshot({path: `${output}/supplier-confirmed-state-mobile.png`});
-    await admin.locator('.ops-confirmation .ops-editor').screenshot({path: `${output}/supplier-action-form-mobile.png`});
+    await admin.getByRole('region', {name: 'Availability & Supplier Confirmation', exact: true}).locator('.ops-editor').screenshot({path: `${output}/supplier-action-form-mobile.png`});
     step('Tour/date availability and request availability stay separate; supplier reference persists and booking becomes Confirmed / Ready for Payment');
     // Real PostgreSQL locking: two different commands with one version cannot both win.
     const command = {command_id: randomUUID(), expected_version: row.version, event_type: 'note', occurred_at: new Date().toISOString(), notes: 'PRIVATE M4 concurrent edit test'};

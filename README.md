@@ -60,7 +60,8 @@ Docker Compose overrides the API database host to `postgres` on the container ne
 - `ALLOWED_ORIGINS` - comma-separated public and operations frontend origins
 - `ALLOWED_ORIGIN_REGEX` - optional CORS regex, normally left blank in favor of explicit origins
 - `ENVIRONMENT` - `development`, `preview`, or `production`
-- `PAYPAL_CLIENT_ID`, `PAYPAL_SECRET`, `EMAIL_FROM` - future integration placeholders only
+- `PAYPAL_ENVIRONMENT=sandbox`, `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_CURRENCY=USD`, `PAYPAL_WEBHOOK_ID` - backend sandbox checkout configuration; see [Milestone 5](docs/milestone-5.md)
+- `EMAIL_FROM` - future transactional email placeholder only
 
 Values prefixed with `NEXT_PUBLIC_` are exposed to the browser and must never contain secrets.
 
@@ -90,7 +91,9 @@ uvicorn app.main:app --reload --port 8000
 
 ## Database migrations
 
-Milestone 4 adds manual tour/date availability, supplier contact/confirmation history, and derived payment readiness. See [the availability and supplier workflow guide](docs/milestone-4.md). No payments or automated supplier communications are implemented.
+Milestone 5 extends the existing Payment model with reservation-scoped sandbox PayPal checkout, private payment links, capture/webhook reconciliation, and Operations payment visibility. See [the payment guide](docs/milestone-5.md) and [validation report](docs/milestone-5-validation.md). Live payment calls are blocked. Real sandbox acceptance requires configured sandbox credentials and a verified webhook.
+
+Milestone 4 adds manual tour/date availability, supplier contact/confirmation history, and derived payment readiness. See [the availability and supplier workflow guide](docs/milestone-4.md). Milestone 5 builds on those prerequisites; automated supplier communications remain deferred.
 
 Milestone 3 connects public tour requests to customer/traveler/trip/reservation records and the Operations booking inbox. See [the booking workflow guide](docs/milestone-3.md) for lifecycle, financial snapshots, idempotency, demo seed, and security boundaries. Its original follow-up transitions are extended by Milestone 4.
 

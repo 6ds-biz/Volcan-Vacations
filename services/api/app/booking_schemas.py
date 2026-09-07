@@ -122,6 +122,8 @@ class TripRead(ReadModel):
 
 
 class BookingRead(ConfirmationRead):
+    payment_status: str | None
+    payment_received: bool
     id: int
     reference: str
     status: str

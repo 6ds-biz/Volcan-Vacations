@@ -160,6 +160,8 @@ def record_supplier_event(db, booking_id, payload):
                 booking.availability_status = payload.availability_status
             if kind in ('confirmed', 'declined', 'alternative_offered'):
                 booking.supplier_response_notes = payload.notes
+            from .payment_service import invalidate_payment_link
+            invalidate_payment_link(booking)
             booking.version += 1
             event = SupplierConfirmationEvent(reservation_id=booking.id, supplier_id=booking.supplier_id,
                 event_type=kind, contact_method=payload.contact_method, operator_identifier=payload.operator_identifier,

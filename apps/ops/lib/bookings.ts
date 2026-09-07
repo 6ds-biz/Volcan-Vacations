@@ -8,6 +8,7 @@ export type Booking = {
   customer: Contact & {id: number; notes: string | null}; submitted_contact: Contact | null;
   travelers: {id: number; first_name: string; last_name: string; traveler_type: string | null; date_of_birth: string | null}[];
   trip: {id: number; reference: string; name: string | null; start_date: string | null; end_date: string | null; party_size: number; status: string; notes: string | null};
+  payment_status: string | null; payment_received: boolean;
   customer_notes: string | null; internal_notes: string | null;
   supplier: Supplier; availability_status: string; supplier_confirmation_status: string;
   supplier_confirmation_reference: string | null; supplier_contacted_at: string | null;
