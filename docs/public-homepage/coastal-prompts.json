@@ -1,0 +1,26 @@
+{
+  "tool": "Built-in image_gen (no CLI/API credentials)",
+  "date": "2026-09-08",
+  "prompts": [
+    {
+      "slot": "pacific-sunset",
+      "prompt": "Use case: photorealistic-natural. Create one wide cinematic travel photograph, 3:2 landscape, for a premium Costa Rica Pacific Coast website chapter. An expansive golden-sand Guanacaste-style Pacific beach at sunset, blue water and gentle warm surf, rocky wooded headland in the distance on the right, a few coastal trees and palms at the far edges. Natural realistic Pacific ecology, warm sun near the horizon, tasteful golden light, richly detailed but not oversaturated. Beach and sea fill center and right; the left third is naturally shaded coastal foreground with calm tonal detail to accommodate separate HTML text. Camera from beach level with a slightly elevated dune perspective. This is temporary illustrative destination inspiration, not a depiction of a specific property. No hotels, no buildings, no resort pools, no people close up, no boats, no Caribbean white sand or atolls. No text, logo, watermark, borders or collage. Save the generated asset for use in the current website project."
+    },
+    {
+      "slot": "papagayo",
+      "prompt": "Use case: photorealistic-natural. Asset type: temporary illustrative Costa Rica coastal destination card, landscape 3:2 photo, subject kept central for portrait cropping. An aerial view of a sheltered blue-green Pacific cove between dramatic wooded Guanacaste headlands, honey-colored sandy shore, dry tropical forest, bright late afternoon sun. Papagayo peninsula feeling, no buildings. Premium natural travel photography with realistic Pacific colors and texture, clear blue water, warm atmosphere, not oversaturated. This is conceptual destination inspiration, not a documentary view or bookable property. No text, logos, watermarks, collage, borders, resort pools, overwater bungalows, Caribbean atolls or white-sand fantasy."
+    },
+    {
+      "slot": "las-catalinas",
+      "prompt": "Use case: photorealistic-natural. Asset type: temporary illustrative Costa Rica coastal destination card, landscape 3:2 photo, subject kept central for portrait cropping. An intimate walkable Costa Rican Pacific coastal village with warm stucco facades, tiled roofs, stone pedestrian lane leading toward a blue bay, wooded hills and a few shade trees. Las Catalinas-inspired atmosphere, architecture understated, no branded or identifiable hotel, no signs. Premium natural travel photography with realistic Pacific colors and texture, clear blue water, warm atmosphere, not oversaturated. This is conceptual destination inspiration, not a documentary view or bookable property. No text, logos, watermarks, collage, borders, resort pools, overwater bungalows, Caribbean atolls or white-sand fantasy."
+    },
+    {
+      "slot": "nosara",
+      "prompt": "Use case: photorealistic-natural. Asset type: temporary illustrative Costa Rica coastal destination card, landscape 3:2 photo, subject kept central for portrait cropping. A broad natural Pacific surf beach, gently rolling parallel waves, two very small distant surfers carrying boards along wet tan sand, coastal forest with scattered palms, soft bright morning light. Nosara-inspired quiet nature, no buildings. Premium natural travel photography with realistic Pacific colors and texture, clear blue water, warm atmosphere, not oversaturated. This is conceptual destination inspiration, not a documentary view or bookable property. No text, logos, watermarks, collage, borders, resort pools, overwater bungalows, Caribbean atolls or white-sand fantasy."
+    },
+    {
+      "slot": "tamarindo",
+      "prompt": "Use case: photorealistic-natural. Asset type: temporary illustrative Costa Rica coastal destination card, landscape 3:2 photo, subject kept central for portrait cropping. A sweeping lively Pacific bay at golden hour with warm tan beach, gentle shore break and tiny distant beachgoers silhouetted against the sunset, a few palms on the beach edge. Tamarindo-inspired coastal energy, no buildings or identifiable businesses. Premium natural travel photography with realistic Pacific colors and texture, clear blue water, warm atmosphere, not oversaturated. This is conceptual destination inspiration, not a documentary view or bookable property. No text, logos, watermarks, collage, borders, resort pools, overwater bungalows, Caribbean atolls or white-sand fantasy."
+    }
+  ]
+}
