@@ -8,7 +8,6 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { apiRequest } from '../lib/api';
 import type { Supplier } from '../lib/inventory';
 import { LoadState, useInventory } from './inventory-ui';
-import {SupplierBuilder} from './page-builder/supplier-builder';
 
 export function SupplierList() {
   const {data, error, retry} = useInventory<Supplier[]>('/ops/suppliers');
@@ -40,12 +39,15 @@ export function SupplierEditor({id}: {id?: string}) {
     setBusy(true); setError(''); setSaved(false);
     try {
       const result = await apiRequest<Supplier>(`/ops/suppliers${id ? `/${id}` : ''}`, {method: id ? 'PUT' : 'POST', body: JSON.stringify(payload)});
-      setSupplier(result); setSaved(true);
+      setSaved(true);
       if (!id) router.push(`/suppliers/${result.id}`);
     } catch (error) { setError(error instanceof Error ? error.message : 'Unable to save supplier'); }
     finally { setBusy(false); }
   }
-  const supplierForm=<form className="ops-editor" onSubmit={save}>
+  return <><Link href="/suppliers">← Suppliers</Link><PageHeader title={id ? 'Edit supplier' : 'New supplier'} description="Maintain vendor contacts and relationships" icon="suppliers"/>
+    {supplier&&<div className="ops-actions"><ContactActions email={supplier.email} phone={supplier.phone}/><a href="#supplier-notes">Add / edit note</a><a href="#supplier-relationship">Relationship</a></div>}
+    {loading || (id && !supplier) ? <LoadState error={error} retry={() => setAttempt(value => value + 1)} /> :
+      <form className="ops-editor" onSubmit={save}>
         <fieldset disabled={busy}><legend>Supplier details · internal only</legend><div className="ops-fields">
           <label>Name<input name="name" required maxLength={200} defaultValue={supplier?.name} /></label>
           <label>Supplier type<select name="supplier_type" defaultValue={supplier?.supplier_type || 'tour_operator'}>{['tour_operator', 'transportation', 'hotel', 'other'].map(type => <option key={type} value={type}>{type.replace(/_/g, ' ')}</option>)}</select></label>
@@ -57,9 +59,5 @@ export function SupplierEditor({id}: {id?: string}) {
         <label className="ops-check"><input name="active" type="checkbox" defaultChecked={supplier?.active ?? true} />Active</label>
         <button type="submit">{busy ? 'Saving…' : 'Save supplier'}</button></fieldset>
         {error && <p role="alert">{error}</p>}{saved && <p role="status">Supplier saved.</p>}
-      </form>;
-  return <><Link href="/suppliers">← Suppliers</Link><PageHeader title={id ? 'Edit supplier' : 'New supplier'} description="Maintain vendor contacts and relationships" icon="suppliers"/>
-    {supplier&&<div className="ops-actions"><ContactActions email={supplier.email} phone={supplier.phone}/><a href="#supplier-notes">Add / edit note</a><a href="#supplier-relationship">Relationship</a></div>}
-    {loading || (id && !supplier) ? <LoadState error={error} retry={() => setAttempt(value => value + 1)} /> :
-      (id&&supplier?<SupplierFoundation id={id} render={(relationship,foundation)=><SupplierBuilder id={id} supplier={supplier} overview={supplierForm} relationship={relationship} foundation={foundation}/>}/>:supplierForm)}</>;
+      </form>}{id&&<SupplierFoundation id={id}/>}</>;
 }

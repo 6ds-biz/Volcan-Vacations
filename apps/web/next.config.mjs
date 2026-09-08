@@ -13,6 +13,7 @@ if (process.env.VERCEL === '1') {
 
 const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ['@6ds/page-builder'],
 };
 
 export default nextConfig;

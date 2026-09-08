@@ -1,9 +1,4 @@
-import type { Metadata } from 'next';
-import { MailIcon, MapPinIcon } from '../../components/icons';
-import { Container, PageHero } from '../../components/ui';
-
+import type {Metadata} from 'next';
+import {WebsitePage} from '../../components/website/website-page';
 export const metadata: Metadata = { title: 'Contact', description: 'Get in touch with Volcan Vacations about your Costa Rica travel plans and questions.' };
-
-export default function ContactPage() {
-  return <main id="main-content"><PageHero eyebrow="We’re here to help" title="Let’s talk about Costa Rica." intro="Have a question or an idea for your trip? Send us a note. Direct message delivery is coming in a future release; our current contact details are below." /><section className="section contact-section"><Container className="contact-layout"><div className="contact-details"><p className="eyebrow">Get in touch</p><h2>Good trips begin with a good conversation.</h2><p>Tell us what you are considering, even if the details are still taking shape.</p><div className="contact-method"><MailIcon /><div><strong>Email</strong><a href="mailto:hello@volcanvacations.com">hello@volcanvacations.com</a></div></div><div className="contact-method"><MapPinIcon /><div><strong>Travel focus</strong><span>La Fortuna · Arenal · Costa Rica</span></div></div><div className="coming-soon"><strong>WhatsApp & phone</strong><p>Direct chat and phone support will be added in a future milestone.</p></div></div><form className="contact-form"><div className="field-grid"><label>Full name<input name="name" type="text" autoComplete="name" placeholder="Your name" /></label><label>Email address<input name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label></div><div className="field-grid"><label>Phone <small>(optional)</small><input name="phone" type="tel" autoComplete="tel" placeholder="Include country code" /></label><label>Travel dates <small>(optional)</small><input name="travel-dates" type="text" placeholder="e.g. March 10–17" /></label></div><label>How can we help?<textarea name="message" rows={6} placeholder="Tell us what you’re planning or curious about." /></label><div className="form-status" role="note"><p><strong>Form preview</strong> Online message delivery is not active yet. Please email us directly for now.</p><button type="button" disabled>Send message</button></div></form></Container></section></main>;
-}
+export default function Page(){return <WebsitePage pageKey="contact"/>;}

@@ -1,6 +1,8 @@
+import type {Editorial} from '../lib/website/registry';
+import {ConfiguredMedia} from './website/public-media';
 import { ScenicImage } from './scenic-image';
 import { Container, LinkButton } from './ui';
 
-export function CTASection() {
-  return <section className="cta-band"><ScenicImage src="/images/rainforest.webp" /><Container><div className="cta-band__inner"><p className="script-accent">Your Costa Rica<br />Adventure Starts Here</p><div><h2>Let’s Plan Your Costa Rica Experience</h2><p>Tell us a bit about your trip, and we’ll help you find the perfect experiences.</p></div><LinkButton href="/plan-your-trip" variant="light" arrow>Plan My Trip</LinkButton></div></Container></section>;
+export function CTASection(config:Editorial={}) {
+  return <section className="cta-band">{config.media?<ConfiguredMedia config={config.media} scenic/>:<ScenicImage src="/images/rainforest.webp" />}<Container><div className="cta-band__inner"><p className="script-accent">Your Costa Rica<br />Adventure Starts Here</p><div><h2>{config.heading||'Let’s Plan Your Costa Rica Experience'}</h2><p>{config.copy||'Tell us a bit about your trip, and we’ll help you find the perfect experiences.'}</p></div><LinkButton href={config.href||"/plan-your-trip"} variant="light" arrow>{config.label||"Plan My Trip"}</LinkButton></div></Container></section>;
 }

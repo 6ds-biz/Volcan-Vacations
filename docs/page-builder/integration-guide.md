@@ -1,3 +1,5 @@
+> The current VV consumer is the public website. See [Public VV integration](public-vv-integration.md). Any Operations adapter examples below describe the retired first integration.
+
 # Integrating 6DS Page Builder
 
 1. Add the local package dependency (VV: `file:../../packages/page-builder`) and transpile it in the consumer bundler. VV uses Next.js `transpilePackages` and `.npmrc` `install-links=true`; build from the repository root so the package path is available.

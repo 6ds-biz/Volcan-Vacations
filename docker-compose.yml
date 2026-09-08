@@ -43,8 +43,8 @@ services:
 
   web:
     build:
-      context: ./apps/web
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: apps/web/Dockerfile
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     container_name: volcan-vacations-web
@@ -52,11 +52,13 @@ services:
       - "3000:3000"
     environment:
       PORT: 3000
+      WEBSITE_API_URL: http://api:8000
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     volumes:
-      - ./apps/web:/app
-      - /app/node_modules
-      - /app/.next
+      - ./apps/web:/repo/apps/web
+      - ./packages/page-builder:/repo/packages/page-builder:ro
+      - /repo/apps/web/node_modules
+      - /repo/apps/web/.next
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3000').then((r)=>process.exit(r.ok ? 0 : 1)).catch(()=>process.exit(1))\""]
       interval: 15s
@@ -65,8 +67,8 @@ services:
 
   ops:
     build:
-      context: .
-      dockerfile: apps/ops/Dockerfile
+      context: ./apps/ops
+      dockerfile: Dockerfile
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     container_name: volcan-vacations-ops
@@ -78,10 +80,9 @@ services:
       OPS_ENVIRONMENT: development
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     volumes:
-      - ./apps/ops:/repo/apps/ops
-      - ./packages/page-builder:/repo/packages/page-builder:ro
-      - /repo/apps/ops/node_modules
-      - /repo/apps/ops/.next
+      - ./apps/ops:/app
+      - /app/node_modules
+      - /app/.next
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3001').then((r)=>process.exit(r.ok ? 0 : 1)).catch(()=>process.exit(1))\""]
       interval: 15s

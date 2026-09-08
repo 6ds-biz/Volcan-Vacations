@@ -1,6 +1,6 @@
 from __future__ import annotations
 from .routers.transportation import router as transport_ops
-from .routers.page_layouts import router as page_layout_ops
+from .website.routes import management as website_management, public as website_public, bridge as website_bridge
 
 from fastapi import FastAPI, Depends, Request
 from fastapi.exceptions import RequestValidationError
@@ -32,7 +32,7 @@ def create_app(config: Settings = settings) -> FastAPI:
     @application.middleware('http')
     async def internal_headers(request, call_next):
         response = await call_next(request)
-        if request.url.path.startswith('/ops'):
+        if request.url.path.startswith(('/ops','/website-editor')):
             response.headers['Cache-Control']='no-store'
             response.headers['X-Content-Type-Options']='nosniff'
         return response
@@ -45,6 +45,7 @@ def create_app(config: Settings = settings) -> FastAPI:
         allow_headers=['Content-Type', 'Authorization'],
     )
     application.include_router(public.router)
+    application.include_router(website_public)
     application.include_router(booking_public)
     application.include_router(availability_public)
     application.include_router(payment_public)
@@ -52,7 +53,8 @@ def create_app(config: Settings = settings) -> FastAPI:
     # Hosted Operations remains an explicit deployment opt-in.
     if config.environment == 'development' or config.ops_enabled:
         application.include_router(login_router)
-        for router in (page_layout_ops, transport_ops, internal_ops, foundation_ops, ops.router, booking_ops, availability_ops, payment_ops):
+        application.include_router(website_bridge)
+        for router in (website_management, transport_ops, internal_ops, foundation_ops, ops.router, booking_ops, availability_ops, payment_ops):
             application.include_router(router, dependencies=[Depends(require_ops)])
     application.add_api_route('/', health, response_model=HealthResponse, methods=['GET'])
     application.add_api_route('/health', health, response_model=HealthResponse, methods=['GET'])

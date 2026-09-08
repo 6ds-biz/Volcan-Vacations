@@ -33,8 +33,9 @@ def media(c):
  for d in ('tablet','mobile'):
   obj(c[d],{'asset','x','y'},[])
   for k,v in c[d].items():ref(v) if k=='asset' else num(v,0,100)
-def validate_layout(page,page_type):
- if page_type not in PAGES:raise HTTPException(404,'Unsupported page type.')
+def validate_layout(page,page_type,page_registry=None):
+ pages=PAGES if page_registry is None else page_registry
+ if page_type not in pages:raise HTTPException(404,'Unsupported page type.')
  if len(json.dumps(page))>100000:fail('Layout exceeds 100 KB.')
  obj(page,{'schema_version','page_id','sections'})
  if type(page['schema_version'])!=int or page['schema_version']!=1 or page['page_id']!=page_type:fail('Unsupported schema version or page context.')
@@ -60,7 +61,7 @@ def validate_layout(page,page_type):
    if not isinstance(c['widgets'],list) or len(c['widgets'])>50:fail('Invalid widgets.')
    for w in c['widgets']:
     common(w,{'type','config'});t=w['type'];config=w['config']
-    if not isinstance(t,str) or t not in PAGES[page_type]|CORE:fail('Widget not allowed on this page.')
+    if not isinstance(t,str) or t not in pages[page_type]|CORE:fail('Widget not allowed on this page.')
     if t=='visual-feature':
      if t in widgets:fail('Business widgets cannot be duplicated.')
      widgets.add(t);media(config);media_configs.append(config)

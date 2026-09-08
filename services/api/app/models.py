@@ -627,3 +627,16 @@ class PageLayoutRevision(Base):
     action: Mapped[str]=mapped_column(String(20))
     restored_from_id: Mapped[int|None]=mapped_column(ForeignKey('page_layout_revisions.id'),nullable=True)
     created_at: Mapped[datetime]=mapped_column(DateTime(timezone=True),default=datetime.utcnow,server_default=func.now())
+
+
+class WebsiteEditSession(Base):
+    """One-use handoff and short-lived website-only capability bound to an Ops session."""
+    __tablename__ = 'website_edit_sessions'
+    ticket_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    canvas_hash: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
+    internal_session_hash: Mapped[str] = mapped_column(ForeignKey('internal_sessions.token_hash', ondelete='CASCADE'), nullable=False)
+    user_id: Mapped[int] = mapped_column(ForeignKey('internal_users.id'), nullable=False)
+    page_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    ticket_expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    redeemed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

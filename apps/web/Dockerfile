@@ -1,10 +1,11 @@
 FROM node:20-alpine
-WORKDIR /app
+WORKDIR /repo/apps/web
 ARG NEXT_PUBLIC_API_URL=http://localhost:8000
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-COPY package.json package-lock.json* ./
-RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
-COPY . .
+COPY apps/web/package.json apps/web/package-lock.json apps/web/.npmrc ./
+COPY packages/page-builder /repo/packages/page-builder
+RUN npm ci
+COPY apps/web .
 RUN npm run build
 EXPOSE 3000
 CMD ["npm", "run", "start"]

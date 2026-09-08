@@ -122,3 +122,15 @@ def test_authentication_csrf_and_unknown_page(client):
  assert write(client,'unknown/publish').status_code==404
  assert client.post('/ops/page-layouts/owner-dashboard/publish',json=dict(page=page(),expected_version=0),headers={'X-CSRF-Token':'invalid'}).status_code==403
  client.cookies.clear();assert client.get('/ops/page-layouts/owner-dashboard').status_code==401
+
+
+@pytest.fixture(autouse=True)
+def legacy_persistence_harness(client):
+ """Exercise preserved persistence regressions; legacy routes are not deployed."""
+ from fastapi import Depends
+ from app.internal_auth import require_ops
+ from app.routers.page_layouts import router
+ original=list(client.app.router.routes)
+ client.app.include_router(router,dependencies=[Depends(require_ops)])
+ yield
+ client.app.router.routes=original

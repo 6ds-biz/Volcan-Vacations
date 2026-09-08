@@ -1,3 +1,5 @@
+> **Historical integration — retired.** The operational canvas described below is no longer active. Use [Public VV integration](public-vv-integration.md) for current architecture, routes, startup paths and scope. Historical records and the reusable core are preserved.
+
 # VV Operations — 6DS Page Builder V1
 
 Owner-authored page templates now use the reusable package in `packages/page-builder`. The existing public website and business services remain outside the builder. Templates are shared by **page type**, not individual booking/supplier/route records; the same template resolves each record's live data. The Operations Partner template is a shared role dashboard layout. Staff retains its existing dashboard and can render permitted detail templates.

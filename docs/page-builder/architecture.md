@@ -1,3 +1,5 @@
+> The current VV consumer is the public website. See [Public VV integration](public-vv-integration.md). Any Operations adapter examples below describe the retired first integration.
+
 # 6DS Page Builder V1 architecture
 
 `packages/page-builder` is a private, reusable React/TypeScript package. It contains no VV API endpoints, authentication implementation, database client, booking model, or payment logic.

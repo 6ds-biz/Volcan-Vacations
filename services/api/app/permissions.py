@@ -6,7 +6,7 @@ BUSINESS = {'transport.manage','transport.rates','bookings.read','bookings.write
     'tours.read','tours.write','suppliers.read','suppliers.write','availability.read','availability.write',
     'payments.read','payments.write','commercial.read','commercial.write','tasks.assign','tasks.update_all','audit.read','directory.read'}
 PERMISSIONS = {
-    'owner_admin': COMMON | BUSINESS | {'users.manage','settings.read','commercial.approve'},
+    'owner_admin': COMMON | BUSINESS | {'users.manage','settings.read','commercial.approve','website.manage'},
     'operations_partner': COMMON | BUSINESS,
     'staff': COMMON | {'bookings.read_assigned','bookings.followup','availability.read_assigned','availability.write_assigned'},
 }
@@ -25,6 +25,7 @@ def route_permission(path, method):
     group = parts[1] if len(parts)>1 else ''
     if group == 'transportation': return 'transport.read' if read else 'transport.manage'
     if group == 'auth': return 'profile.read'
+    if group == 'website': return 'website.manage'
     if group == 'users': return 'users.manage'
     if group == 'settings': return 'settings.read'
     if group == 'directory': return 'directory.read'
