@@ -10,6 +10,7 @@ from ..internal_schemas import Credentials, UserCreate, UserUpdate, UserRead, Pa
 from ..permissions import can, demand, DEFAULT_PROFILES
 from ..availability_rules import utcnow, aware
 from .. import task_service as tasks
+from ..internal_schemas import AppearanceUpdate
 
 login_router=APIRouter(prefix='/ops/auth',tags=['Internal authentication'])
 router=APIRouter(prefix='/ops',tags=['Authenticated Operations'])
@@ -21,6 +22,14 @@ def sign_in(payload: Credentials,request: Request,response: Response,db=Depends(
 @router.get('/auth/me')
 def me(request: Request):
     return dict(user=request.state.actor,csrf_token=request.state.csrf_token)
+
+@router.put('/auth/appearance')
+def appearance(payload: AppearanceUpdate, request: Request, db=Depends(get_db)):
+    # Existing authenticated self-profile boundary, including Origin and CSRF.
+    with db.begin():
+        user=db.get(m.InternalUser,request.state.actor['id'])
+        user.appearance=payload.appearance
+    return dict(appearance=user.appearance)
 
 @router.post('/auth/logout',status_code=204)
 def logout(request: Request,response: Response,db=Depends(get_db)):

@@ -5,6 +5,10 @@ from .inventory_schemas import Input, ReadModel
 
 Role = Literal['owner_admin','operations_partner','staff']
 Profile = Literal['Owner','Operations','Staff']
+Appearance = Literal['light','dark','system']
+
+class AppearanceUpdate(Input):
+    appearance: Appearance
 TaskStatus = Literal['open','in_progress','waiting','completed','cancelled']
 Priority = Literal['low','normal','high','urgent']
 Entity = Literal['booking','supplier','tour','payment','availability','agreement','customer','transport_route']
@@ -42,6 +46,7 @@ class UserRead(ReadModel):
     role: Role
     active: bool
     dashboard_profile: Profile
+    appearance: Appearance
     must_change_password: bool
     last_login_at: datetime | None
     created_at: datetime

@@ -193,3 +193,31 @@ def test_completed_task_retains_completion_actor_on_metadata_edit(client):
     response=client.put('/ops/tasks/'+str(task['id']),json=payload)
     assert response.status_code==200,response.text
     assert response.json()['completed_by_user_id']==owner
+
+@pytest.mark.parametrize('role',['owner_admin','operations_partner','staff'])
+def test_appearance_persists_for_authenticated_user_only(client,role):
+    user_id=add_user(role)
+    other_id=add_user('staff' if role!='staff' else 'operations_partner')
+    assert signin(client,role).json()['user']['appearance']=='dark'
+    for value in ['light','system','dark']:
+        response=client.put('/ops/auth/appearance',json={'appearance':value})
+        assert response.status_code==200
+        assert client.get('/ops/auth/me').json()['user']['appearance']==value
+        inspect_db(lambda db: (assert_appearance(db,user_id,value),assert_appearance(db,other_id,'dark')))
+    client.put('/ops/auth/appearance',json={'appearance':'light'})
+    client.post('/ops/auth/logout',json={})
+    assert signin(client,role).json()['user']['appearance']=='light'
+    assert client.put('/ops/auth/appearance',json={'appearance':'invalid'}).status_code==422
+    assert client.put('/ops/auth/appearance',json={'appearance':'dark','user_id':other_id}).status_code==422
+
+def assert_appearance(db,user_id,value):
+    assert db.get(m.InternalUser,user_id).appearance==value
+
+def test_appearance_requires_session_origin_and_csrf(client):
+    headers=dict(client.headers)
+    client.headers.pop('X-CSRF-Token',None)
+    assert client.put('/ops/auth/appearance',json={'appearance':'light'}).status_code==403
+    client.headers.update(headers)
+    assert client.put('/ops/auth/appearance',json={'appearance':'light'},headers={'Origin':'https://invalid.example'}).status_code==403
+    client.cookies.clear()
+    assert client.put('/ops/auth/appearance',json={'appearance':'light'}).status_code==401

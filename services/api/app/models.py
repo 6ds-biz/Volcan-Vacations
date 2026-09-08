@@ -450,6 +450,7 @@ class InternalUser(FoundationTimestamps, Base):
     __table_args__ = (
         CheckConstraint("role IN ('owner_admin','operations_partner','staff')", name='ck_internal_user_role'),
         CheckConstraint("dashboard_profile IN ('Owner','Operations','Staff')", name='ck_internal_user_profile'),
+        CheckConstraint("appearance IN ('light','dark','system')", name='ck_internal_user_appearance'),
         CheckConstraint('email = lower(trim(email))', name='ck_internal_user_email'),
     )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -459,6 +460,7 @@ class InternalUser(FoundationTimestamps, Base):
     role: Mapped[str] = mapped_column(String(30), nullable=False)
     active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text('true'), nullable=False)
     dashboard_profile: Mapped[str] = mapped_column(String(30), nullable=False)
+    appearance: Mapped[str] = mapped_column(String(10), default='dark', server_default='dark', nullable=False)
     must_change_password: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text('false'), nullable=False)
     last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 

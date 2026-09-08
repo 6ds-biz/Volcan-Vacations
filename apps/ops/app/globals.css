@@ -15,3 +15,99 @@ th,.numeric,.nowrap{white-space:nowrap;overflow-wrap:normal}.numeric{font-varian
 /* Transportation subsections retain the existing compact section system. */
 .transport-service h3{margin-top:20px;margin-bottom:10px}
 .transport-route-table table{min-width:1020px}
+
+/* Appearance: dark remains the original default; light is opt-in per account. */
+.top-brand,.desktop-navigation,.page-eyebrow,.metric-icon,.metric-hint,.metric-arrow,.vv-personality{display:none}
+.task-empty-help{display:block;margin-top:4px}.appearance-setting{max-width:560px}.appearance-setting select{max-width:260px}
+:root[data-theme=light]{color-scheme:light;--muted:#596166;--line:#E2DFD8;--vv-gold-light:#815A13}
+[data-theme=light] body{background:#F7F4EE;color:#101416}
+[data-theme=light] a{color:#815A13}
+[data-theme=light] button,[data-theme=light] .ops-button{color:#101416}
+[data-theme=light] button:hover,[data-theme=light] .ops-button:hover{background:#E8C675}
+[data-theme=light] :focus-visible{outline-color:#946913}
+[data-theme=light] .ops-shell{display:block}
+[data-theme=light] .sidebar{display:none}
+[data-theme=light] .topbar{height:64px;background:#071011;border-color:#282C2E;color:#F5F0E6;padding:0 26px;gap:24px}
+[data-theme=light] .top-brand{display:block;width:194px;flex-shrink:0}
+[data-theme=light] .top-brand .vv-logo{height:38px}
+[data-theme=light] .workspace-label{display:none}
+[data-theme=light] .desktop-navigation{display:flex;align-items:center;gap:4px;min-width:0;align-self:stretch}
+[data-theme=light] .desktop-navigation>a,[data-theme=light] .more-menu>summary{display:flex;align-items:center;gap:7px;padding:0 10px;font-size:12px;white-space:nowrap;text-decoration:none;color:#F5F0E6;border-bottom:2px solid transparent;cursor:pointer}
+[data-theme=light] .desktop-navigation>a:hover{background:#181C1E}
+[data-theme=light] .desktop-navigation>a[aria-current=page]{color:#E8C675;border-bottom-color:#D7A84B}
+[data-theme=light] .desktop-navigation svg{width:16px;height:16px}
+.more-menu{position:relative;display:flex;align-content:center}.more-menu>summary{height:100%;list-style:none}
+.more-menu>div{position:absolute;top:58px;right:0;width:200px;padding:10px;background:#FFF;border:1px solid var(--line);box-shadow:0 6px 18px #00000012}
+[data-theme=light] .more-menu>div a{display:flex;align-items:center;gap:9px;padding:8px;color:#101416;text-decoration:none}
+[data-theme=light] .more-menu>div a:hover,[data-theme=light] .profile-menu>div a:hover{background:#F7F4EE}
+[data-theme=light] .profile-menu{flex-shrink:0;color:#F5F0E6}
+[data-theme=light] .profile-menu summary small{color:#BDC0C1}
+[data-theme=light] .avatar{color:#E8C675;background:#353021}
+[data-theme=light] .profile-menu>div{background:#FFF;color:#101416;border-color:var(--line);box-shadow:0 6px 18px #00000014;border-radius:4px;padding:10px;top:46px}
+[data-theme=light] .profile-menu>div a{padding:8px 10px;margin:0;color:#101416;text-decoration:none}
+[data-theme=light] .profile-menu>div button{width:100%;margin-top:7px;justify-content:flex-start}
+[data-theme=light] .ops-main{max-width:1700px;padding:28px 34px 42px}
+[data-theme=light] .page-header{margin-bottom:26px;gap:18px}
+[data-theme=light] .page-header .icon-tile{width:52px;height:52px;border-radius:12px;background:#F3E9D3;color:#473B22}
+[data-theme=light] .page-header .icon-tile svg{width:26px;height:26px}
+[data-theme=light] .page-eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:1.8px;font-size:10px;color:#815A13;margin-bottom:5px}
+[data-theme=light] .page-eyebrow:after{content:'';width:26px;height:1px;background:#D7A84B}
+[data-theme=light] .page-header h1{font-size:26px;letter-spacing:-.5px}
+[data-theme=light] .owner-dashboard{gap:18px;grid-template-columns:1.45fr 1fr}
+[data-theme=light] .page-header p{font-size:13px;color:#424B50}
+[data-theme=light] .status-modules{gap:12px;border:0;margin-bottom:18px}
+[data-theme=light] .status-modules>a,[data-theme=light] .status-modules>div,[data-theme=light] .status-modules>button{background:#FFF;border:1px solid var(--line);border-radius:7px;padding:14px 18px;color:#424B50}
+[data-theme=light] .status-modules>*>strong{color:#101416;font-size:26px}
+[data-theme=light] .status-modules>a:hover,[data-theme=light] .status-modules>button:hover{background:#FBFAF7}
+[data-theme=light] .status-modules>.health-module{padding:15px 26px 14px 78px;min-height:101px;justify-content:center}
+[data-theme=light] .metric-icon{display:grid;place-items:center;position:absolute;left:18px;top:24px;width:45px;height:45px;border-radius:11px}
+[data-theme=light] .metric-icon svg{width:25px;height:25px}
+[data-theme=light] .tone-blue{background:#E8EFFB;color:#315CA0}
+[data-theme=light] .tone-gold{background:#FBF0D5;color:#886011}
+[data-theme=light] .tone-positive{background:#E8F3E5;color:#396739}
+[data-theme=light] .tone-complete{background:#EFEBFA;color:#58509B}
+[data-theme=light] .metric-hint{display:block;font-size:11px}
+[data-theme=light] .metric-arrow{display:block;position:absolute;right:14px;top:37px;font-size:22px;color:#815A13}
+[data-theme=light] .dashboard-section{background:#FFF;border:1px solid var(--line);border-radius:7px;padding:17px 19px;margin-bottom:16px;box-shadow:0 1px 2px #30251003}
+[data-theme=light] .dashboard-section+.dashboard-section{padding-top:17px}
+[data-theme=light] .dashboard-section h2{font-size:16px}
+[data-theme=light] .section-heading{margin-bottom:12px;gap:8px}
+[data-theme=light] .section-heading a{font-size:12px}
+[data-theme=light] .attention-list li a{border:1px solid #F1D7D2;background:#FFF1EE;border-radius:5px;padding:10px 12px;color:#712F27}
+[data-theme=light] .attention-list li+li{margin-top:7px}
+[data-theme=light] .attention-list li a strong{color:#712F27}
+[data-theme=light] .vendor-pipeline{gap:0;margin:6px 0 8px}
+[data-theme=light] .vendor-pipeline>div{padding:0 16px;border-right:1px solid var(--line);min-width:75px}
+[data-theme=light] .vendor-pipeline>div:first-child{padding-left:0}
+[data-theme=light] .vendor-pipeline>div:last-child{border:0}
+[data-theme=light] .vendor-pipeline strong{font-weight:600}
+[data-theme=light] .task-compact li{padding:10px 0}
+[data-theme=light] .task-compact li:last-child{border:0}
+[data-theme=light] .task-compact a{color:#101416}
+[data-theme=light] .empty-state{padding:14px;background:#F7F6F3;border:0;border-radius:5px;font-size:12px}
+[data-theme=light] .vv-personality{display:block;border-radius:7px;overflow:hidden;min-height:166px;padding:24px;color:#FFF;background:linear-gradient(90deg,rgba(5,8,9,.87),rgba(5,8,9,.12)),url('/images/arenal.webp') center 54%/cover}
+[data-theme=light] .vv-personality>span{color:#E8C675;text-transform:uppercase;font-size:10px;letter-spacing:1.8px}
+[data-theme=light] .vv-personality h2{font-family:Georgia,serif;font-weight:400;font-size:25px;margin:10px 0 4px}
+[data-theme=light] .vv-personality p{font-size:13px;margin:0}
+[data-theme=light] .ops-table-wrap{border:1px solid var(--line);border-radius:5px;background:#FFF;scrollbar-color:#A7A299 #FBFAF7}
+[data-theme=light] th{background:#F2F0EA;color:#50585C}
+[data-theme=light] tr:hover td,[data-theme=light] tr:focus-within td{background:#FBFAF7}
+[data-theme=light] label{color:#424B50}
+[data-theme=light] input,[data-theme=light] select,[data-theme=light] textarea{background:#FFF;color:#101416;border-color:#B8BAB6}
+[data-theme=light] input::placeholder,[data-theme=light] textarea::placeholder{color:#6A7175}
+[data-theme=light] input:disabled,[data-theme=light] select:disabled,[data-theme=light] textarea:disabled{background:#EEECE7;color:#62696C}
+[data-theme=light] .ops-badge{color:#424B50;border-color:#D4D3CC;background:#FBFAF7}
+[data-theme=light] .ops-attention,[data-theme=light] [role=status]{color:#815A13}
+[data-theme=light] [role=alert],[data-theme=light] .ops-danger{color:#9D3024}
+[data-theme=light] .ops-no-photo{background:#EEECE7}
+[data-theme=light] .ops-booking-grid section,[data-theme=light] .ops-editor{background:#FBFAF7}
+[data-theme=light] .ops-skip{background:#FFF}
+[data-theme=light] .text-action{color:#815A13;background:transparent}
+[data-theme=light] .login-panel{max-width:390px;padding:25px;background:#FFF;border:1px solid var(--line);border-radius:7px}
+@media(max-width:1300px){[data-theme=light] .desktop-navigation{display:none}[data-theme=light] .menu-toggle{display:inline-flex;background:transparent;border-color:#44484A;color:#F5F0E6}[data-theme=light] .sidebar.open{display:flex;position:fixed;z-index:30;top:64px;height:calc(100vh - 64px);width:230px;background:#0C1011;border-color:#282C2E}[data-theme=light] .sidebar nav a{color:#BDC0C1}[data-theme=light] .sidebar nav a[aria-current=page]{color:#E8C675}[data-theme=light] .sidebar .brand>span:last-child,[data-theme=light] .sidebar-note{color:#A8ABAD}[data-theme=light] .topbar{position:sticky;top:0}[data-theme=light] .status-modules>.health-module{padding-left:58px;padding-right:16px}[data-theme=light] .metric-icon{left:12px;width:34px;height:38px}[data-theme=light] .metric-arrow{display:none}}
+@media(max-width:900px){[data-theme=light] .ops-main{padding:24px 22px 36px}[data-theme=light] .status-modules{grid-template-columns:repeat(2,minmax(0,1fr))}[data-theme=light] .dashboard-grid,[data-theme=light] .owner-dashboard{grid-template-columns:1fr}[data-theme=light] .status-modules>.health-module{padding-left:74px}[data-theme=light] .metric-icon{left:18px;width:42px;height:42px}[data-theme=light] .vv-personality{min-height:180px}}
+@media(max-width:600px){[data-theme=light] .topbar{padding:0 14px;gap:12px}[data-theme=light] .top-brand{width:140px}[data-theme=light] .profile-menu summary>span:nth-child(2){max-width:75px}[data-theme=light] .ops-main{padding:20px 14px}[data-theme=light] .page-header h1{font-size:22px}[data-theme=light] .vendor-pipeline{row-gap:14px}[data-theme=light] .status-modules>.health-module{padding:12px}[data-theme=light] .metric-icon{display:none}}
+[data-theme=light] .more-menu>summary.selected{color:#E8C675;border-bottom-color:#D7A84B}
+[data-theme=light] .desktop-navigation{align-items:stretch}
+/* Keep compact table actions readable when the surrounding table scrolls. */
+.transport-service td button{white-space:nowrap;overflow-wrap:normal}
