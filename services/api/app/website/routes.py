@@ -141,4 +141,27 @@ def canvas(key:str,request:Request,response:Response,db=Depends(get_db)):
    try:page=checked(candidate,key,db,request)
    except HTTPException:pass
  response.headers['Cache-Control']='no-store'
- return dict(page=page,page_key=key,version=layout.version if layout else 0)
+ return dict(page=page,page_key=key,version=layout.version if layout else 0,exit_url=(request.app.state.config.ops_web_url or 'http://localhost:3001')+'/website/pages')
+
+
+def scoped_session(key,request,db):
+ row=db.scalar(select(m.WebsiteEditSession).where(m.WebsiteEditSession.canvas_hash==bearer(request)))
+ active_owner(db,row)
+ if row.page_type!=storage_key(key) or not row.redeemed_at:raise HTTPException(403,'Edit session does not cover this page.')
+ return row
+
+@bridge.get('/pages/{key}/media')
+def canvas_media(key:str,request:Request,response:Response,db=Depends(get_db)):
+ scoped_session(key,request,db);response.headers['Cache-Control']='no-store'
+ return catalog(db,request)
+
+@bridge.put('/pages/{key}/draft')
+def canvas_draft(key:str,payload:LayoutWrite,request:Request,response:Response,db=Depends(get_db)):
+ with db.begin():
+  session=scoped_session(key,request,db)
+  page=checked(payload.page,key,db,request)
+  row=lock_layout(db,storage_key(key),payload.expected_version)
+  row.draft=page;row.version+=1;row.updated_by_user_id=session.user_id
+  audit(db,row,session.user_id,'draft_saved')
+ response.headers['Cache-Control']='no-store'
+ return dict(version=row.version)

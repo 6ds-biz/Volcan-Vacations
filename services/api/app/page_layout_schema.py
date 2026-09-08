@@ -10,7 +10,7 @@ PAGES={
  'transportation-detail':{'route-summary','origin-destination','vendor-services','schedules','rates','freshness','related-tasks','notes','history'},
 }
 CORE={'heading','text','divider','spacer','metric','list','media'}
-PRESENTATION={'order':None,'width':None,'visible':[True,False],'spacing':['none','small','normal','large'],'align':['start','center','end','stretch'],'density':['normal','compact'],'surface':['transparent','base','panel','accent'],'container':['full','contained'],'border':['none','subtle']}
+PRESENTATION={'order':None,'width':None,'visible':[True,False],'spacing':['none','small','normal','large'],'align':['start','center','end','stretch'],'density':['normal','compact'],'surface':['transparent','base','panel','accent','white'],'container':['full','contained'],'border':['none','subtle']}
 MEDIA_KEYS={'asset','alt','decorative','fit','x','y','ratio','radius','overlay','tablet','mobile','autoplay','muted','loop','controls','poster'}
 def fail(message='Invalid page layout.'):raise HTTPException(422,message)
 def obj(v,allowed,required=None):

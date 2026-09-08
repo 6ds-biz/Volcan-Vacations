@@ -39,21 +39,35 @@ def validate_public_layout(page,key):
     if t in CORE:
      if t=='media':media(c);media_configs.append(c)
      continue
-    allowed={'heading','copy','eyebrow','media','surface','accent','typography','space'}
-    if t in ('button','cta','final-cta'):allowed|={'href','label'}
+    allowed={'heading','copy','eyebrow','subheadline','media','surface','accent','typography','space'}
+    if t in ('button','cta','final-cta','hero','arenal-feature','trip-planning','pacific-coast','image-text','full-width-media'):allowed|={'href','label'}
     if t in ('featured-experiences','tour-grid','related-tours'):allowed|={'limit'}
+    if t=='image-text':allowed.add('layout')
+    if t=='full-width-media':allowed.add('height')
     obj(c,allowed,[])
-    for field in ('heading','copy','eyebrow','label'):
+    if 'layout'in c:enum(c['layout'],['image-left','image-right'])
+    if 'height'in c:enum(c['height'],['small','medium','large'])
+    for field in ('heading','copy','eyebrow','subheadline','label'):
      if field in c:plain(c[field],2000 if field=='copy' else 200)
     for field,values in TOKENS.items():
      if field in c:enum(c[field],values)
     if 'limit' in c:num(c['limit'],1,12,True)
-    if 'href' in c:
-     import re
-     if not isinstance(c['href'],str) or not re.fullmatch(r'/(?:tours|plan-your-trip|about|contact|request)?(?:#[a-zA-Z0-9_-]+)?|#[a-zA-Z0-9_-]+',c['href']):fail('Use an approved public navigation target.')
+    if 'href' in c and not safe_public_link(c['href']):fail('Use an internal, HTTPS, mailto or tel link.')
     if 'media' in c:media(c['media']);media_configs.append(c['media'])
     # Structural reuse without allowing any Operations-specific widget or config through.
     w['type']='divider';w['config']={}
  # validate_layout accepts an explicit registry; never mutate its global Operations registry.
  validate_layout(projected,expected,page_registry={expected:set()})
  return media_configs
+
+
+def safe_public_link(value):
+ import re
+ from urllib.parse import urlsplit
+ if not isinstance(value,str) or len(value)>2000 or re.search(r'[\s<>\\\x00-\x1f\x7f]|%(?:0[0-9a-f]|1[0-9a-f]|7f)',value,re.I):return False
+ if re.match(r'^/(?!/)',value) or re.fullmatch(r'#[a-zA-Z0-9_-]+',value):return True
+ if re.fullmatch(r'mailto:[^@?]+@[^@?]+(?:\?[^#]*)?',value) or re.fullmatch(r'tel:\+?[0-9().-]+',value):return True
+ try:
+  url=urlsplit(value)
+  return url.scheme=='https' and bool(url.hostname) and not url.username and not url.password
+ except ValueError:return False

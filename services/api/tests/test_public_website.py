@@ -129,3 +129,50 @@ def test_layouts_do_not_change_inventory(client):
  tour=create_tour(client);before=client.get('/public/tours/'+tour['slug']).json()
  assert client.put('/ops/website/pages/tour-detail/draft',json={'expected_version':0,'page':layout('tour-detail','price-request',{'heading':'Request your date'})}).status_code==200
  assert client.get('/public/tours/'+tour['slug']).json()==before
+
+# Part 2 scoped draft writes. Publication/revision acceptance remains Part 3.
+def test_canvas_saves_private_draft_and_audit_without_ops_cookie(client):
+ ticket=issue(client);secret=redeem(client,ticket).json()['token'];client.cookies.clear()
+ headers={'Authorization':'Bearer '+secret}
+ page=layout(config={'heading':'PRIVATE EDITOR DRAFT'})
+ saved=client.put('/website-editor/pages/home/draft',headers=headers,json={'expected_version':0,'page':page})
+ assert saved.status_code==200,saved.text
+ assert client.get('/public/website/pages/home').json()=={'page':None}
+ assert client.get('/website-editor/pages/home',headers=headers).json()['page']==page
+ assert client.get('/website-editor/pages/home/media',headers=headers).status_code==200
+ assert client.put('/website-editor/pages/about/draft',headers=headers,json={'expected_version':0,'page':layout('about','about-hero')}).status_code==403
+ assert client.get('/website-editor/pages/about/media',headers=headers).status_code==403
+ assert client.post('/website-editor/pages/home/publish',headers=headers,json={}).status_code==404
+ def inspect(db):
+  row=db.scalar(select(m.PageLayout));event=db.scalar(select(m.InternalAudit).where(m.InternalAudit.action=='draft_saved'))
+  assert event.actor_user_id==row.updated_by_user_id
+  assert db.scalar(select(m.PageLayoutRevision)) is None
+ inspect_db(inspect)
+
+@pytest.mark.parametrize('reason',['expired','inactive','partner','staff','logout'])
+def test_canvas_draft_rechecks_owner_and_parent_session(client,reason):
+ ticket=issue(client);secret=redeem(client,ticket).json()['token']
+ def revoke(db):
+  row=db.get(m.WebsiteEditSession,digest(ticket));user=db.get(m.InternalUser,row.user_id)
+  if reason=='expired':row.expires_at=utcnow()-timedelta(seconds=1)
+  if reason=='inactive':user.active=False
+  if reason in ('partner','staff'):user.role='operations_partner' if reason=='partner' else 'staff'
+  if reason=='logout':db.delete(db.get(m.InternalSession,row.internal_session_hash))
+  db.commit()
+ inspect_db(revoke)
+ headers={'Authorization':'Bearer '+secret}
+ assert client.put('/website-editor/pages/home/draft',headers=headers,json={'expected_version':0,'page':layout()}).status_code==401
+ assert client.get('/website-editor/pages/home/media',headers=headers).status_code==401
+
+@pytest.mark.parametrize('href',['/tours/demo?date=2026-10-20','#coast','https://example.com/coast','mailto:info@volcanvacations.com','tel:+5065550100'])
+def test_editor_safe_public_links(client,href):
+ assert client.put('/ops/website/pages/home/draft',json={'expected_version':0,'page':layout(config={'href':href})}).status_code==200
+
+@pytest.mark.parametrize('href',['javascript:alert(1)','data:text/html,test','//evil.invalid','https://user:secret@example.com','mailto:a@b.com?body=%0asecret','/\\evil.invalid','https://example.com/ bad'])
+def test_editor_unsafe_links_rejected(client,href):
+ assert client.put('/ops/website/pages/home/draft',json={'expected_version':0,'page':layout(config={'href':href})}).status_code==422
+
+@pytest.mark.parametrize('widget,config',[('image-text',{'layout':'image-right','heading':'Coast','copy':'Public copy','href':'/contact'}),('full-width-media',{'height':'large','subheadline':'Costa Rica'}),('hero',{'subheadline':'Explore Costa Rica'})])
+def test_editor_public_config_extensions(client,widget,config):
+ page=layout('home',widget,config);page['sections'][0]['presentation']['surface']='white'
+ assert client.put('/ops/website/pages/home/draft',json={'expected_version':0,'page':page}).status_code==200

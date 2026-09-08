@@ -10,9 +10,10 @@ export function editorial(node:ReactElement,config:Editorial):ReactElement{
  let heading=false,copy=false,eyebrow=false,image=false;
  function visit(n:ReactNode):ReactNode{
   if(!isValidElement<Record<string,unknown>>(n))return n;
-  if(n.type===PageHero)return cloneElement(n,{...(config.heading!==undefined?{title:config.heading}:{}),...(config.copy!==undefined?{intro:config.copy}:{}),...(config.eyebrow!==undefined?{eyebrow:config.eyebrow}:{})});
+  if(n.type===PageHero)return cloneElement(n,{...(config.heading!==undefined?{title:config.heading}:{}),...(config.copy!==undefined?{intro:config.copy}:{}),...(config.eyebrow!==undefined?{eyebrow:config.eyebrow}:{}),...(config.media?{media:config.media}:{}),...(config.subheadline?{subheadline:config.subheadline}:{})});
+  if(!image&&n.type==='picture'&&config.media){image=true;return <ConfiguredMedia config={config.media} scenic/>;}
   if(!image&&n.type===ScenicImage&&config.media){image=true;return <ConfiguredMedia config={config.media} scenic/>;}
-  if(!heading&&['h1','h2','h3'].includes(String(n.type))&&config.heading!==undefined){heading=true;return cloneElement(n,{},config.heading);}
+  if(!heading&&['h1','h2','h3'].includes(String(n.type))&&(config.heading!==undefined||config.subheadline!==undefined)){heading=true;const title=cloneElement(n,{},config.heading??n.props.children as ReactNode);return config.subheadline?<>{title}<p className="website-subheadline">{config.subheadline}</p></>:title;}
   if(!eyebrow&&n.type===Eyebrow&&config.eyebrow!==undefined){eyebrow=true;return cloneElement(n,{},config.eyebrow);}
   if(!copy&&n.type==='p'&&n.props.className!=='hero-categories'&&config.copy!==undefined){copy=true;return cloneElement(n,{},config.copy);}
   if(n.type===LinkButton&&(config.href||config.label))return cloneElement(n,{...(config.href?{href:config.href}:{})},config.label||n.props.children as ReactNode);

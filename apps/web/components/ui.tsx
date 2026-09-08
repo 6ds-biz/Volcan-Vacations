@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import type {MediaConfig} from '@6ds/page-builder/core';
+import {ConfiguredMedia} from './website/public-media';
 import type { ReactNode } from 'react';
 import { ArrowIcon } from './icons';
 import { ScenicImage } from './scenic-image';
@@ -17,6 +19,6 @@ export function SectionHeading({ eyebrow, title, intro, align = 'left' }: { eyeb
   return <div className={`section-heading section-heading--${align}`}>{eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}<h2>{title}</h2>{intro ? <p>{intro}</p> : null}</div>;
 }
 
-export function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
-  return <section className="page-hero"><ScenicImage priority /><Container><div className="page-hero__content"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1><p>{intro}</p></div></Container></section>;
+export function PageHero({ eyebrow, title, intro, media, subheadline, className='' }: { eyebrow: string; title: string; intro: string; media?:MediaConfig; subheadline?:string; className?:string }) {
+  return <section className={`page-hero ${className}`} >{media?<ConfiguredMedia config={media} scenic/>:<ScenicImage priority />}<Container><div className="page-hero__content"><Eyebrow>{eyebrow}</Eyebrow><h1>{title}</h1>{subheadline&&<p className="website-subheadline">{subheadline}</p>}<p>{intro}</p></div></Container></section>;
 }

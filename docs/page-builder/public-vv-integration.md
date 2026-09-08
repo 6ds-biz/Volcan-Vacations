@@ -1,3 +1,5 @@
+> Part 1 foundation record. The current editing workflow is documented in [Public visual editor — Part 2](public-vv-editor.md). The Part 1 read-only canvas described below has been extended using the same secure handoff.
+
 # VV public Page Builder — Part 1 foundation
 
 The primary VV consumer is now **apps/web**. Operations is the authenticated management entry, not a layout-editing canvas. This corrects the first consumer integration; it does not rebuild the reusable package.
