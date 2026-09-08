@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, time
+from datetime import date, datetime, time
 from decimal import Decimal
 from typing import List
 
@@ -486,7 +486,7 @@ class OpsTask(FoundationTimestamps, Base):
         CheckConstraint("priority IN ('low','normal','high','urgent')", name='ck_ops_task_priority'),
         CheckConstraint("source IN ('manual','system_generated')", name='ck_ops_task_source'),
         CheckConstraint("queue_role IN ('operations','owner_admin')", name='ck_ops_task_queue'),
-        CheckConstraint("(related_entity_type IS NULL AND related_entity_id IS NULL) OR (related_entity_type IN ('booking','supplier','tour','payment','availability','agreement','customer') AND related_entity_id IS NOT NULL AND related_entity_id > 0)", name='ck_ops_task_related'),
+        CheckConstraint("(related_entity_type IS NULL AND related_entity_id IS NULL) OR (related_entity_type IN ('booking','supplier','tour','payment','availability','agreement','customer','transport_route') AND related_entity_id IS NOT NULL AND related_entity_id > 0)", name='ck_ops_task_related'),
         CheckConstraint('version > 0', name='ck_ops_task_version'),
     )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -516,3 +516,88 @@ class InternalAudit(Base):
     action: Mapped[str] = mapped_column(String(30), nullable=False)
     summary: Mapped[str] = mapped_column(String(240), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+
+# Additive transportation tables share the existing metadata and domain identities.
+class TransportNode(FoundationTimestamps, Base):
+    __tablename__='transport_nodes'
+    __table_args__=(CheckConstraint("node_type IN ('airport','city','destination','pickup_zone','hotel','other')",name='ck_transport_node_type'),)
+    id: Mapped[int]=mapped_column(primary_key=True)
+    destination_id: Mapped[int|None]=mapped_column(ForeignKey('destinations.id'))
+    name: Mapped[str]=mapped_column(String(160))
+    slug: Mapped[str]=mapped_column(String(180),unique=True)
+    node_type: Mapped[str]=mapped_column(String(30))
+    active: Mapped[bool]=mapped_column(Boolean,default=True,server_default=text('true'))
+    notes: Mapped[str|None]=mapped_column(Text)
+    version: Mapped[int]=mapped_column(default=1,server_default='1')
+
+class CanonicalTransportRoute(FoundationTimestamps, Base):
+    __tablename__='transport_routes'
+    __table_args__=(UniqueConstraint('origin_node_id','destination_node_id',name='uq_transport_direction'),CheckConstraint('origin_node_id != destination_node_id',name='ck_transport_distinct_nodes'),CheckConstraint('estimated_duration_minutes IS NULL OR estimated_duration_minutes > 0',name='ck_transport_route_duration'),CheckConstraint('estimated_distance_km IS NULL OR estimated_distance_km > 0',name='ck_transport_route_distance'))
+    id: Mapped[int]=mapped_column(primary_key=True)
+    origin_node_id: Mapped[int]=mapped_column(ForeignKey('transport_nodes.id'))
+    destination_node_id: Mapped[int]=mapped_column(ForeignKey('transport_nodes.id'))
+    active: Mapped[bool]=mapped_column(Boolean,default=True,server_default=text('true'))
+    estimated_duration_minutes: Mapped[int|None]=mapped_column(Integer)
+    estimated_distance_km: Mapped[Decimal|None]=mapped_column(Numeric(8,2))
+    notes: Mapped[str|None]=mapped_column(Text)
+    source: Mapped[str]=mapped_column(String(40),default='RideCR')
+    source_url: Mapped[str]=mapped_column(String(2048))
+    source_checked_at: Mapped[datetime]=mapped_column(DateTime(timezone=True))
+    review_notes: Mapped[str|None]=mapped_column(Text)
+    version: Mapped[int]=mapped_column(default=1,server_default='1')
+
+class VendorTransportService(FoundationTimestamps, Base):
+    __tablename__='transport_services'
+    __table_args__=(UniqueConstraint('supplier_id','route_id','service_type',name='uq_transport_vendor_service'),CheckConstraint("service_type IN ('shared_shuttle','private_transfer','lake_crossing','other')",name='ck_transport_service_type'),CheckConstraint('capacity IS NULL OR capacity > 0',name='ck_transport_capacity'))
+    id: Mapped[int]=mapped_column(primary_key=True)
+    supplier_id: Mapped[int]=mapped_column(ForeignKey('suppliers.id'))
+    route_id: Mapped[int]=mapped_column(ForeignKey('transport_routes.id'))
+    product_id: Mapped[int|None]=mapped_column(ForeignKey('products.id'),unique=True)
+    service_type: Mapped[str]=mapped_column(String(30))
+    active: Mapped[bool]=mapped_column(Boolean,default=True,server_default=text('true'))
+    booking_method: Mapped[str]=mapped_column(String(100),default='manual_vendor_confirmation')
+    pickup_notes: Mapped[str|None]=mapped_column(Text)
+    dropoff_notes: Mapped[str|None]=mapped_column(Text)
+    luggage_notes: Mapped[str|None]=mapped_column(Text)
+    child_policy: Mapped[str|None]=mapped_column(Text)
+    capacity: Mapped[int|None]=mapped_column(Integer)
+    source_url: Mapped[str|None]=mapped_column(String(2048))
+    last_verified_at: Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+    version: Mapped[int]=mapped_column(default=1,server_default='1')
+
+class TransportSchedule(FoundationTimestamps, Base):
+    __tablename__='transport_schedules'
+    __table_args__=(CheckConstraint('days_mask BETWEEN 0 AND 127',name='ck_transport_weekdays'),CheckConstraint('effective_from IS NULL OR effective_to IS NULL OR effective_to >= effective_from',name='ck_transport_schedule_dates'),CheckConstraint('estimated_duration_minutes IS NULL OR estimated_duration_minutes > 0',name='ck_transport_schedule_duration'),CheckConstraint('pickup_window_minutes IS NULL OR pickup_window_minutes >= 0',name='ck_transport_pickup_window'))
+    id: Mapped[int]=mapped_column(primary_key=True)
+    vendor_service_id: Mapped[int]=mapped_column(ForeignKey('transport_services.id'),index=True)
+    departure_time: Mapped[time]=mapped_column(Time)
+    arrival_time: Mapped[time|None]=mapped_column(Time)
+    estimated_duration_minutes: Mapped[int|None]=mapped_column(Integer)
+    days_mask: Mapped[int]=mapped_column(Integer,default=0,server_default='0')
+    effective_from: Mapped[date|None]=mapped_column(Date)
+    effective_to: Mapped[date|None]=mapped_column(Date)
+    pickup_window_minutes: Mapped[int|None]=mapped_column(Integer)
+    seasonal_notes: Mapped[str|None]=mapped_column(Text)
+    active: Mapped[bool]=mapped_column(Boolean,default=True,server_default=text('true'))
+    source_url: Mapped[str]=mapped_column(String(2048))
+    last_verified_at: Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+    import_key: Mapped[str|None]=mapped_column(String(200),unique=True)
+    version: Mapped[int]=mapped_column(default=1,server_default='1')
+
+class TransportRate(FoundationTimestamps, Base):
+    __tablename__='transport_rates'
+    __table_args__=(CheckConstraint('effective_to >= effective_from',name='ck_transport_rate_dates'),CheckConstraint("unit_basis IN ('per_person','per_vehicle')",name='ck_transport_rate_unit'),CheckConstraint("currency IN ('USD','CRC')",name='ck_transport_rate_currency'),CheckConstraint("(rate_kind = 'vendor_rate' AND public_reference_price IS NULL AND (vendor_cost IS NOT NULL OR vv_retail IS NOT NULL)) OR (rate_kind = 'public_reference' AND vendor_cost IS NULL AND vv_retail IS NULL AND public_reference_price IS NOT NULL)",name='ck_transport_price_boundary'),CheckConstraint('(vendor_cost IS NULL OR vendor_cost >= 0) AND (vv_retail IS NULL OR vv_retail >= 0) AND (public_reference_price IS NULL OR public_reference_price >= 0)',name='ck_transport_positive_rates'))
+    id: Mapped[int]=mapped_column(primary_key=True)
+    vendor_service_id: Mapped[int]=mapped_column(ForeignKey('transport_services.id'),index=True)
+    agreement_id: Mapped[int|None]=mapped_column(ForeignKey('supplier_agreements.id'))
+    supersedes_id: Mapped[int|None]=mapped_column(ForeignKey('transport_rates.id'),unique=True)
+    rate_kind: Mapped[str]=mapped_column(String(30))
+    unit_basis: Mapped[str]=mapped_column(String(30))
+    currency: Mapped[str]=mapped_column(String(3))
+    vendor_cost: Mapped[Decimal|None]=mapped_column(Numeric(12,2))
+    vv_retail: Mapped[Decimal|None]=mapped_column(Numeric(12,2))
+    public_reference_price: Mapped[Decimal|None]=mapped_column(Numeric(12,2))
+    effective_from: Mapped[date]=mapped_column(Date)
+    effective_to: Mapped[date]=mapped_column(Date)
+    notes: Mapped[str|None]=mapped_column(Text)
+    source_url: Mapped[str|None]=mapped_column(String(2048))

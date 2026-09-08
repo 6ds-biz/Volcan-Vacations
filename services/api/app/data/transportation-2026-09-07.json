@@ -1,0 +1,302 @@
+{
+  "checked_at": "2026-09-07T00:00:00Z",
+  "ridecr_source": "https://ridecr.com/shuttle/",
+  "interbus_source": "https://www.interbusonline.com/our-routes/",
+  "nodes": [
+    {
+      "slug": "la-fortuna",
+      "name": "La Fortuna",
+      "node_type": "destination",
+      "destination_slug": "arenal-la-fortuna"
+    },
+    {
+      "slug": "la-pavona",
+      "name": "La Pavona",
+      "node_type": "pickup_zone",
+      "destination_slug": null
+    },
+    {
+      "slug": "sarapiqui",
+      "name": "Sarapiquí",
+      "node_type": "destination",
+      "destination_slug": null
+    },
+    {
+      "slug": "guapiles",
+      "name": "Guápiles",
+      "node_type": "city",
+      "destination_slug": null
+    },
+    {
+      "slug": "sjo-airport",
+      "name": "SJO Airport",
+      "node_type": "airport",
+      "destination_slug": "sjo-airport"
+    },
+    {
+      "slug": "lir-airport",
+      "name": "LIR Airport",
+      "node_type": "airport",
+      "destination_slug": "lir-airport"
+    },
+    {
+      "slug": "monteverde",
+      "name": "Monteverde",
+      "node_type": "destination",
+      "destination_slug": "monteverde"
+    },
+    {
+      "slug": "tamarindo",
+      "name": "Tamarindo",
+      "node_type": "destination",
+      "destination_slug": "tamarindo"
+    },
+    {
+      "slug": "manuel-antonio",
+      "name": "Manuel Antonio",
+      "node_type": "destination",
+      "destination_slug": "manuel-antonio-central-pacific"
+    }
+  ],
+  "routes": [
+    {
+      "origin": "la-fortuna",
+      "destination": "la-pavona",
+      "ridecr_departures": [
+        "05:30"
+      ],
+      "review_notes": null,
+      "interbus": null
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "sarapiqui",
+      "ridecr_departures": [
+        "05:30"
+      ],
+      "review_notes": "RideCR says Sarapiquí; do not equate this automatically with Interbus Puerto Viejo de Sarapiquí.",
+      "interbus": null
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "guapiles",
+      "ridecr_departures": [
+        "05:30"
+      ],
+      "review_notes": null,
+      "interbus": {
+        "departure": "06:00",
+        "duration_minutes": 180
+      }
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "sjo-airport",
+      "ridecr_departures": [
+        "07:45",
+        "15:30"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "lir-airport",
+      "ridecr_departures": [
+        "07:45"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "monteverde",
+      "ridecr_departures": [
+        "07:45",
+        "15:30"
+      ],
+      "review_notes": "Shuttle timetable does not establish whether this departure uses the lake crossing. No duplicate lake service inferred.",
+      "interbus": {
+        "departure": "08:00",
+        "duration_minutes": 240
+      }
+    },
+    {
+      "origin": "la-fortuna",
+      "destination": "tamarindo",
+      "ridecr_departures": [
+        "07:45"
+      ],
+      "review_notes": null,
+      "interbus": {
+        "departure": "08:00",
+        "duration_minutes": 300
+      }
+    },
+    {
+      "origin": "sjo-airport",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "07:00",
+        "13:30"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "sjo-airport",
+      "destination": "manuel-antonio",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "sjo-airport",
+      "destination": "monteverde",
+      "ridecr_departures": [
+        "13:30"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "monteverde",
+      "destination": "lir-airport",
+      "ridecr_departures": [
+        "07:45"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "monteverde",
+      "destination": "sjo-airport",
+      "ridecr_departures": [
+        "07:45"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "monteverde",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "07:45"
+      ],
+      "review_notes": "Shuttle timetable does not establish whether this departure uses the lake crossing. No duplicate lake service inferred.",
+      "interbus": null
+    },
+    {
+      "origin": "lir-airport",
+      "destination": "sjo-airport",
+      "ridecr_departures": [
+        "07:15",
+        "16:15"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "lir-airport",
+      "destination": "manuel-antonio",
+      "ridecr_departures": [
+        "07:15"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "lir-airport",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "16:15"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "manuel-antonio",
+      "destination": "sjo-airport",
+      "ridecr_departures": [
+        "07:30",
+        "15:00"
+      ],
+      "review_notes": "Published labels combine city/region and airport; airport component retained. Confirm exact pickup zone and applicability before recommending.",
+      "interbus": null
+    },
+    {
+      "origin": "manuel-antonio",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "15:00"
+      ],
+      "review_notes": null,
+      "interbus": {
+        "departure": "08:00",
+        "duration_minutes": 330
+      }
+    },
+    {
+      "origin": "manuel-antonio",
+      "destination": "monteverde",
+      "ridecr_departures": [
+        "15:00"
+      ],
+      "review_notes": null,
+      "interbus": {
+        "departure": "13:30",
+        "duration_minutes": 270
+      }
+    },
+    {
+      "origin": "guapiles",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": null,
+      "interbus": {
+        "departure": "13:30",
+        "duration_minutes": 210
+      }
+    },
+    {
+      "origin": "guapiles",
+      "destination": "sarapiqui",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": "RideCR says Sarapiquí; do not equate this automatically with Interbus Puerto Viejo de Sarapiquí.",
+      "interbus": null
+    },
+    {
+      "origin": "la-pavona",
+      "destination": "la-fortuna",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": null,
+      "interbus": null
+    },
+    {
+      "origin": "la-pavona",
+      "destination": "sarapiqui",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": "RideCR says Sarapiquí; do not equate this automatically with Interbus Puerto Viejo de Sarapiquí.",
+      "interbus": null
+    },
+    {
+      "origin": "la-pavona",
+      "destination": "guapiles",
+      "ridecr_departures": [
+        "07:00"
+      ],
+      "review_notes": null,
+      "interbus": null
+    }
+  ]
+}

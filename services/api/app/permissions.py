@@ -1,8 +1,8 @@
 """One capability map; profiles never participate in authorization."""
 from fastapi import HTTPException
 
-COMMON = {'tasks.read','tasks.create','tasks.update_own','profile.read'}
-BUSINESS = {'bookings.read','bookings.write','bookings.assign','customers.read','trips.read',
+COMMON = {'transport.read','tasks.read','tasks.create','tasks.update_own','profile.read'}
+BUSINESS = {'transport.manage','transport.rates','bookings.read','bookings.write','bookings.assign','customers.read','trips.read',
     'tours.read','tours.write','suppliers.read','suppliers.write','availability.read','availability.write',
     'payments.read','payments.write','commercial.read','commercial.write','tasks.assign','tasks.update_all','audit.read','directory.read'}
 PERMISSIONS = {
@@ -23,6 +23,7 @@ def route_permission(path, method):
     read = method in ('GET','HEAD')
     parts = path.strip('/').split('/')
     group = parts[1] if len(parts)>1 else ''
+    if group == 'transportation': return 'transport.read' if read else 'transport.manage'
     if group == 'auth': return 'profile.read'
     if group == 'users': return 'users.manage'
     if group == 'settings': return 'settings.read'

@@ -7,7 +7,7 @@ Role = Literal['owner_admin','operations_partner','staff']
 Profile = Literal['Owner','Operations','Staff']
 TaskStatus = Literal['open','in_progress','waiting','completed','cancelled']
 Priority = Literal['low','normal','high','urgent']
-Entity = Literal['booking','supplier','tour','payment','availability','agreement','customer']
+Entity = Literal['booking','supplier','tour','payment','availability','agreement','customer','transport_route']
 
 class Credentials(BaseModel):
     model_config = ConfigDict(extra='forbid', hide_input_in_errors=True)

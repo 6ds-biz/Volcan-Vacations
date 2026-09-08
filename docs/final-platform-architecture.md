@@ -1,5 +1,7 @@
 # VV final platform architecture
 
+Current implementation updates: [Operations 2.0](operations-2/part-1.md) and [Transportation Phase 1](transportation/transportation-architecture.md) now implement their additive foundations. The decision record below preserves the original foundation-stage scope.
+
 Decision date: 2026-09-07. This extends the existing platform; it does not replace Milestones 0–5. **Costa Rica is the business scope. Arenal/La Fortuna is a launch market. Phases control rollout, not the underlying architecture.**
 
 | Launch phase | Customer activation |

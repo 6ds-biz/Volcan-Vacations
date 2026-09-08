@@ -7,7 +7,7 @@ from .availability_rules import utcnow, aware
 
 OPEN = ('open','in_progress','waiting')
 ENTITIES = {'booking':m.Reservation,'supplier':m.Supplier,'tour':m.Product,'payment':m.Payment,
-    'availability':m.Availability,'agreement':m.SupplierAgreement,'customer':m.Customer}
+    'transport_route':m.CanonicalTransportRoute,'availability':m.Availability,'agreement':m.SupplierAgreement,'customer':m.Customer}
 
 def booking_scope(actor):
     if can(actor,'bookings.read'): return True
