@@ -603,3 +603,27 @@ class TransportRate(FoundationTimestamps, Base):
     effective_to: Mapped[date]=mapped_column(Date)
     notes: Mapped[str|None]=mapped_column(Text)
     source_url: Mapped[str|None]=mapped_column(String(2048))
+
+# Presentation persistence only: no customer/business values belong in these JSON documents.
+class PageLayout(FoundationTimestamps, Base):
+    __tablename__='page_layouts'
+    id: Mapped[int]=mapped_column(primary_key=True)
+    page_type: Mapped[str]=mapped_column(String(80),unique=True)
+    schema_version: Mapped[int]=mapped_column(default=1,server_default='1')
+    version: Mapped[int]=mapped_column(default=0,server_default='0')
+    draft: Mapped[dict|None]=mapped_column(JSON,nullable=True)
+    published: Mapped[dict|None]=mapped_column(JSON,nullable=True)
+    updated_by_user_id: Mapped[int|None]=mapped_column(ForeignKey('internal_users.id'),nullable=True)
+
+class PageLayoutRevision(Base):
+    __tablename__='page_layout_revisions'
+    __table_args__=(UniqueConstraint('layout_id','number',name='uq_page_layout_revision_number'),)
+    id: Mapped[int]=mapped_column(primary_key=True)
+    layout_id: Mapped[int]=mapped_column(ForeignKey('page_layouts.id'))
+    number: Mapped[int]=mapped_column(Integer)
+    schema_version: Mapped[int]=mapped_column(default=1,server_default='1')
+    content: Mapped[dict]=mapped_column(JSON)
+    actor_user_id: Mapped[int]=mapped_column(ForeignKey('internal_users.id'))
+    action: Mapped[str]=mapped_column(String(20))
+    restored_from_id: Mapped[int|None]=mapped_column(ForeignKey('page_layout_revisions.id'),nullable=True)
+    created_at: Mapped[datetime]=mapped_column(DateTime(timezone=True),default=datetime.utcnow,server_default=func.now())

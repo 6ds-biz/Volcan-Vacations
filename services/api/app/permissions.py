@@ -30,6 +30,7 @@ def route_permission(path, method):
     if group == 'directory': return 'directory.read'
     if group == 'tasks': return 'tasks.read' if read else 'tasks.create' if method=='POST' else 'tasks.update_own'
     if group == 'work': return 'profile.read'  # resource-scoped checks in work endpoints
+    if group == 'page-layouts': return 'profile.read'  # page context and Owner writes checked in endpoints
     if group == 'dashboard': return 'profile.read'  # aggregated from authorized queries only
     if group == 'audit': return 'audit.read'
     if group == 'booking-summary': return 'bookings.read'

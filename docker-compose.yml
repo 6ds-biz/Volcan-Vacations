@@ -65,8 +65,8 @@ services:
 
   ops:
     build:
-      context: ./apps/ops
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: apps/ops/Dockerfile
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     container_name: volcan-vacations-ops
@@ -78,9 +78,10 @@ services:
       OPS_ENVIRONMENT: development
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     volumes:
-      - ./apps/ops:/app
-      - /app/node_modules
-      - /app/.next
+      - ./apps/ops:/repo/apps/ops
+      - ./packages/page-builder:/repo/packages/page-builder:ro
+      - /repo/apps/ops/node_modules
+      - /repo/apps/ops/.next
     healthcheck:
       test: ["CMD-SHELL", "node -e \"fetch('http://localhost:3001').then((r)=>process.exit(r.ok ? 0 : 1)).catch(()=>process.exit(1))\""]
       interval: 15s

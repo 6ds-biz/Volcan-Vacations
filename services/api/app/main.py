@@ -1,5 +1,6 @@
 from __future__ import annotations
 from .routers.transportation import router as transport_ops
+from .routers.page_layouts import router as page_layout_ops
 
 from fastapi import FastAPI, Depends, Request
 from fastapi.exceptions import RequestValidationError
@@ -51,7 +52,7 @@ def create_app(config: Settings = settings) -> FastAPI:
     # Hosted Operations remains an explicit deployment opt-in.
     if config.environment == 'development' or config.ops_enabled:
         application.include_router(login_router)
-        for router in (transport_ops, internal_ops, foundation_ops, ops.router, booking_ops, availability_ops, payment_ops):
+        for router in (page_layout_ops, transport_ops, internal_ops, foundation_ops, ops.router, booking_ops, availability_ops, payment_ops):
             application.include_router(router, dependencies=[Depends(require_ops)])
     application.add_api_route('/', health, response_model=HealthResponse, methods=['GET'])
     application.add_api_route('/health', health, response_model=HealthResponse, methods=['GET'])

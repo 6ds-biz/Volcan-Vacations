@@ -1,0 +1,9 @@
+{
+  "name": "@6ds/page-builder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {"./core": "./src/core.ts", "./runtime": "./src/runtime.tsx", "./editor": "./src/editor.tsx", "./styles.css": "./src/styles.css"},
+  "peerDependencies": {"react": "^18.3.1 || ^19.0.0", "react-dom": "^18.3.1 || ^19.0.0"},
+  "scripts": {"test": "node --test tests/*.cjs"}
+}
