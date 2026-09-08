@@ -9,3 +9,4 @@ body:has(.vv-editor-shell)>.site-header,body:has(.vv-editor-shell)>.site-footer{
 .vv-editor-shell .pb-editor-canvas:only-child{grid-column:1/-1}
 .pb-node-bar button{min-height:calc(44px / var(--vv-canvas-scale,1));min-width:calc(44px / var(--vv-canvas-scale,1));font-size:calc(12px / var(--vv-canvas-scale,1));padding:calc(6px / var(--vv-canvas-scale,1))}
 .vv-editor-shell>.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.vv-editor-shell .pb-revisions{padding:16px;background:#0c1011;border-block:1px solid #394044}.vv-editor-shell .pb-revisions p{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.vv-editor-shell .pb-editor-alert button{margin:6px}

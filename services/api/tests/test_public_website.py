@@ -142,7 +142,7 @@ def test_canvas_saves_private_draft_and_audit_without_ops_cookie(client):
  assert client.get('/website-editor/pages/home/media',headers=headers).status_code==200
  assert client.put('/website-editor/pages/about/draft',headers=headers,json={'expected_version':0,'page':layout('about','about-hero')}).status_code==403
  assert client.get('/website-editor/pages/about/media',headers=headers).status_code==403
- assert client.post('/website-editor/pages/home/publish',headers=headers,json={}).status_code==404
+ assert client.post('/website-editor/pages/home/publish',headers=headers,json={}).status_code==422
  def inspect(db):
   row=db.scalar(select(m.PageLayout));event=db.scalar(select(m.InternalAudit).where(m.InternalAudit.action=='draft_saved'))
   assert event.actor_user_id==row.updated_by_user_id

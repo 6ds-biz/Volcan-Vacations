@@ -14,7 +14,8 @@ from app.routers.page_layouts import lock_layout,publish
 from test_page_layouts import page
 
 @pytest.mark.skipif(os.environ.get('VV_TEST_POSTGRES')!='1',reason='Explicit PostgreSQL integration opt-in required')
-def test_concurrent_first_publish_and_migrated_immutable_trigger():
+@pytest.mark.parametrize('page_type',['owner-dashboard','public-home'])
+def test_concurrent_first_publish_and_migrated_immutable_trigger(page_type):
  assert settings.environment=='development'
  schema='vv_layout_test_'+uuid4().hex;admin=create_engine(settings.database_url);isolated=None
  try:
@@ -30,7 +31,9 @@ def test_concurrent_first_publish_and_migrated_immutable_trigger():
    with Session(isolated) as db:
     try:
      with db.begin():
-      row=lock_layout(db,'owner-dashboard',0);publish(db,row,page(),actor)
+      from test_public_website import layout
+      content=layout() if page_type=='public-home' else page()
+      row=lock_layout(db,page_type,0);publish(db,row,content,actor)
      return 200
     except HTTPException as e:return e.status_code
   with ThreadPoolExecutor(max_workers=2) as pool:assert sorted(pool.map(attempt,[0,1]))==[200,409]

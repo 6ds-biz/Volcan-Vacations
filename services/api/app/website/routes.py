@@ -60,13 +60,12 @@ def draft(key:str,payload:LayoutWrite,request:Request,db=Depends(get_db)):
   row.draft=page;row.version+=1;row.updated_by_user_id=request.state.actor['id'];audit(db,row,row.updated_by_user_id,'draft_saved')
  return dict(version=row.version)
 
-# Generic publication architecture remains available to the authenticated manager.
-# No publication/restore controls or end-to-end acceptance are introduced in Part 1.
+# Publication always validates the saved draft under the same version lock.
 @management.post('/pages/{key}/publish')
 def publish_page(key:str,payload:LayoutWrite,request:Request,db=Depends(get_db)):
  owner(request)
  with db.begin():
-  page=checked(payload.page,key,db,request,True);row=lock_layout(db,storage_key(key),payload.expected_version);publish(db,row,page,request.state.actor['id'])
+  row=lock_layout(db,storage_key(key),payload.expected_version);publish_saved(db,row,key,payload,request,request.state.actor['id'])
  return dict(version=row.version)
 
 @management.get('/pages/{key}/revisions')
@@ -74,7 +73,7 @@ def revisions(key:str,request:Request,db=Depends(get_db)):
  owner(request);row=page_state(db,key)
  if not row:return []
  records=db.execute(select(m.PageLayoutRevision,m.InternalUser.display_name).join(m.InternalUser,m.InternalUser.id==m.PageLayoutRevision.actor_user_id).where(m.PageLayoutRevision.layout_id==row.id).order_by(m.PageLayoutRevision.number.desc())).all()
- return [dict(id=r.id,number=r.number,created_at=r.created_at,actor_name=name,action=r.action) for r,name in records]
+ return revision_rows(records)
 
 @management.post('/pages/{key}/restore')
 def restore(key:str,payload:Restore,request:Request,db=Depends(get_db)):
@@ -165,3 +164,42 @@ def canvas_draft(key:str,payload:LayoutWrite,request:Request,response:Response,d
   audit(db,row,session.user_id,'draft_saved')
  response.headers['Cache-Control']='no-store'
  return dict(version=row.version)
+
+
+def publish_saved(db,row,key,payload,request,actor):
+ if row.draft is None or row.draft!=payload.page:
+  raise HTTPException(409,'Save this draft before publishing. Reload to review any newer changes.')
+ page=checked(row.draft,key,db,request,True)
+ publish(db,row,page,actor)
+
+def revision_rows(records):
+ return [dict(id=r.id,number=r.number,created_at=r.created_at,actor_name=name,action=r.action,current=i==0,restored_from_id=r.restored_from_id) for i,(r,name) in enumerate(records)]
+
+@bridge.post('/pages/{key}/publish')
+def canvas_publish(key:str,payload:LayoutWrite,request:Request,response:Response,db=Depends(get_db)):
+ with db.begin():
+  session=scoped_session(key,request,db)
+  row=lock_layout(db,storage_key(key),payload.expected_version)
+  publish_saved(db,row,key,payload,request,session.user_id)
+ response.headers['Cache-Control']='no-store'
+ return dict(version=row.version)
+
+@bridge.get('/pages/{key}/revisions')
+def canvas_revisions(key:str,request:Request,response:Response,db=Depends(get_db)):
+ scoped_session(key,request,db);row=page_state(db,key)
+ response.headers['Cache-Control']='no-store'
+ if not row:return []
+ records=db.execute(select(m.PageLayoutRevision,m.InternalUser.display_name).join(m.InternalUser,m.InternalUser.id==m.PageLayoutRevision.actor_user_id).where(m.PageLayoutRevision.layout_id==row.id).order_by(m.PageLayoutRevision.number.desc())).all()
+ return revision_rows(records)
+
+@bridge.post('/pages/{key}/restore')
+def canvas_restore(key:str,payload:Restore,request:Request,response:Response,db=Depends(get_db)):
+ with db.begin():
+  session=scoped_session(key,request,db)
+  row=lock_layout(db,storage_key(key),payload.expected_version)
+  revision=db.get(m.PageLayoutRevision,payload.revision_id)
+  if not revision or revision.layout_id!=row.id:raise HTTPException(404,'Revision not found for this page.')
+  page=checked(revision.content,key,db,request,True)
+  publish(db,row,page,session.user_id,'restored',revision.id)
+ response.headers['Cache-Control']='no-store'
+ return dict(page=page,version=row.version)

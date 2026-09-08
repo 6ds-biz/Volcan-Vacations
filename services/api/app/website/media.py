@@ -12,6 +12,7 @@ def catalog(db,request):
  return assets
 
 def validate_media(configs,db,request,publishing=False):
+ import re
  from fastapi import HTTPException
  assets={a['id']:a for a in catalog(db,request)}
  for c in configs:
@@ -19,5 +20,7 @@ def validate_media(configs,db,request,publishing=False):
   for key in refs:
    a=assets.get(key)
    if not a:raise HTTPException(422,'Media reference is unavailable.')
+   if publishing and not re.fullmatch(r'/videos/[a-zA-Z0-9/_-]+\.(mp4|webm)' if a['type']=='video' else r'/images/[a-zA-Z0-9/_-]+\.(webp|png|jpe?g|avif)',a['source']):raise HTTPException(422,'Media source is unsupported by the public renderer.')
+   if key==c['poster'] and a['type']!='image':raise HTTPException(422,'Video poster must be an approved image.')
    if publishing and a['rights_status']!='APPROVED':raise HTTPException(422,'Media requires rights review before publication.')
    if publishing and not c['decorative'] and not (c['alt'].strip() or a['alt'].strip()):raise HTTPException(422,'Meaningful media needs alt text.')

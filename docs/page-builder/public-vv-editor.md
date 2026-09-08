@@ -1,12 +1,14 @@
 # VV public visual editor — Part 2
 
+Current workflow: [Part 3 publishing, revisions and final acceptance](public-vv-acceptance.md). The validation history below records its original milestone; Part 3 now enables explicit publishing and restore in the public editor.
+
 Part 2 extends the public foundation in [public-vv-integration.md](public-vv-integration.md). It reuses `PageEditor`, its history/movement helpers, renderer and Page → Section → Column → Widget schema. No competing editor, layout table or new migration was introduced.
 
 ## Owner workflow
 
 Sign into Operations as an active Owner. Open Website → Pages, choose a page and select Edit. The existing single-use handoff opens that page's private editor in the public web application. Partner and Staff cannot issue handoffs, read the management catalog or save layouts. Changing dashboard profile does not grant editing permissions.
 
-The top bar offers Desktop, Tablet, Mobile, Undo, Redo, Preview, Save Draft and Exit. The left panel contains Widgets, Structure, Settings and Media. Export/Import remains available from the reusable editor. Publish and revision actions are not exposed by this consumer's draft-only adapter. Exit warns about unsaved changes; a saved draft exits directly to Website Pages. Browser navigation also warns while changes remain unsaved.
+The top bar offers Desktop, Tablet, Mobile, Undo, Redo, Preview, Save Draft and Exit. The left panel contains Widgets, Structure, Settings and Media. Export/Import remains available from the reusable editor. Part 2 exposed a draft-only adapter. Part 3 now adds explicit Publish, Revisions and restore-as-new through the scoped adapter. Exit warns about unsaved changes; a saved draft exits directly to Website Pages. Browser navigation also warns while changes remain unsaved.
 
 The canvas includes the real public header/logo, footer, fonts, photography and public inventory widgets. It is a same-origin blank iframe populated through a React portal, not a separately addressable draft page. Styles are copied from the public document (including CSSOM rules used in development). The frame waits for styles/fonts before becoming visible. Its CSS viewport is 1440px, 900px or 390px, scaled to fit the available canvas area. The public site's actual media queries run at those widths. Operations appearance is never applied to the canvas. Scaled drag/select controls compensate for zoom to remain at least 44px physically.
 
@@ -40,15 +42,15 @@ Select an approved asset, review its alt text, choose cover/contain and an overl
 
 Meaningful alt text may use reviewed catalog alt text when no override is supplied. Filenames are never synthesized as final alt text. Decorative status is explicit. `NEEDS_RIGHTS_REVIEW` entries remain visible with a warning and unavailable selection; no rights inference or promotion is performed. Approved assets are resolved by stable catalog ID and validated source. No arbitrary external URL entry or bulk ingestion is added.
 
-The existing safe video contract remains available for future approved local MP4/WebM catalog entries: poster, muted playback, loop, controls and muted autoplay. Controls remain available, autoplay cannot enable audio, and reduced motion suppresses autoplay. The current catalog contains images; no new video, transcoding, upload or production storage infrastructure was added. Final publishing/media-rights acceptance remains Part 3.
+The existing safe video contract remains available for future approved local MP4/WebM catalog entries: poster, muted playback, loop, controls and muted autoplay. Controls remain available, autoplay cannot enable audio, and reduced motion suppresses autoplay. The current catalog contains images; no new video, transcoding, upload or production storage infrastructure was added. Final publishing/media-rights acceptance is documented in Part 3.
 
 ## Private save architecture
 
 The Part 1 handoff still expires after 60 seconds; the page-scoped canvas credential expires 15 minutes after issuance and is stored in an HttpOnly, SameSite=Strict cookie (Secure on HTTPS). It remains tied to the original internal login session. Every media read and draft write rechecks parent-session validity, account activity, Owner role and password-change state.
 
-The Next.js `PUT /api/website-editor/pages/{key}/draft` proxy requires same-origin JSON, enforces a bounded payload, and forwards the HttpOnly credential server-to-server. FastAPI `PUT /website-editor/pages/{key}/draft` verifies the scope, validates presentation/media, reuses the existing version check and layout lock, and writes the draft plus the authenticated Owner audit actor. The scoped media endpoint is `GET /website-editor/pages/{key}/media`. No scoped publish endpoint exists.
+The Next.js `PUT /api/website-editor/pages/{key}/draft` proxy requires same-origin JSON, enforces a bounded payload, and forwards the HttpOnly credential server-to-server. FastAPI `PUT /website-editor/pages/{key}/draft` verifies the scope, validates presentation/media, reuses the existing version check and layout lock, and writes the draft plus the authenticated Owner audit actor. The scoped media endpoint is `GET /website-editor/pages/{key}/media`. Part 3 adds scoped POST publish/restore and GET revisions endpoints through the same cookie proxy; see the acceptance guide.
 
-Saving never updates published content or creates a published revision. API/network/session failures leave the in-memory draft available with an error message. On expiry, export the unsaved layout if needed, reopen Edit through Operations and import it. No credential is returned to browser JavaScript. Full publish, revision-restore, stale-publish and concurrency acceptance are deferred to Part 3.
+Saving never updates published content or creates a published revision. API/network/session failures leave the in-memory draft available with an error message. On expiry, export the unsaved layout if needed, reopen Edit through Operations and import it. No credential is returned to browser JavaScript. The completed Part 3 acceptance is documented separately; these operations share the same version lock.
 
 ## Validation
 
@@ -78,4 +80,4 @@ Keyboard navigation, labeled controls, focus, mobile navigation and reduced-moti
 
 Browser authoring used isolated review accounts and a separate temporary SQLite database, with PayPal credentials explicitly blank. PostgreSQL persistence was tested by the backend regression suite. Public-origin checks preserved the configured Codespaces origins while forwarding browser transport to local services; API responses were real, not fixture substitutions. No customer or business records in the normal PostgreSQL database were edited by browser authoring. Temporary review servers were stopped after validation.
 
-Part 3 publish, revision restore, stale-publish and full concurrency acceptance were not performed. No bulk ingestion, hotel/package inventory, public transportation booking, email, AI, Live PayPal or production media storage was added.
+During Part 2, publish, revision restore, stale-publish and full concurrency acceptance were not performed; their completed results are now in the Part 3 guide. No bulk ingestion, hotel/package inventory, public transportation booking, email, AI, Live PayPal or production media storage was added.

@@ -1,5 +1,7 @@
 > Part 1 foundation record. The current editing workflow is documented in [Public visual editor — Part 2](public-vv-editor.md). The Part 1 read-only canvas described below has been extended using the same secure handoff.
 
+Current workflow: [Part 3 publishing, revisions and final acceptance](public-vv-acceptance.md). The validation history below records its original milestone; Part 3 now enables explicit publishing and restore in the public editor.
+
 # VV public Page Builder — Part 1 foundation
 
 The primary VV consumer is now **apps/web**. Operations is the authenticated management entry, not a layout-editing canvas. This corrects the first consumer integration; it does not rebuild the reusable package.
@@ -129,4 +131,4 @@ docker compose exec api alembic upgrade head
 
 Web now builds from the repository root and runs in `/repo/apps/web`; Operations again builds from `apps/ops` and runs in `/app`. Only disposable web/ops dependencies and build output may need refreshing after package changes (`docker compose up -d --no-deps --renew-anon-volumes web ops`). Never remove the PostgreSQL named volume.
 
-Part 2 full editor/media UX and Part 3 publication/revision acceptance remain deferred. No live payment, Hotels, Packages, public Transportation, email, AI or production media storage was added.
+This was the Part 1 completion boundary; Parts 2 and 3 are documented in the linked guides. No live payment, Hotels, Packages, public Transportation, email, AI or production media storage was added.
