@@ -1,6 +1,7 @@
 'use client';
+import {useFormFocus} from './ops-ui';
 import Link from 'next/link';
-import {PageHeader,Modules} from './ops-ui';
+import {PageHeader,Modules,Table} from './ops-ui';
 import {useEffect, useState, type FormEvent} from 'react';
 import {apiRequest} from '../lib/api';
 import {availabilityStatuses, localDateTime, timeLabel, type Availability} from '../lib/availability';
@@ -26,11 +27,12 @@ export function AvailabilityManager() {
     <label>Availability status<select value={filters.status} onChange={e => filter('status', e.target.value)}><option value="">All statuses</option>{availabilityStatuses.map(s => <option key={s} value={s}>{statusLabel(s)}</option>)}</select></label><button onClick={() => setFilters({date_from: '', date_to: '', product_id: '', supplier_id: '', status: ''})}>Clear filters</button></div>
     {(!tours.data || !suppliers.data) && <LoadState error={tours.error || suppliers.error} retry={() => {tours.retry(); suppliers.retry();}} />}
     {editing && tours.data && <AvailabilityEditor key={editing === 'new' ? 'new' : `${editing.id}-${editing.version}`} record={editing === 'new' ? null : editing} tours={tours.data} selectedTour={filters.product_id} done={() => {setEditing(null); records.retry();}} />}
-    {!records.data ? <LoadState error={records.error} retry={records.retry} /> : !records.data.length ? <p role="status">No recorded dates match these filters. Availability is unknown for dates without a record.</p> : <div className="ops-table-wrap" tabIndex={0} role="region" aria-label="Tour date availability"><table className="ops-availability-table"><caption>Checked availability · information older than 24 hours may be stale</caption><thead><tr>{['Date', 'Tour / supplier', 'Status', 'Capacity / remaining', 'Source / checked', 'Action'].map(s => <th key={s}>{s}</th>)}</tr></thead><tbody>{records.data.map(row => <tr key={row.id}><td>{row.date}</td><td><Link href={`/tours/${row.product_id}`}>{row.tour_name}</Link><br />{row.supplier_name}</td><td><span className="ops-badge">{statusLabel(row.status)}</span>{row.stale && <p className="ops-attention">Availability may be stale</p>}</td><td>{row.capacity ?? 'Unknown'} / {row.remaining_capacity ?? 'Unknown'}</td><td>{statusLabel(row.source)}<br />{timeLabel(row.last_checked_at)}</td><td><button onClick={() => setEditing(row)} aria-label={`Edit ${row.tour_name} ${row.date}`}>Edit date</button></td></tr>)}</tbody></table></div>}
+    {!records.data ? <LoadState error={records.error} retry={records.retry} /> : !records.data.length ? <p role="status">No recorded dates match these filters. Availability is unknown for dates without a record.</p> : <Table responsive="rows" label="Checked availability · information older than 24 hours may be stale" headings={['Date','Tour / supplier','Status','Capacity / remaining','Source / checked','Action']}>{records.data.map(row => <tr key={row.id}><td>{row.date}</td><td><Link href={`/tours/${row.product_id}`}>{row.tour_name}</Link><br />{row.supplier_name}</td><td><span className="ops-badge">{statusLabel(row.status)}</span>{row.stale && <p className="ops-attention">Availability may be stale</p>}</td><td>{row.capacity ?? 'Unknown'} / {row.remaining_capacity ?? 'Unknown'}</td><td>{statusLabel(row.source)}<br />{timeLabel(row.last_checked_at)}</td><td><button onClick={() => setEditing(row)} aria-label={`Edit ${row.tour_name} ${row.date}`}>Edit date</button></td></tr>)}</Table>}
   </>;
 }
 
 function AvailabilityEditor({record, tours, selectedTour, done}: {record: Availability | null; tours: Tour[]; selectedTour: string; done: () => void}) {
+  const formRef=useFormFocus();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   async function save(event: FormEvent<HTMLFormElement>) {
@@ -45,7 +47,7 @@ function AvailabilityEditor({record, tours, selectedTour, done}: {record: Availa
     } catch (error) {setError(error instanceof Error ? error.message : 'Unable to save availability');}
     finally {setBusy(false);}
   }
-  return <form className="ops-editor" onSubmit={save}><fieldset disabled={busy}><legend>{record ? 'Edit date' : 'Add date'}</legend><div className="ops-fields">
+  return <form ref={formRef} className="ops-editor" onSubmit={save}><fieldset disabled={busy}><legend>{record ? 'Edit date' : 'Add date'}</legend><div className="ops-fields">
     <label>Tour<select name="product_id" required disabled={!!record} defaultValue={record?.product_id ?? selectedTour}><option value="">Choose tour</option>{tours.map(t => <option key={t.id} value={t.id}>{t.name}{!t.active ? ' (inactive)' : ''}</option>)}</select></label>
     <label>Date<input name="date" type="date" required disabled={!!record} defaultValue={record?.date} /></label>
     <label>Status<select name="status" defaultValue={record?.status || 'unknown'}>{availabilityStatuses.map(s => <option key={s} value={s}>{statusLabel(s)}</option>)}</select></label>

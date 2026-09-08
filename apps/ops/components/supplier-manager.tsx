@@ -1,4 +1,5 @@
 'use client';
+import {ContactActions} from './ops-ui';
 import Link from 'next/link';
 import {PageHeader} from './ops-ui';
 import {SupplierFoundation} from './foundation-editors';
@@ -44,6 +45,7 @@ export function SupplierEditor({id}: {id?: string}) {
     finally { setBusy(false); }
   }
   return <><Link href="/suppliers">← Suppliers</Link><PageHeader title={id ? 'Edit supplier' : 'New supplier'} description="Maintain vendor contacts and relationships" icon="suppliers"/>
+    {supplier&&<div className="ops-actions"><ContactActions email={supplier.email} phone={supplier.phone}/><a href="#supplier-notes">Add / edit note</a><a href="#supplier-relationship">Relationship</a></div>}
     {loading || (id && !supplier) ? <LoadState error={error} retry={() => setAttempt(value => value + 1)} /> :
       <form className="ops-editor" onSubmit={save}>
         <fieldset disabled={busy}><legend>Supplier details · internal only</legend><div className="ops-fields">
@@ -53,7 +55,7 @@ export function SupplierEditor({id}: {id?: string}) {
           <label>Email<input name="email" type="email" maxLength={180} defaultValue={supplier?.email || ''} /></label>
           <label>Phone<input name="phone" type="tel" maxLength={60} defaultValue={supplier?.phone || ''} /></label>
           <label>Website<input name="website" type="url" maxLength={2048} defaultValue={supplier?.website || ''} /></label>
-        </div><label>Private notes<textarea name="notes" maxLength={10000} rows={4} defaultValue={supplier?.notes || ''} /></label>
+        </div><label>Private notes<textarea id="supplier-notes" name="notes" maxLength={10000} rows={4} defaultValue={supplier?.notes || ''} /></label>
         <label className="ops-check"><input name="active" type="checkbox" defaultChecked={supplier?.active ?? true} />Active</label>
         <button type="submit">{busy ? 'Saving…' : 'Save supplier'}</button></fieldset>
         {error && <p role="alert">{error}</p>}{saved && <p role="status">Supplier saved.</p>}
