@@ -1,0 +1,14 @@
+# Independent design tool. No database, API, Operations, or public server needed.
+services:
+  page-builder:
+    build:
+      context: .
+      dockerfile: apps/page-builder/Dockerfile
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./apps/page-builder:/repo/apps/page-builder
+      - ./apps/web:/repo/apps/web:ro
+      - ./packages/page-builder:/repo/packages/page-builder:ro
+      - /repo/apps/page-builder/node_modules
+      - /repo/apps/page-builder/.next

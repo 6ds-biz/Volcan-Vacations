@@ -156,3 +156,7 @@ Hostinger    -> domain registration and DNS
 ```
 
 See [docs/cloud-deployment.md](docs/cloud-deployment.md) for the exact preview deployment, environment, migration, and acceptance workflow. Provider deployment is separate from local repository validation; domain cutover is not part of this task.
+
+## Standalone website design
+
+The **6DS Web Builder** in `apps/page-builder` runs independently on port **3002**. Open a VV page default, visually edit it, preview desktop/tablet/mobile, and export validated layout JSON. Start with `cd apps/page-builder`, `npm ci`, then `npm run dev`, or use `docker compose -f compose.builder.yml up --build` from the repository root. See [Phase 1 and usage](docs/web-builder/phase-1.md), [VV project](docs/web-builder/vv-project.md), [portable format](docs/web-builder/portable-layout-format.md), and [future roadmap](docs/web-builder/future-roadmap.md). The design tool does not publish to production.
